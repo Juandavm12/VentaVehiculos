@@ -32,7 +32,19 @@ namespace VentaVehiculos.Models
         public string correo_electronico { get; set; }
         public string contraseña { get; set; }
         public string tipo_usuario { get; set; }
-    
+
+        public Usuario (int id_usuario, string documento, string nombre, string apellido, int edad, string correo_electronico, string contraseña, string tipo_usuario)
+        {
+            this.id_usuario = id_usuario;
+            this.documento = documento;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.correo_electronico = correo_electronico;
+            this.contraseña = contraseña;
+            this.tipo_usuario = tipo_usuario;
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Administradore> Administradores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
