@@ -1,0 +1,1220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VentaVehiculosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administradores">
+          <Key>
+            <PropertyRef Name="id_administrador" />
+          </Key>
+          <Property Name="id_administrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="documento" Type="int" />
+        </EntityType>
+        <EntityType Name="Citas_Taller">
+          <Key>
+            <PropertyRef Name="id_cita" />
+          </Key>
+          <Property Name="id_cita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="documento" Type="int" />
+          <Property Name="placa_vehiculo" Type="varchar" MaxLength="6" />
+          <Property Name="id_servicio" Type="int" />
+          <Property Name="fecha_cita" Type="date" />
+          <Property Name="hora_cita" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="documento" />
+          </Key>
+          <Property Name="documento" Type="int" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" />
+          <Property Name="telefono" Type="varchar" MaxLength="10" />
+          <Property Name="id_tipo_cliente" Type="int" />
+        </EntityType>
+        <EntityType Name="Estado_Servicio">
+          <Key>
+            <PropertyRef Name="id_estado_servicio" />
+          </Key>
+          <Property Name="id_estado_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estado_Vehiculo">
+          <Key>
+            <PropertyRef Name="id_estado_vehiculo" />
+          </Key>
+          <Property Name="id_estado_vehiculo" Type="int" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_venta" Type="int" />
+          <Property Name="fecha_emision" Type="date" />
+          <Property Name="monto_total" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Garantias">
+          <Key>
+            <PropertyRef Name="id_garantia" />
+          </Key>
+          <Property Name="id_garantia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_venta" Type="int" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="id_tipo_garantia" Type="int" />
+        </EntityType>
+        <EntityType Name="Permisos">
+          <Key>
+            <PropertyRef Name="id_permiso" />
+          </Key>
+          <Property Name="id_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_permiso" Type="varchar" MaxLength="100" />
+          <Property Name="id_rol" Type="int" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_rol" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicios_de_Taller">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="placa_vehiculo" Type="varchar" MaxLength="6" />
+          <Property Name="id_tipo_servicio" Type="int" />
+          <Property Name="fecha_servicio" Type="date" />
+          <Property Name="id_estado_servicio" Type="int" />
+          <Property Name="comentarios" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tipo_Cliente">
+          <Key>
+            <PropertyRef Name="id_tipo_cliente" />
+          </Key>
+          <Property Name="id_tipo_cliente" Type="int" Nullable="false" />
+          <Property Name="membresia" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="descuento" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Garantia">
+          <Key>
+            <PropertyRef Name="id_tipo_garantia" />
+          </Key>
+          <Property Name="id_tipo_garantia" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Servicio">
+          <Key>
+            <PropertyRef Name="id_tipo_servicio" />
+          </Key>
+          <Property Name="id_tipo_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servicio" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="costo" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipo_Vehiculo">
+          <Key>
+            <PropertyRef Name="id_tipo_vehiculo" />
+          </Key>
+          <Property Name="id_tipo_vehiculo" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario_Rol">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="documento" />
+          </Key>
+          <Property Name="documento" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="edad" Type="int" Nullable="false" />
+          <Property Name="correo_electronico" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contraseña" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="tipo_usuario" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehiculos">
+          <Key>
+            <PropertyRef Name="placa_vehiculo" />
+          </Key>
+          <Property Name="placa_vehiculo" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="100" />
+          <Property Name="modelo" Type="int" />
+          <Property Name="precio" Type="bigint" />
+          <Property Name="kilometraje" Type="int" />
+          <Property Name="id_estado_vehiculo" Type="int" />
+          <Property Name="id_tipo_vehiculo" Type="int" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="id_venta" />
+          </Key>
+          <Property Name="id_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="documento" Type="int" />
+          <Property Name="placa_vehiculo" Type="varchar" MaxLength="6" />
+          <Property Name="fecha_venta" Type="date" />
+          <Property Name="total_venta" Type="int" />
+        </EntityType>
+        <Association Name="FK__Administr__docum__4222D4EF">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Administradores">
+              <PropertyRef Name="documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas_Tal__docum__66603565">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Citas_Taller" Type="Self.Citas_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Citas_Taller">
+              <PropertyRef Name="documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas_Tal__id_se__68487DD7">
+          <End Role="Servicios_de_Taller" Type="Self.Servicios_de_Taller" Multiplicity="0..1" />
+          <End Role="Citas_Taller" Type="Self.Citas_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios_de_Taller">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="Citas_Taller">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas_Tal__placa__6754599E">
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="0..1" />
+          <End Role="Citas_Taller" Type="Self.Citas_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="placa_vehiculo" />
+            </Principal>
+            <Dependent Role="Citas_Taller">
+              <PropertyRef Name="placa_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clientes__docume__3E52440B">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clientes__id_tip__3F466844">
+          <End Role="Tipo_Cliente" Type="Self.Tipo_Cliente" Multiplicity="0..1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Cliente">
+              <PropertyRef Name="id_tipo_cliente" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="id_tipo_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Facturas__id_ven__6383C8BA">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="id_venta" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="id_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Garantias__id_ti__5629CD9C">
+          <End Role="Tipo_Garantia" Type="Self.Tipo_Garantia" Multiplicity="0..1" />
+          <End Role="Garantias" Type="Self.Garantias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Garantia">
+              <PropertyRef Name="id_tipo_garantia" />
+            </Principal>
+            <Dependent Role="Garantias">
+              <PropertyRef Name="id_tipo_garantia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Garantias__id_ve__5535A963">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="Garantias" Type="Self.Garantias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="id_venta" />
+            </Principal>
+            <Dependent Role="Garantias">
+              <PropertyRef Name="id_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permisos__id_rol__0C85DE4D">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Permisos" Type="Self.Permisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="Permisos">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servicios__id_es__60A75C0F">
+          <End Role="Estado_Servicio" Type="Self.Estado_Servicio" Multiplicity="0..1" />
+          <End Role="Servicios_de_Taller" Type="Self.Servicios_de_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Servicio">
+              <PropertyRef Name="id_estado_servicio" />
+            </Principal>
+            <Dependent Role="Servicios_de_Taller">
+              <PropertyRef Name="id_estado_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servicios__id_ti__5FB337D6">
+          <End Role="Tipo_Servicio" Type="Self.Tipo_Servicio" Multiplicity="0..1" />
+          <End Role="Servicios_de_Taller" Type="Self.Servicios_de_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Servicio">
+              <PropertyRef Name="id_tipo_servicio" />
+            </Principal>
+            <Dependent Role="Servicios_de_Taller">
+              <PropertyRef Name="id_tipo_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servicios__placa__5EBF139D">
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="0..1" />
+          <End Role="Servicios_de_Taller" Type="Self.Servicios_de_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="placa_vehiculo" />
+            </Principal>
+            <Dependent Role="Servicios_de_Taller">
+              <PropertyRef Name="placa_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario_R__id_ro__05D8E0BE">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Usuario_Rol" Type="Self.Usuario_Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="Usuario_Rol">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario_R__id_us__04E4BC85">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Usuario_Rol" Type="Self.Usuario_Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Usuario_Rol">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculos__id_es__4BAC3F29">
+          <End Role="Estado_Vehiculo" Type="Self.Estado_Vehiculo" Multiplicity="0..1" />
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Vehiculo">
+              <PropertyRef Name="id_estado_vehiculo" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="id_estado_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculos__id_ti__4AB81AF0">
+          <End Role="Tipo_Vehiculo" Type="Self.Tipo_Vehiculo" Multiplicity="0..1" />
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Vehiculo">
+              <PropertyRef Name="id_tipo_vehiculo" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="id_tipo_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__document__4E88ABD4">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__placa_ve__4F7CD00D">
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="placa_vehiculo" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="placa_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VentaVehiculosModelStoreContainer">
+          <EntitySet Name="Administradores" EntityType="Self.Administradores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Citas_Taller" EntityType="Self.Citas_Taller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_Servicio" EntityType="Self.Estado_Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_Vehiculo" EntityType="Self.Estado_Vehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facturas" EntityType="Self.Facturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Garantias" EntityType="Self.Garantias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicios_de_Taller" EntityType="Self.Servicios_de_Taller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Cliente" EntityType="Self.Tipo_Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Garantia" EntityType="Self.Tipo_Garantia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Servicio" EntityType="Self.Tipo_Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario_Rol" EntityType="Self.Usuario_Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Administr__docum__4222D4EF" Association="Self.FK__Administr__docum__4222D4EF">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Administradores" EntitySet="Administradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas_Tal__docum__66603565" Association="Self.FK__Citas_Tal__docum__66603565">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Citas_Taller" EntitySet="Citas_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas_Tal__id_se__68487DD7" Association="Self.FK__Citas_Tal__id_se__68487DD7">
+            <End Role="Servicios_de_Taller" EntitySet="Servicios_de_Taller" />
+            <End Role="Citas_Taller" EntitySet="Citas_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas_Tal__placa__6754599E" Association="Self.FK__Citas_Tal__placa__6754599E">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Citas_Taller" EntitySet="Citas_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clientes__docume__3E52440B" Association="Self.FK__Clientes__docume__3E52440B">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clientes__id_tip__3F466844" Association="Self.FK__Clientes__id_tip__3F466844">
+            <End Role="Tipo_Cliente" EntitySet="Tipo_Cliente" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Facturas__id_ven__6383C8BA" Association="Self.FK__Facturas__id_ven__6383C8BA">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Garantias__id_ti__5629CD9C" Association="Self.FK__Garantias__id_ti__5629CD9C">
+            <End Role="Tipo_Garantia" EntitySet="Tipo_Garantia" />
+            <End Role="Garantias" EntitySet="Garantias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Garantias__id_ve__5535A963" Association="Self.FK__Garantias__id_ve__5535A963">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Garantias" EntitySet="Garantias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permisos__id_rol__0C85DE4D" Association="Self.FK__Permisos__id_rol__0C85DE4D">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Permisos" EntitySet="Permisos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servicios__id_es__60A75C0F" Association="Self.FK__Servicios__id_es__60A75C0F">
+            <End Role="Estado_Servicio" EntitySet="Estado_Servicio" />
+            <End Role="Servicios_de_Taller" EntitySet="Servicios_de_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servicios__id_ti__5FB337D6" Association="Self.FK__Servicios__id_ti__5FB337D6">
+            <End Role="Tipo_Servicio" EntitySet="Tipo_Servicio" />
+            <End Role="Servicios_de_Taller" EntitySet="Servicios_de_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servicios__placa__5EBF139D" Association="Self.FK__Servicios__placa__5EBF139D">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Servicios_de_Taller" EntitySet="Servicios_de_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario_R__id_ro__05D8E0BE" Association="Self.FK__Usuario_R__id_ro__05D8E0BE">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Usuario_Rol" EntitySet="Usuario_Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario_R__id_us__04E4BC85" Association="Self.FK__Usuario_R__id_us__04E4BC85">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Usuario_Rol" EntitySet="Usuario_Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculos__id_es__4BAC3F29" Association="Self.FK__Vehiculos__id_es__4BAC3F29">
+            <End Role="Estado_Vehiculo" EntitySet="Estado_Vehiculo" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculos__id_ti__4AB81AF0" Association="Self.FK__Vehiculos__id_ti__4AB81AF0">
+            <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__document__4E88ABD4" Association="Self.FK__Ventas__document__4E88ABD4">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__placa_ve__4F7CD00D" Association="Self.FK__Ventas__placa_ve__4F7CD00D">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VentaVehiculosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administradore">
+          <Key>
+            <PropertyRef Name="id_administrador" />
+          </Key>
+          <Property Name="id_administrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="documento" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Administr__docum__4222D4EF" FromRole="Administradores" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Citas_Taller">
+          <Key>
+            <PropertyRef Name="id_cita" />
+          </Key>
+          <Property Name="id_cita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="documento" Type="Int32" />
+          <Property Name="placa_vehiculo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="id_servicio" Type="Int32" />
+          <Property Name="fecha_cita" Type="DateTime" Precision="0" />
+          <Property Name="hora_cita" Type="Time" Precision="7" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Citas_Tal__docum__66603565" FromRole="Citas_Taller" ToRole="Clientes" />
+          <NavigationProperty Name="Servicios_de_Taller" Relationship="Self.FK__Citas_Tal__id_se__68487DD7" FromRole="Citas_Taller" ToRole="Servicios_de_Taller" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Citas_Tal__placa__6754599E" FromRole="Citas_Taller" ToRole="Vehiculos" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="documento" />
+          </Key>
+          <Property Name="documento" Type="Int32" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_cliente" Type="Int32" />
+          <NavigationProperty Name="Citas_Taller" Relationship="Self.FK__Citas_Tal__docum__66603565" FromRole="Clientes" ToRole="Citas_Taller" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Clientes__docume__3E52440B" FromRole="Clientes" ToRole="Usuarios" />
+          <NavigationProperty Name="Tipo_Cliente" Relationship="Self.FK__Clientes__id_tip__3F466844" FromRole="Clientes" ToRole="Tipo_Cliente" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK__Ventas__document__4E88ABD4" FromRole="Clientes" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Estado_Servicio">
+          <Key>
+            <PropertyRef Name="id_estado_servicio" />
+          </Key>
+          <Property Name="id_estado_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Servicios_de_Taller" Relationship="Self.FK__Servicios__id_es__60A75C0F" FromRole="Estado_Servicio" ToRole="Servicios_de_Taller" />
+        </EntityType>
+        <EntityType Name="Estado_Vehiculo">
+          <Key>
+            <PropertyRef Name="id_estado_vehiculo" />
+          </Key>
+          <Property Name="id_estado_vehiculo" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Vehiculos" Relationship="Self.FK__Vehiculos__id_es__4BAC3F29" FromRole="Estado_Vehiculo" ToRole="Vehiculos" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_venta" Type="Int32" />
+          <Property Name="fecha_emision" Type="DateTime" Precision="0" />
+          <Property Name="monto_total" Type="Int64" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__Facturas__id_ven__6383C8BA" FromRole="Facturas" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Garantia">
+          <Key>
+            <PropertyRef Name="id_garantia" />
+          </Key>
+          <Property Name="id_garantia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_venta" Type="Int32" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_garantia" Type="Int32" />
+          <NavigationProperty Name="Tipo_Garantia" Relationship="Self.FK__Garantias__id_ti__5629CD9C" FromRole="Garantias" ToRole="Tipo_Garantia" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__Garantias__id_ve__5535A963" FromRole="Garantias" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Permiso">
+          <Key>
+            <PropertyRef Name="id_permiso" />
+          </Key>
+          <Property Name="id_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion_permiso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_rol" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Permisos__id_rol__0C85DE4D" FromRole="Permisos" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Permisos" Relationship="Self.FK__Permisos__id_rol__0C85DE4D" FromRole="Roles" ToRole="Permisos" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.Usuario_Rol" FromRole="Roles" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Servicios_de_Taller">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="placa_vehiculo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_servicio" Type="Int32" />
+          <Property Name="fecha_servicio" Type="DateTime" Precision="0" />
+          <Property Name="id_estado_servicio" Type="Int32" />
+          <Property Name="comentarios" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Citas_Taller" Relationship="Self.FK__Citas_Tal__id_se__68487DD7" FromRole="Servicios_de_Taller" ToRole="Citas_Taller" />
+          <NavigationProperty Name="Estado_Servicio" Relationship="Self.FK__Servicios__id_es__60A75C0F" FromRole="Servicios_de_Taller" ToRole="Estado_Servicio" />
+          <NavigationProperty Name="Tipo_Servicio" Relationship="Self.FK__Servicios__id_ti__5FB337D6" FromRole="Servicios_de_Taller" ToRole="Tipo_Servicio" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Servicios__placa__5EBF139D" FromRole="Servicios_de_Taller" ToRole="Vehiculos" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Cliente">
+          <Key>
+            <PropertyRef Name="id_tipo_cliente" />
+          </Key>
+          <Property Name="id_tipo_cliente" Type="Int32" Nullable="false" />
+          <Property Name="membresia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descuento" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK__Clientes__id_tip__3F466844" FromRole="Tipo_Cliente" ToRole="Clientes" />
+        </EntityType>
+        <EntityType Name="Tipo_Garantia">
+          <Key>
+            <PropertyRef Name="id_tipo_garantia" />
+          </Key>
+          <Property Name="id_tipo_garantia" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Garantias" Relationship="Self.FK__Garantias__id_ti__5629CD9C" FromRole="Tipo_Garantia" ToRole="Garantias" />
+        </EntityType>
+        <EntityType Name="Tipo_Servicio">
+          <Key>
+            <PropertyRef Name="id_tipo_servicio" />
+          </Key>
+          <Property Name="id_tipo_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="costo" Type="Int32" />
+          <NavigationProperty Name="Servicios_de_Taller" Relationship="Self.FK__Servicios__id_ti__5FB337D6" FromRole="Tipo_Servicio" ToRole="Servicios_de_Taller" />
+        </EntityType>
+        <EntityType Name="Tipo_Vehiculo">
+          <Key>
+            <PropertyRef Name="id_tipo_vehiculo" />
+          </Key>
+          <Property Name="id_tipo_vehiculo" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Vehiculos" Relationship="Self.FK__Vehiculos__id_ti__4AB81AF0" FromRole="Tipo_Vehiculo" ToRole="Vehiculos" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="documento" />
+          </Key>
+          <Property Name="documento" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="edad" Type="Int32" Nullable="false" />
+          <Property Name="correo_electronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contraseña" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Administradores" Relationship="Self.FK__Administr__docum__4222D4EF" FromRole="Usuarios" ToRole="Administradores" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Clientes__docume__3E52440B" FromRole="Usuarios" ToRole="Clientes" />
+          <NavigationProperty Name="Roles" Relationship="Self.Usuario_Rol" FromRole="Usuarios" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="placa_vehiculo" />
+          </Key>
+          <Property Name="placa_vehiculo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="modelo" Type="Int32" />
+          <Property Name="precio" Type="Int64" />
+          <Property Name="kilometraje" Type="Int32" />
+          <Property Name="id_estado_vehiculo" Type="Int32" />
+          <Property Name="id_tipo_vehiculo" Type="Int32" />
+          <NavigationProperty Name="Citas_Taller" Relationship="Self.FK__Citas_Tal__placa__6754599E" FromRole="Vehiculos" ToRole="Citas_Taller" />
+          <NavigationProperty Name="Estado_Vehiculo" Relationship="Self.FK__Vehiculos__id_es__4BAC3F29" FromRole="Vehiculos" ToRole="Estado_Vehiculo" />
+          <NavigationProperty Name="Servicios_de_Taller" Relationship="Self.FK__Servicios__placa__5EBF139D" FromRole="Vehiculos" ToRole="Servicios_de_Taller" />
+          <NavigationProperty Name="Tipo_Vehiculo" Relationship="Self.FK__Vehiculos__id_ti__4AB81AF0" FromRole="Vehiculos" ToRole="Tipo_Vehiculo" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK__Ventas__placa_ve__4F7CD00D" FromRole="Vehiculos" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="id_venta" />
+          </Key>
+          <Property Name="id_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="documento" Type="Int32" />
+          <Property Name="placa_vehiculo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_venta" Type="DateTime" Precision="0" />
+          <Property Name="total_venta" Type="Int32" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Ventas__document__4E88ABD4" FromRole="Ventas" ToRole="Clientes" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK__Facturas__id_ven__6383C8BA" FromRole="Ventas" ToRole="Facturas" />
+          <NavigationProperty Name="Garantias" Relationship="Self.FK__Garantias__id_ve__5535A963" FromRole="Ventas" ToRole="Garantias" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Ventas__placa_ve__4F7CD00D" FromRole="Ventas" ToRole="Vehiculos" />
+        </EntityType>
+        <Association Name="FK__Administr__docum__4222D4EF">
+          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Administradores" Type="Self.Administradore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Administradores">
+              <PropertyRef Name="documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas_Tal__docum__66603565">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Citas_Taller" Type="Self.Citas_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Citas_Taller">
+              <PropertyRef Name="documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas_Tal__id_se__68487DD7">
+          <End Role="Servicios_de_Taller" Type="Self.Servicios_de_Taller" Multiplicity="0..1" />
+          <End Role="Citas_Taller" Type="Self.Citas_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios_de_Taller">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="Citas_Taller">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas_Tal__placa__6754599E">
+          <End Role="Vehiculos" Type="Self.Vehiculo" Multiplicity="0..1" />
+          <End Role="Citas_Taller" Type="Self.Citas_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="placa_vehiculo" />
+            </Principal>
+            <Dependent Role="Citas_Taller">
+              <PropertyRef Name="placa_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clientes__docume__3E52440B">
+          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clientes__id_tip__3F466844">
+          <End Role="Tipo_Cliente" Type="Self.Tipo_Cliente" Multiplicity="0..1" />
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Cliente">
+              <PropertyRef Name="id_tipo_cliente" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="id_tipo_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__document__4E88ABD4">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="documento" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servicios__id_es__60A75C0F">
+          <End Role="Estado_Servicio" Type="Self.Estado_Servicio" Multiplicity="0..1" />
+          <End Role="Servicios_de_Taller" Type="Self.Servicios_de_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Servicio">
+              <PropertyRef Name="id_estado_servicio" />
+            </Principal>
+            <Dependent Role="Servicios_de_Taller">
+              <PropertyRef Name="id_estado_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculos__id_es__4BAC3F29">
+          <End Role="Estado_Vehiculo" Type="Self.Estado_Vehiculo" Multiplicity="0..1" />
+          <End Role="Vehiculos" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Vehiculo">
+              <PropertyRef Name="id_estado_vehiculo" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="id_estado_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Facturas__id_ven__6383C8BA">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="Facturas" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="id_venta" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="id_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Garantias__id_ti__5629CD9C">
+          <End Role="Tipo_Garantia" Type="Self.Tipo_Garantia" Multiplicity="0..1" />
+          <End Role="Garantias" Type="Self.Garantia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Garantia">
+              <PropertyRef Name="id_tipo_garantia" />
+            </Principal>
+            <Dependent Role="Garantias">
+              <PropertyRef Name="id_tipo_garantia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Garantias__id_ve__5535A963">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="Garantias" Type="Self.Garantia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="id_venta" />
+            </Principal>
+            <Dependent Role="Garantias">
+              <PropertyRef Name="id_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permisos__id_rol__0C85DE4D">
+          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Permisos" Type="Self.Permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="Permisos">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servicios__id_ti__5FB337D6">
+          <End Role="Tipo_Servicio" Type="Self.Tipo_Servicio" Multiplicity="0..1" />
+          <End Role="Servicios_de_Taller" Type="Self.Servicios_de_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Servicio">
+              <PropertyRef Name="id_tipo_servicio" />
+            </Principal>
+            <Dependent Role="Servicios_de_Taller">
+              <PropertyRef Name="id_tipo_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servicios__placa__5EBF139D">
+          <End Role="Vehiculos" Type="Self.Vehiculo" Multiplicity="0..1" />
+          <End Role="Servicios_de_Taller" Type="Self.Servicios_de_Taller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="placa_vehiculo" />
+            </Principal>
+            <Dependent Role="Servicios_de_Taller">
+              <PropertyRef Name="placa_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculos__id_ti__4AB81AF0">
+          <End Role="Tipo_Vehiculo" Type="Self.Tipo_Vehiculo" Multiplicity="0..1" />
+          <End Role="Vehiculos" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Vehiculo">
+              <PropertyRef Name="id_tipo_vehiculo" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="id_tipo_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__placa_ve__4F7CD00D">
+          <End Role="Vehiculos" Type="Self.Vehiculo" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="placa_vehiculo" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="placa_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Usuario_Rol">
+          <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="VentaVehiculosEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administradores" EntityType="Self.Administradore" />
+          <EntitySet Name="Citas_Taller" EntityType="Self.Citas_Taller" />
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="Estado_Servicio" EntityType="Self.Estado_Servicio" />
+          <EntitySet Name="Estado_Vehiculo" EntityType="Self.Estado_Vehiculo" />
+          <EntitySet Name="Facturas" EntityType="Self.Factura" />
+          <EntitySet Name="Garantias" EntityType="Self.Garantia" />
+          <EntitySet Name="Permisos" EntityType="Self.Permiso" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Servicios_de_Taller" EntityType="Self.Servicios_de_Taller" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tipo_Cliente" EntityType="Self.Tipo_Cliente" />
+          <EntitySet Name="Tipo_Garantia" EntityType="Self.Tipo_Garantia" />
+          <EntitySet Name="Tipo_Servicio" EntityType="Self.Tipo_Servicio" />
+          <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <EntitySet Name="Vehiculos" EntityType="Self.Vehiculo" />
+          <EntitySet Name="Ventas" EntityType="Self.Venta" />
+          <AssociationSet Name="FK__Administr__docum__4222D4EF" Association="Self.FK__Administr__docum__4222D4EF">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Administradores" EntitySet="Administradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas_Tal__docum__66603565" Association="Self.FK__Citas_Tal__docum__66603565">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Citas_Taller" EntitySet="Citas_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas_Tal__id_se__68487DD7" Association="Self.FK__Citas_Tal__id_se__68487DD7">
+            <End Role="Servicios_de_Taller" EntitySet="Servicios_de_Taller" />
+            <End Role="Citas_Taller" EntitySet="Citas_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas_Tal__placa__6754599E" Association="Self.FK__Citas_Tal__placa__6754599E">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Citas_Taller" EntitySet="Citas_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clientes__docume__3E52440B" Association="Self.FK__Clientes__docume__3E52440B">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clientes__id_tip__3F466844" Association="Self.FK__Clientes__id_tip__3F466844">
+            <End Role="Tipo_Cliente" EntitySet="Tipo_Cliente" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__document__4E88ABD4" Association="Self.FK__Ventas__document__4E88ABD4">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servicios__id_es__60A75C0F" Association="Self.FK__Servicios__id_es__60A75C0F">
+            <End Role="Estado_Servicio" EntitySet="Estado_Servicio" />
+            <End Role="Servicios_de_Taller" EntitySet="Servicios_de_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculos__id_es__4BAC3F29" Association="Self.FK__Vehiculos__id_es__4BAC3F29">
+            <End Role="Estado_Vehiculo" EntitySet="Estado_Vehiculo" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Facturas__id_ven__6383C8BA" Association="Self.FK__Facturas__id_ven__6383C8BA">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Garantias__id_ti__5629CD9C" Association="Self.FK__Garantias__id_ti__5629CD9C">
+            <End Role="Tipo_Garantia" EntitySet="Tipo_Garantia" />
+            <End Role="Garantias" EntitySet="Garantias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Garantias__id_ve__5535A963" Association="Self.FK__Garantias__id_ve__5535A963">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Garantias" EntitySet="Garantias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permisos__id_rol__0C85DE4D" Association="Self.FK__Permisos__id_rol__0C85DE4D">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Permisos" EntitySet="Permisos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servicios__id_ti__5FB337D6" Association="Self.FK__Servicios__id_ti__5FB337D6">
+            <End Role="Tipo_Servicio" EntitySet="Tipo_Servicio" />
+            <End Role="Servicios_de_Taller" EntitySet="Servicios_de_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servicios__placa__5EBF139D" Association="Self.FK__Servicios__placa__5EBF139D">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Servicios_de_Taller" EntitySet="Servicios_de_Taller" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculos__id_ti__4AB81AF0" Association="Self.FK__Vehiculos__id_ti__4AB81AF0">
+            <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__placa_ve__4F7CD00D" Association="Self.FK__Ventas__placa_ve__4F7CD00D">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="Usuario_Rol" Association="Self.Usuario_Rol">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VentaVehiculosModelStoreContainer" CdmEntityContainer="VentaVehiculosEntities1">
+          <EntitySetMapping Name="Administradores">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Administradore">
+              <MappingFragment StoreEntitySet="Administradores">
+                <ScalarProperty Name="id_administrador" ColumnName="id_administrador" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Citas_Taller">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Citas_Taller">
+              <MappingFragment StoreEntitySet="Citas_Taller">
+                <ScalarProperty Name="id_cita" ColumnName="id_cita" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="placa_vehiculo" ColumnName="placa_vehiculo" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="fecha_cita" ColumnName="fecha_cita" />
+                <ScalarProperty Name="hora_cita" ColumnName="hora_cita" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Cliente">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="id_tipo_cliente" ColumnName="id_tipo_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado_Servicio">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Estado_Servicio">
+              <MappingFragment StoreEntitySet="Estado_Servicio">
+                <ScalarProperty Name="id_estado_servicio" ColumnName="id_estado_servicio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado_Vehiculo">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Estado_Vehiculo">
+              <MappingFragment StoreEntitySet="Estado_Vehiculo">
+                <ScalarProperty Name="id_estado_vehiculo" ColumnName="id_estado_vehiculo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facturas">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Factura">
+              <MappingFragment StoreEntitySet="Facturas">
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+                <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="monto_total" ColumnName="monto_total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Garantias">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Garantia">
+              <MappingFragment StoreEntitySet="Garantias">
+                <ScalarProperty Name="id_garantia" ColumnName="id_garantia" />
+                <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_tipo_garantia" ColumnName="id_tipo_garantia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permisos">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Permiso">
+              <MappingFragment StoreEntitySet="Permisos">
+                <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+                <ScalarProperty Name="descripcion_permiso" ColumnName="descripcion_permiso" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios_de_Taller">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Servicios_de_Taller">
+              <MappingFragment StoreEntitySet="Servicios_de_Taller">
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="placa_vehiculo" ColumnName="placa_vehiculo" />
+                <ScalarProperty Name="id_tipo_servicio" ColumnName="id_tipo_servicio" />
+                <ScalarProperty Name="fecha_servicio" ColumnName="fecha_servicio" />
+                <ScalarProperty Name="id_estado_servicio" ColumnName="id_estado_servicio" />
+                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Cliente">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Tipo_Cliente">
+              <MappingFragment StoreEntitySet="Tipo_Cliente">
+                <ScalarProperty Name="id_tipo_cliente" ColumnName="id_tipo_cliente" />
+                <ScalarProperty Name="membresia" ColumnName="membresia" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Garantia">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Tipo_Garantia">
+              <MappingFragment StoreEntitySet="Tipo_Garantia">
+                <ScalarProperty Name="id_tipo_garantia" ColumnName="id_tipo_garantia" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Servicio">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Tipo_Servicio">
+              <MappingFragment StoreEntitySet="Tipo_Servicio">
+                <ScalarProperty Name="id_tipo_servicio" ColumnName="id_tipo_servicio" />
+                <ScalarProperty Name="servicio" ColumnName="servicio" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Vehiculo">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Tipo_Vehiculo">
+              <MappingFragment StoreEntitySet="Tipo_Vehiculo">
+                <ScalarProperty Name="id_tipo_vehiculo" ColumnName="id_tipo_vehiculo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="correo_electronico" ColumnName="correo_electronico" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculos">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculos">
+                <ScalarProperty Name="placa_vehiculo" ColumnName="placa_vehiculo" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="kilometraje" ColumnName="kilometraje" />
+                <ScalarProperty Name="id_estado_vehiculo" ColumnName="id_estado_vehiculo" />
+                <ScalarProperty Name="id_tipo_vehiculo" ColumnName="id_tipo_vehiculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="VentaVehiculosModel.Venta">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="placa_vehiculo" ColumnName="placa_vehiculo" />
+                <ScalarProperty Name="fecha_venta" ColumnName="fecha_venta" />
+                <ScalarProperty Name="total_venta" ColumnName="total_venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Usuario_Rol" TypeName="VentaVehiculosModel.Usuario_Rol" StoreEntitySet="Usuario_Rol">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+            </EndProperty>
+            <EndProperty Name="Usuarios">
+              <ScalarProperty Name="documento" ColumnName="id_usuario" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
