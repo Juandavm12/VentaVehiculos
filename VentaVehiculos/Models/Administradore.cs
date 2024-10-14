@@ -15,7 +15,8 @@ namespace VentaVehiculos.Models
     public partial class Administradore
     {
         public int id_administrador { get; set; }
-        public Nullable<int> documento { get; set; }
+        public Nullable<int> id_usuario { get; set; }
+        public string cargo { get; set; }
     
         public virtual Usuario Usuario { get; set; }
     }

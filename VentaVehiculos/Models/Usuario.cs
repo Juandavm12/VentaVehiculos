@@ -18,10 +18,14 @@ namespace VentaVehiculos.Models
         public Usuario()
         {
             this.Administradores = new HashSet<Administradore>();
+            this.Citas_Taller = new HashSet<Citas_Taller>();
+            this.Clientes = new HashSet<Cliente>();
             this.Roles = new HashSet<Role>();
+            this.Ventas = new HashSet<Venta>();
         }
     
-        public int documento { get; set; }
+        public int id_usuario { get; set; }
+        public string documento { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
         public int edad { get; set; }
@@ -31,8 +35,13 @@ namespace VentaVehiculos.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Administradore> Administradores { get; set; }
-        public virtual Cliente Cliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Citas_Taller> Citas_Taller { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cliente> Clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Role> Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

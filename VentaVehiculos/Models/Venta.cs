@@ -22,16 +22,16 @@ namespace VentaVehiculos.Models
         }
     
         public int id_venta { get; set; }
-        public Nullable<int> documento { get; set; }
+        public Nullable<int> id_usuario { get; set; }
         public string placa_vehiculo { get; set; }
         public Nullable<System.DateTime> fecha_venta { get; set; }
         public Nullable<int> total_venta { get; set; }
     
-        public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Garantia> Garantias { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public virtual Vehiculo Vehiculo { get; set; }
     }
 }

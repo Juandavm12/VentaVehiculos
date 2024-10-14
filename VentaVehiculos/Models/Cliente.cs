@@ -14,23 +14,13 @@ namespace VentaVehiculos.Models
     
     public partial class Cliente
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cliente()
-        {
-            this.Citas_Taller = new HashSet<Citas_Taller>();
-            this.Ventas = new HashSet<Venta>();
-        }
-    
-        public int documento { get; set; }
+        public int id_cliente { get; set; }
+        public Nullable<int> id_usuario { get; set; }
         public string direccion { get; set; }
         public string telefono { get; set; }
         public Nullable<int> id_tipo_cliente { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Citas_Taller> Citas_Taller { get; set; }
-        public virtual Usuario Usuario { get; set; }
         public virtual Tipo_Cliente Tipo_Cliente { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Venta> Ventas { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

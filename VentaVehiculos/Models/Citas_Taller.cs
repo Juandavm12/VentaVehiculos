@@ -15,14 +15,14 @@ namespace VentaVehiculos.Models
     public partial class Citas_Taller
     {
         public int id_cita { get; set; }
-        public Nullable<int> documento { get; set; }
+        public Nullable<int> id_usuario { get; set; }
         public string placa_vehiculo { get; set; }
         public Nullable<int> id_servicio { get; set; }
         public Nullable<System.DateTime> fecha_cita { get; set; }
         public Nullable<System.TimeSpan> hora_cita { get; set; }
     
-        public virtual Cliente Cliente { get; set; }
         public virtual Servicios_de_Taller Servicios_de_Taller { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public virtual Vehiculo Vehiculo { get; set; }
     }
 }

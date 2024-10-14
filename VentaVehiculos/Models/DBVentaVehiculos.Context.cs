@@ -13,10 +13,10 @@ namespace VentaVehiculos.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VentaVehiculosEntities1 : DbContext
+    public partial class VentaVehiculosEntities2 : DbContext
     {
-        public VentaVehiculosEntities1()
-            : base("name=VentaVehiculosEntities1")
+        public VentaVehiculosEntities2()
+            : base("name=VentaVehiculosEntities2")
         {
         }
     

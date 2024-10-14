@@ -168,73 +168,73 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administradore.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Citas_Taller.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBVentaVehiculo.Context.cs">
+    <Compile Include="Models\DBVentaVehiculos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBVentaVehiculo.Context.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBVentaVehiculo.cs">
+    <Compile Include="Models\DBVentaVehiculos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBVentaVehiculo.Designer.cs">
+    <Compile Include="Models\DBVentaVehiculos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBVentaVehiculo.edmx</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Estado_Servicio.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Estado_Vehiculo.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Factura.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Garantia.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Permiso.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Servicios_de_Taller.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tipo_Cliente.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tipo_Garantia.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tipo_Servicio.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tipo_Vehiculo.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vehiculo.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Venta.cs">
-      <DependentUpon>DBVentaVehiculo.tt</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -258,15 +258,15 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DBVentaVehiculo.Context.tt">
+    <Content Include="Models\DBVentaVehiculos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DBVentaVehiculo.Context.cs</LastGenOutput>
-      <DependentUpon>DBVentaVehiculo.edmx</DependentUpon>
+      <DependentUpon>DBVentaVehiculos.edmx</DependentUpon>
+      <LastGenOutput>DBVentaVehiculos.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBVentaVehiculo.tt">
+    <Content Include="Models\DBVentaVehiculos.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBVentaVehiculo.edmx</DependentUpon>
-      <LastGenOutput>DBVentaVehiculo.cs</LastGenOutput>
+      <DependentUpon>DBVentaVehiculos.edmx</DependentUpon>
+      <LastGenOutput>DBVentaVehiculos.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -293,12 +293,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\DBVentaVehiculo.edmx">
+    <EntityDeploy Include="Models\DBVentaVehiculos.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBVentaVehiculo.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBVentaVehiculos.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DBVentaVehiculo.edmx.diagram">
-      <DependentUpon>DBVentaVehiculo.edmx</DependentUpon>
+    <Content Include="Models\DBVentaVehiculos.edmx.diagram">
+      <DependentUpon>DBVentaVehiculos.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />

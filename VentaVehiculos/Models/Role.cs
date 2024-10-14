@@ -18,15 +18,14 @@ namespace VentaVehiculos.Models
         public Role()
         {
             this.Permisos = new HashSet<Permiso>();
-            this.Usuarios = new HashSet<Usuario>();
         }
     
         public int id_rol { get; set; }
+        public Nullable<int> id_usuario { get; set; }
         public string nombre_rol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Permiso> Permisos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
