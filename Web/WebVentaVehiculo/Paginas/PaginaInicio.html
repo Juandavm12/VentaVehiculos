@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JP Servicios - Inicio</title>
-    <!-- Google Font: Source Sans Pro -->
+    <link rel="icon" href="Images/Designer-Photoroom.png" />
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
     <link href="Estilos/adminlte.min.css" rel="stylesheet" />
@@ -15,6 +16,7 @@
             height: 500px; /* Ajusta la altura según tus necesidades */
             object-fit: cover; /* Esto asegura que la imagen se recorte adecuadamente */
         }
+
         .card {
             display: flex;
             justify-content: center;
@@ -23,34 +25,7 @@
     </style>
 </head>
 <body class="hold-transition sidebar-mini">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">JP Servicios</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Usuarios
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="Pagina1.html">Cliente</a>
-                        <a class="dropdown-item" href="Pagina2.html">Administrador</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Pagina3.html">Vehículos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="PaginaVenta.html">Ventas</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <section class="content">
         <div class="container-fluid">
@@ -108,6 +83,11 @@
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/PaginaInicio.js"></script>
+    <script>
+        $(function(){
+            $("#navbar-placeholder").load("../Paginas/Menu.html");
+        });
+    </script>
 </body>
 </html>
 

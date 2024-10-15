@@ -160,6 +160,9 @@
     <Content Include="Paginas\Images\Camioneta1.jpg" />
     <Content Include="Paginas\Images\Carro1.jpg" />
     <Content Include="Paginas\Images\Carro2.jpg" />
+    <Content Include="Paginas\Images\Designer-Photoroom.png" />
+    <Content Include="Paginas\Images\Designer.jpeg" />
+    <Content Include="Paginas\Images\LOGO.png" />
     <Content Include="Paginas\Images\Moto1.jpg" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Pagina1.html" />
