@@ -1,5 +1,6 @@
 ﻿class Venta {
-    constructor(DocCliente, DocAdmin, Fecha) {
+    constructor(Codigo, DocCliente, DocAdmin, Fecha) {
+        this.Codigo = Codigo;
         this.DocCliente = DocCliente;
         this.DocAdmin = DocAdmin;
         this.Fecha = Fecha;
@@ -7,30 +8,27 @@
 }
 
 async function Execute(Method, Function) {
-    const venta = new Venta($("#txtDocCliente").val(), $("#txtDocAdmin").val(), $("#txtFecha").val());
+    const venta = new Venta($("#txtCodigo").val(), $("#txtDocCliente").val(), $("#txtDocAdmin").val(), $("#txtFecha").val());
     let URl = "https://localhost:44337/api/Ventas/" + Function;
     ExecuteCommandService(Method, URL, venta);
 }
 
-async function Search() {
-    let Codigo = $("#txtDocumento").val();
-    URl = "https://localhost:44337/api/Ventas/VentaxCodigo?Codigo=" + Documento;
+async function BuscarVenta() {
+    let Codigo = $("#txtCodigo").val();
+    URl = "https://localhost:44337/api/Ventas/VentaxCodigo?Codigo=" + Codigo;
 
     //invoco el servicio generico 
-    const cliente = await SearchService(URL);
+    const Codigo = await SearchService(URL);
 
-    if (cliente != null) {
+    if (venta != null) {
 
-        $("#txtIdTipoCliente").val(Cliente.IdTipoCliente);
-        $("#txtDocumento").val(Cliente.Documento);
-        $("#txtNombre").val(Cliente.Nombre);
-        $("#txtApellido").val(Cliente.Apellido);
-        $("#txtFechaNacimiento").val(Cliente.FechaNacimiento);
-        $("#txtDireccion").val(Cliente.Direccion);
-        $("#txtTelefono").val(Cliente.Telefono);
-        $("#txtCorreoElectronico").val(Cliente.CorreoElectronico);
+        $("#txtCodigo").val(Venta.Codigo);
+        $("#txtDocCliente").val(Venta.DocCliente);
+        $("#txtDocAdmin").val(Venta.DocAdmin);
+        $("#txtFecha").val(Venta.Fecha);
     }
     else {
-        $("#dvMensaje").html("No se encontro el cliente");
+
+        $("#dvMensaje").html("No se encontro la venta");
     }
 }

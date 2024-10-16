@@ -140,6 +140,7 @@
     <Content Include="Paginas\Estilos\css\svg-with-js.min.css" />
     <Content Include="Paginas\Estilos\css\v4-shims.css" />
     <Content Include="Paginas\Estilos\css\v4-shims.min.css" />
+    <Content Include="Paginas\Estilos\custom.css" />
     <Content Include="Paginas\Estilos\dataTables.bootstrap4.css" />
     <Content Include="Paginas\Estilos\dataTables.bootstrap4.min.css" />
     <Content Include="Paginas\Estilos\dataTables.min.css" />

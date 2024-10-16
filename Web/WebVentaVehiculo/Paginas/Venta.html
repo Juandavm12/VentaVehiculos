@@ -33,6 +33,12 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
+                                                    <label for="txtCodigo">Codigo de Venta</label>
+                                                    <input type="text" class="form-control" id="txtCodigo" placeholder="Codigo de Venta">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
                                                     <label for="txtDocCliente">Documento Cliente</label>
                                                     <input type="text" class="form-control" id="txtDocCliente" placeholder="Documento Cliente">
                                                 </div>
@@ -72,7 +78,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="Search()">CONSULTAR</button>
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarVenta()">CONSULTAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -89,6 +95,7 @@
     </section>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/Comunes/CRUD.js"></script>>
     <script src="Scripts/Venta.js"></script>
 </body>
 </html>
