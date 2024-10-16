@@ -12,9 +12,10 @@ function LlenarTablaCliente() {
 
 async function Execute(Method, Function) {
     const cliente = new Cliente($("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtDireccion").val(),
-        $("#txtCorreo").val(), $("#txtTelefono").val(), $("#txtFechaNacimiento").val(), $("#txtIdTipoCliente").val());
+        $("#txtCorreo").val(), $("#txtTelefono").val(), $("#txtFechaNacimiento").val(), $("#cboTipoCliente").val());
     let URL = "https://localhost:44337/api/Clientes/" + Function; 
-    ExecuteCommandService(Method, URL, cliente);
+    await ExecuteCommandService(Method, URL, cliente);
+    LlenarTablaCliente();
 }
 
 async function BuscarCliente() {
@@ -25,21 +26,26 @@ async function BuscarCliente() {
     const Cliente = await SearchService(URL);
 
     if (Cliente != null) { 
-     
+
+        $("#dvMensaje").html("");
         $("#txtNombre").val(Cliente.Nombre);
         $("#txtApellido").val(Cliente.Apellido);      
         $("#txtDireccion").val(Cliente.Direccion);
         $("#txtCorreo").val(Cliente.Correo);
         $("#txtTelefono").val(Cliente.Telefono);  
         $("#txtFechaNacimiento").val(Cliente.FechaNacimiento.split('T')[0]);
-        $("#txtIdTipoCliente").val(Cliente.IdTipoCliente);
+        $("#cboTipoCliente").val(Cliente.IdTipoCliente);
     }
     else {
-        $("#dvMensaje").html("No se encontro el cliente");
+        $("#dvMensaje").html("No existe el cliente que intenta buscar");
+        $("#txtNombre").val("");
+        $("#txtApellido").val("");
+        $("#txtDireccion").val("");
+        $("#txtCorreo").val("");
+        $("#txtTelefono").val("");
+        $("#txtFechaNacimiento").val("");
     }
 }
-
-LlenarComboxServicios("https://localhost:44337/api/TipoClientes/TipoClienteCombo", "#cboTipoCliente");
 
 class Cliente {
     constructor(Documento, Nombre, Apellido, Direccion, Correo, Telefono, FechaNacimiento, IdTipoCliente) {
@@ -54,80 +60,3 @@ class Cliente {
         this.IdTipoCliente = IdTipoCliente;
     }
 }
-
-
-//async function ClientePrice() {
-//    let days = $("#txtDiasComprados").val();
-
-//    try {
-//        const Response = await fetch("https://localhost:44319/api/Clientes/ClientePrice?days=" + days,
-//            {
-//                method: "GET",
-//                mode: "cors",
-//                headers: { "Content-Type": "application/json" }
-//            });
-
-//        const Cliente = await Response.json();
-
-//        $("#txtDocumento").val(Cliente.Documento);
-//        $("#txtNombre").val(Cliente.Nombre);
-//        let PurchaseDate = Cliente.FechaCompra;
-//        $("#txtFechaCompra").val(Cliente.FechaCompra.split('T')[0]);
-//        $("#txtTipoLocal").val(Cliente.TipoLocal);
-//        $("#txtDiasComprados").val(Cliente.DiasComprados);
-//        $("#txtPorcentajeDescuento").val(Cliente.PorcentajeDescuento);
-//        $("#txtValorDescuento").val(Cliente.ValorDescuento);
-//        $("#txtValorTotal").val(Cliente.ValorTotal);
-//    }
-//    catch (error) {
-//        $("#dvMensaje").html(error);
-//    }
-
-//}
-
-//function AddCliente() {
-//    ExecuteCommand("Post", "AddCliente");
-//}
-
-//function Update() {
-//    ExecuteCommand("Put", "Update");
-//}
-
-//function Delete() {
-//    ExecuteCommand("Delete", "Delete");
-//}
-
-//async function ExecuteCommand(Method, Function) {
-//    const Cliente = new Cliente($("#txtidEntrada").val(), $("#txtDocumento").val(), $("#txtNombre").val(), $("#txtFechaCompra").val(),
-//        $("#txtTipoLocal").val(), $("#txtDiasComprados").val(), $("#txtPorcentajeDescuento").val(), $("#txtValorDescuento").val(),
-//        $("#txtValorTotal").val());
-
-//    try {
-//        const Response = await fetch("https://localhost:44319/api/Clientes/" + Function,
-//            {
-//                method: Method,
-//                mode: "cors",
-//                headers: { "Content-Type": "application/json" },
-//                body: JSON.stringify(Cliente)
-//            });
-
-//        const Result = await Response.json();
-//        $("#dvMensaje").html(Result);
-//    }
-//    catch (error) {
-//        $("#dvMensaje").html(error);
-//    }
-//}
-
-//class Cliente {
-//    constructor(idEntrada, Documento, Nombre, FechaCompra, TipoLocal, DiasComprados, PorcentajeDescuento, ValorDescuento, ValorTotal) {
-//        this.idEntrada = idEntrada;
-//        this.Documento = Documento;
-//        this.Nombre = Nombre;
-//        this.FechaCompra = FechaCompra;
-//        this.TipoLocal = TipoLocal;
-//        this.DiasComprados = DiasComprados;
-//        this.PorcentajeDescuento = PorcentajeDescuento;
-//        this.ValorDescuento = ValorDescuento;
-//        this.ValorTotal = ValorTotal;
-//    }
