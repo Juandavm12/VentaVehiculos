@@ -9,6 +9,7 @@
 
 namespace VentaVehiculos.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -22,7 +23,8 @@ namespace VentaVehiculos.Models
     
         public int id_estado_servicio { get; set; }
         public string estado { get; set; }
-    
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Servicios_de_Taller> Servicios_de_Taller { get; set; }
     }

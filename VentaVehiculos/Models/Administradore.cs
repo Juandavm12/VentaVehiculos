@@ -9,6 +9,7 @@
 
 namespace VentaVehiculos.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -19,13 +20,14 @@ namespace VentaVehiculos.Models
         public string cargo { get; set; }
 
         public Administradore(int id_administrador, int id_usuario, string documento, string nombre, string apellido, int edad,
-            string correo_electronico, string contraseña, string tipo_usuario, string cargo) :
-            base(id_usuario, documento, nombre, apellido, edad, correo_electronico, contraseña, tipo_usuario)
+            string correo_electronico, string tipo_usuario, string cargo) :
+            base(id_usuario, documento, nombre, apellido, edad, correo_electronico, tipo_usuario)
         {
             this.id_administrador = id_administrador;
             this.cargo = cargo;
         }
 
+        [JsonIgnore]
         public virtual Usuario Usuario { get; set; }
     }
 }
