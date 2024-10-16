@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JP Servicios - Inicio</title>
+    <link rel="icon" href="Images/Designer-Photoroom.png" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="Estilos/custom.css" rel="stylesheet" />
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 500px; /* Ajusta la altura según tus necesidades */
+            object-fit: cover; /* Esto asegura que la imagen se recorte adecuadamente */
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div id="dvMenu"></div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="jumbotron text-center">
+                <h1 class="display-4">Bienvenido a JP Servicios</h1>
+                <p class="lead">Tu mejor opción para la compra y venta de vehículos.</p>
+                <hr class="my-4">
+                <p>Explora nuestra amplia gama de vehículos y encuentra el que mejor se adapte a tus necesidades.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="Images/Carro2.jpg" class="card-img-top" alt="Vehículo 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Automóviles</h5>
+                            <p class="card-text">Encuentra una amplia variedad de automóviles de diferentes marcas y modelos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="Images/Moto1.jpg" class="card-img-top" alt="Vehículo 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Motos</h5>
+                            <p class="card-text">Descubre nuestras motos disponibles para todos los gustos y necesidades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="Images/Camioneta1.jpg" class="card-img-top" alt="Vehículo 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Camionetas</h5>
+                            <p class="card-text">Explora nuestras camionetas ideales para trabajo y aventura.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="Images/Busscar1.jpg" class="card-img-top" alt="Vehículo 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Automóviles</h5>
+                            <p class="card-text">Encuentra una amplia variedad de automóviles de diferentes marcas y modelos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/Index.js"></script>
+    <script>
+        $(function () {
+            $("#dvMenu").load("../Paginas/Menu.html");
+        });
+    </script>
+</body>
+</html>
+
+
