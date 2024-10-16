@@ -12,18 +12,19 @@ namespace VentaVehiculos.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Factura
+    public partial class ServicioTaller
     {
-        public int Numero { get; set; }
-        public int CodVenta { get; set; }
+        public int Id { get; set; }
+        public string DocCliente { get; set; }
         public string PlacaVeh { get; set; }
-        public double Cantidad { get; set; }
-        public double VUnidad { get; set; }
-        public double Subtotal { get; set; }
-        public double Descuento { get; set; }
-        public double VTotal { get; set; }
+        public int CodEstadoServicio { get; set; }
+        public int CodTipoServicio { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public string Comentarios { get; set; }
     
-        public virtual Venta Venta { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual EstadoServicio EstadoServicio { get; set; }
+        public virtual TipoServicio TipoServicio { get; set; }
         public virtual Vehiculo Vehiculo { get; set; }
     }
 }

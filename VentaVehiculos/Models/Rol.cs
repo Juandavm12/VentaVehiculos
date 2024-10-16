@@ -9,23 +9,21 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Tipo_Garantia
+    public partial class Rol
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tipo_Garantia()
+        public Rol()
         {
-            this.Garantias = new HashSet<Garantia>();
+            this.UsuarioRols = new HashSet<UsuarioRol>();
         }
     
-        public int id_tipo_garantia { get; set; }
-        public string tipo { get; set; }
-
-        [JsonIgnore]
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Garantia> Garantias { get; set; }
+        public virtual ICollection<UsuarioRol> UsuarioRols { get; set; }
     }
 }

@@ -9,7 +9,6 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -22,24 +21,16 @@ namespace VentaVehiculos.Models
             this.Garantias = new HashSet<Garantia>();
         }
     
-        public int id_venta { get; set; }
-        public Nullable<int> id_usuario { get; set; }
-        public string placa_vehiculo { get; set; }
-        public Nullable<System.DateTime> fecha_venta { get; set; }
-        public Nullable<int> total_venta { get; set; }
-
-        [JsonIgnore]
+        public int Codigo { get; set; }
+        public string DocCliente { get; set; }
+        public string DocAdmin { get; set; }
+        public System.DateTime Fecha { get; set; }
+    
+        public virtual Administrador Administrador { get; set; }
+        public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Facturas { get; set; }
-
-        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Garantia> Garantias { get; set; }
-
-        [JsonIgnore]
-        public virtual Usuario Usuario { get; set; }
-
-        [JsonIgnore]
-        public virtual Vehiculo Vehiculo { get; set; }
     }
 }

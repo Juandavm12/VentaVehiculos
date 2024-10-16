@@ -9,27 +9,25 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class TipoServicio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public TipoServicio()
         {
-            this.Permisos = new HashSet<Permiso>();
+            this.CitaTallers = new HashSet<CitaTaller>();
+            this.ServicioTallers = new HashSet<ServicioTaller>();
         }
     
-        public int id_rol { get; set; }
-        public Nullable<int> id_usuario { get; set; }
-        public string nombre_rol { get; set; }
-
-        [JsonIgnore]
+        public int Codigo { get; set; }
+        public string Tipo { get; set; }
+        public int Costo { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Permiso> Permisos { get; set; }
-
-        [JsonIgnore]
-        public virtual Usuario Usuario { get; set; }
+        public virtual ICollection<CitaTaller> CitaTallers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ServicioTaller> ServicioTallers { get; set; }
     }
 }

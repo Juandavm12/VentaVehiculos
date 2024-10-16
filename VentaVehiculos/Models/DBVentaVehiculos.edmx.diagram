@@ -4,43 +4,44 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6a7642056f6846428f9b43f7aaa46a49" Name="Diagram1">
-        <EntityTypeShape EntityType="VentaVehiculosModel.Administradore" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Citas_Taller" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Cliente" Width="1.5" PointX="10.25" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Estado_Servicio" Width="1.5" PointX="6" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Estado_Vehiculo" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Factura" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Garantia" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Permiso" Width="1.5" PointX="7.5" PointY="20.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Role" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Servicios_de_Taller" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.sysdiagram" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Tipo_Cliente" Width="1.5" PointX="8" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Tipo_Garantia" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Tipo_Servicio" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Tipo_Vehiculo" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Usuario" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Vehiculo" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentaVehiculosModel.Venta" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Administr__cargo__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Citas_Tal__id_se__72C60C4A" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Citas_Tal__id_us__70DDC3D8" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Citas_Tal__placa__71D1E811" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Clientes__id_tip__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Clientes__id_usu__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Servicios__id_es__6B24EA82" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Vehiculos__id_es__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Facturas__id_ven__6E01572D" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Garantias__id_ti__5629CD9C" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Garantias__id_ve__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Permisos__id_rol__797309D9" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Roles__id_usuari__76969D2E" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Servicios__id_ti__6A30C649" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Servicios__placa__693CA210" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Vehiculos__id_ti__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Ventas__id_usuar__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="VentaVehiculosModel.FK__Ventas__placa_ve__4F7CD00D" ManuallyRouted="false" />
+      <Diagram DiagramId="021ee4d482e34a6b9a8f7c8b6518f077" Name="Diagram1">
+        <EntityTypeShape EntityType="VentaVehiculosModel.Administrador" Width="1.5" PointX="3.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.CitaTaller" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.Cliente" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.EstadoServicio" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.EstadoVehiculo" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.Factura" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.Garantia" Width="1.5" PointX="8.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.Rol" Width="1.5" PointX="6" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.ServicioTaller" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.TipoCliente" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.TipoGarantia" Width="1.5" PointX="6" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.TipoServicio" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.TipoVehiculo" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.Usuario" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.UsuarioRol" Width="1.5" PointX="8.25" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.Vehiculo" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaVehiculosModel.Venta" Width="1.5" PointX="6" PointY="19.125" IsExpanded="true" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Usuario__DocAdmi__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Venta__DocAdmin__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__CitaTalle__CodTi__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__CitaTalle__DocCl__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__CitaTalle__Placa__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Cliente__IdTipoC__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__ServicioT__DocCl__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Venta__DocClient__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__ServicioT__CodEs__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Vehiculo__CodEst__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Factura__CodVent__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Factura__PlacaVe__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Garantia__CodTip__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Garantia__CodVen__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__UsuarioRo__IdRol__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__ServicioT__CodTi__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__ServicioT__Placa__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__Vehiculo__CodTip__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaVehiculosModel.FK__UsuarioRo__IdUsu__49C3F6B7" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

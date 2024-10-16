@@ -16,10 +16,10 @@ namespace VentaVehiculos.Controllers
     {
         [HttpGet]
         [Route("TipoClientCombo")]
-        public List<Tipo_Cliente> TipoClientCombo()
+        public List<TipoCliente> TipoClienteCombo()
         {
             clsTipoCliente tipoCliente = new clsTipoCliente();
-            return tipoCliente.TipoClientCombo();
+            return tipoCliente.TipoClienteCombo();
         }
     }
 }

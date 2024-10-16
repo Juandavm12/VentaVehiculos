@@ -15,54 +15,54 @@ namespace VentaVehiculos.Controllers
     public class ClientesController : ApiController
     {
         [HttpPost]
-        [Route("AddClient")]
-        public string AddClient([FromBody] Cliente Obj)
+        [Route("InsertarClient")]
+        public string InsertarCliente([FromBody] Cliente Cliente)
         {
             //To call AuthClient from Cliente class, we create a type clsCliente object
-            clsCliente _obj = new clsCliente();
-            _obj.obj = Obj;
+            clsCliente _cliente = new clsCliente();
+            _cliente.cliente = Cliente;
 
-            return _obj.AddClient();
+            return _cliente.InsertarCliente();
         }
 
         [HttpPut]
-        [Route("UpdateClient")]
-        public string UpdateClient([FromBody] Cliente Obj)
+        [Route("ActualizarCliente")]
+        public string ActualizarCliente([FromBody] Cliente Cliente)
         {
             //To call UpdateClient from CLiente class, we create a type clsCliente object
-            clsCliente _obj = new clsCliente();
-            _obj.obj = Obj;
+            clsCliente _cliente = new clsCliente();
+            _cliente.cliente = Cliente;
 
-            return _obj.UpdateClient();
+            return _cliente.ActualizarCliente();
 
         }
 
         [HttpDelete]
-        [Route("DeleteClient")]
-        public string DeleteClient([FromBody] Cliente Obj)
+        [Route("EliminarCliente")]
+        public string EliminarCliente([FromBody] Cliente Cliente)
         {
             //To call DeleteClient from Cliente class, we create a type clsCliente object
-            clsCliente _obj = new clsCliente();
-            _obj.obj = Obj;
+            clsCliente _cliente = new clsCliente();
+            _cliente.cliente = Cliente;
 
-            return _obj.DeleteClient();
+            return _cliente.EliminarCliente();
         }
 
         [HttpGet]
-        [Route("SearchxDocument")]
-        public Cliente SearchClientDocument(string Cliente)
+        [Route("BuscarxDocumento")]
+        public Cliente BuscarCliente(string Cliente)
         {
             //To call Search from Cliente class, we create a type clsCliente object
-            clsCliente _obj = new clsCliente();
-            return _obj.SearchClient(Cliente);
+            clsCliente _cliente = new clsCliente();
+            return _cliente.BuscarCliente(Cliente);
         }
 
         [HttpGet]
-        [Route("FillClientTable")]
-        public IQueryable FillClientTable()
+        [Route("LlenarTablaCliente")]
+        public IQueryable LlenarTablaCliente()
         {
-            clsCliente client = new clsCliente();
-            return client.FillClientTable();
+            clsCliente cliente = new clsCliente();
+            return cliente.LlenarTablaCliente();
         }
     }
 }

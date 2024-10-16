@@ -9,23 +9,22 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Tipo_Vehiculo
+    public partial class EstadoVehiculo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tipo_Vehiculo()
+        public EstadoVehiculo()
         {
-            this.Vehiculos = new HashSet<Vehiculo>();
+            this.Vehiculoes = new HashSet<Vehiculo>();
         }
     
-        public int id_tipo_vehiculo { get; set; }
-        public string tipo { get; set; }
-
-        [JsonIgnore]
+        public int Codigo { get; set; }
+        public string Estado { get; set; }
+        public string Comentarios { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Vehiculo> Vehiculos { get; set; }
+        public virtual ICollection<Vehiculo> Vehiculoes { get; set; }
     }
 }

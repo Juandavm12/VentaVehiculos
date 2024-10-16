@@ -13,10 +13,10 @@ namespace VentaVehiculos.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VentaVehiculosEntities2 : DbContext
+    public partial class VentaVehiculosEntities : DbContext
     {
-        public VentaVehiculosEntities2()
-            : base("name=VentaVehiculosEntities2")
+        public VentaVehiculosEntities()
+            : base("name=VentaVehiculosEntities")
         {
         }
     
@@ -25,23 +25,23 @@ namespace VentaVehiculos.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Administradore> Administradores { get; set; }
-        public virtual DbSet<Citas_Taller> Citas_Taller { get; set; }
+        public virtual DbSet<Administrador> Administradors { get; set; }
+        public virtual DbSet<CitaTaller> CitaTallers { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Estado_Servicio> Estado_Servicio { get; set; }
-        public virtual DbSet<Estado_Vehiculo> Estado_Vehiculo { get; set; }
+        public virtual DbSet<EstadoServicio> EstadoServicios { get; set; }
+        public virtual DbSet<EstadoVehiculo> EstadoVehiculoes { get; set; }
         public virtual DbSet<Factura> Facturas { get; set; }
         public virtual DbSet<Garantia> Garantias { get; set; }
-        public virtual DbSet<Permiso> Permisos { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Servicios_de_Taller> Servicios_de_Taller { get; set; }
+        public virtual DbSet<Rol> Rols { get; set; }
+        public virtual DbSet<ServicioTaller> ServicioTallers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Tipo_Cliente> Tipo_Cliente { get; set; }
-        public virtual DbSet<Tipo_Garantia> Tipo_Garantia { get; set; }
-        public virtual DbSet<Tipo_Servicio> Tipo_Servicio { get; set; }
-        public virtual DbSet<Tipo_Vehiculo> Tipo_Vehiculo { get; set; }
+        public virtual DbSet<TipoCliente> TipoClientes { get; set; }
+        public virtual DbSet<TipoGarantia> TipoGarantias { get; set; }
+        public virtual DbSet<TipoServicio> TipoServicios { get; set; }
+        public virtual DbSet<TipoVehiculo> TipoVehiculoes { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<Vehiculo> Vehiculos { get; set; }
+        public virtual DbSet<UsuarioRol> UsuarioRols { get; set; }
+        public virtual DbSet<Vehiculo> Vehiculoes { get; set; }
         public virtual DbSet<Venta> Ventas { get; set; }
     }
 }

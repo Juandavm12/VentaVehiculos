@@ -9,33 +9,34 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    using System.Web.UI.WebControls;
-    using System.Xml.Linq;
-
-    public partial class Cliente : Usuario
+    
+    public partial class Cliente
     {
-        public int id_cliente { get; set; }
-        public string direccion { get; set; }
-        public string telefono { get; set; }
-        public Nullable<int> id_tipo_cliente { get; set; }
-
-        public Cliente (int id_cliente, int id_usuario, string documento, string nombre, string apellido, int edad, 
-            string correo_electronico, string tipo_usuario, string direccion, string telefono, int id_tipo_cliente) : 
-            base (id_usuario, documento, nombre, apellido, edad, correo_electronico, tipo_usuario) 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cliente()
         {
-            this.id_cliente = id_cliente;
-            this.direccion = direccion;
-            this.telefono = telefono;
-            this.id_tipo_cliente = id_tipo_cliente;
+            this.CitaTallers = new HashSet<CitaTaller>();
+            this.ServicioTallers = new HashSet<ServicioTaller>();
+            this.Ventas = new HashSet<Venta>();
         }
-
-        [JsonIgnore]
-        public virtual Tipo_Cliente Tipo_Cliente { get; set; }
-
-        [JsonIgnore]
-        public virtual Usuario Usuario { get; set; }
+    
+        public string Documento { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Direccion { get; set; }
+        public string Correo { get; set; }
+        public string Telefono { get; set; }
+        public Nullable<System.DateTime> FechaNacimiento { get; set; }
+        public Nullable<int> IdTipoCliente { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CitaTaller> CitaTallers { get; set; }
+        public virtual TipoCliente TipoCliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ServicioTaller> ServicioTallers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

@@ -9,14 +9,14 @@ namespace VentaVehiculos.Clases
 {
     public class clsTipoCliente
     {
-        VentaVehiculosEntities2 dbVentaVehiculos = new VentaVehiculosEntities2();
+        VentaVehiculosEntities dbVentaVehiculos = new VentaVehiculosEntities();
 
-        public Tipo_Cliente  tipo_Cliente { get; set; }
+        public TipoCliente  tipoCliente { get; set; }
 
-        public List<Tipo_Cliente> TipoClientCombo()
+        public List<TipoCliente> TipoClienteCombo()
         {
-            return dbVentaVehiculos.Tipo_Cliente
-                .OrderBy(t => t.membresia)
+            return dbVentaVehiculos.TipoClientes
+                .OrderBy(t => t.Membresia)
                 .ToList();
         }
     }

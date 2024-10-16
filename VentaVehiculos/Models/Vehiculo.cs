@@ -9,7 +9,6 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -18,35 +17,26 @@ namespace VentaVehiculos.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Vehiculo()
         {
-            this.Citas_Taller = new HashSet<Citas_Taller>();
-            this.Servicios_de_Taller = new HashSet<Servicios_de_Taller>();
-            this.Ventas = new HashSet<Venta>();
+            this.CitaTallers = new HashSet<CitaTaller>();
+            this.Facturas = new HashSet<Factura>();
+            this.ServicioTallers = new HashSet<ServicioTaller>();
         }
     
-        public string placa_vehiculo { get; set; }
-        public string marca { get; set; }
-        public Nullable<int> modelo { get; set; }
-        public Nullable<long> precio { get; set; }
-        public Nullable<int> kilometraje { get; set; }
-        public Nullable<int> id_estado_vehiculo { get; set; }
-        public Nullable<int> id_tipo_vehiculo { get; set; }
-
-        [JsonIgnore]
+        public string Placa { get; set; }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public int Precio { get; set; }
+        public int Kilometraje { get; set; }
+        public int CodEstadoVehiculo { get; set; }
+        public int CodTipoVehiculo { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Citas_Taller> Citas_Taller { get; set; }
-
-        [JsonIgnore]
-        public virtual Estado_Vehiculo Estado_Vehiculo { get; set; }
-
-        [JsonIgnore]
+        public virtual ICollection<CitaTaller> CitaTallers { get; set; }
+        public virtual EstadoVehiculo EstadoVehiculo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Servicios_de_Taller> Servicios_de_Taller { get; set; }
-
-        [JsonIgnore]
-        public virtual Tipo_Vehiculo Tipo_Vehiculo { get; set; }
-
-        [JsonIgnore]
+        public virtual ICollection<Factura> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Venta> Ventas { get; set; }
+        public virtual ICollection<ServicioTaller> ServicioTallers { get; set; }
+        public virtual TipoVehiculo TipoVehiculo { get; set; }
     }
 }

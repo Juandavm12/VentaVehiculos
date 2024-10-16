@@ -9,17 +9,17 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Permiso
+    public partial class UsuarioRol
     {
-        public int id_permiso { get; set; }
-        public string descripcion_permiso { get; set; }
-        public Nullable<int> id_rol { get; set; }
-
-        [JsonIgnore]
-        public virtual Role Role { get; set; }
+        public int Id { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdRol { get; set; }
+        public string Estado { get; set; }
+    
+        public virtual Rol Rol { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

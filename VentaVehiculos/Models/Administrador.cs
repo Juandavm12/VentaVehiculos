@@ -9,24 +9,30 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Tipo_Cliente
+    public partial class Administrador
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tipo_Cliente()
+        public Administrador()
         {
-            this.Clientes = new HashSet<Cliente>();
+            this.Usuarios = new HashSet<Usuario>();
+            this.Ventas = new HashSet<Venta>();
         }
     
-        public int id_tipo_cliente { get; set; }
-        public string membresia { get; set; }
-        public double descuento { get; set; }
-
-        [JsonIgnore]
+        public string Documento { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Direccion { get; set; }
+        public string Correo { get; set; }
+        public string Telefono { get; set; }
+        public Nullable<System.DateTime> FechaNacimiento { get; set; }
+        public string Cargo { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Usuario> Usuarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

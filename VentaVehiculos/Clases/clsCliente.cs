@@ -10,26 +10,26 @@ namespace VentaVehiculos.Clases
     public class clsCliente
     {
         //Atributo DbVentaVehiculos
-        VentaVehiculosEntities2 dbVentaVehiculos = new VentaVehiculosEntities2();
+        VentaVehiculosEntities dbVentaVehiculos = new VentaVehiculosEntities();
 
         //Objeto de la tabla usuario
-        public Cliente obj { get; set; }
+        public Cliente cliente { get; set; }
 
-        public string AddClient()
+        public string InsertarCliente()
         {
             try
             {
-                Cliente _obj = SearchClient(obj.documento);
+                Cliente _cliente = BuscarCliente(cliente.Documento);
 
-                if (_obj.documento == null)
+                if (_cliente.Documento == null)
                 {
-                    dbVentaVehiculos.Clientes.Add(_obj);
+                    dbVentaVehiculos.Clientes.Add(_cliente);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Cliente " + obj.nombre + " ha sido creado exitosamente";
+                    return "El Cliente " + _cliente.Nombre + " ha sido creado exitosamente";
                 }
                 else
                 {
-                    return "El documento " + obj.documento + " ya esta asociado a un cliente";
+                    return "El documento " + _cliente.Documento + " ya esta asociado a un cliente";
                 }
             }
             catch (Exception ex)
@@ -39,18 +39,18 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public string UpdateClient()
+        public string ActualizarCliente()
         {
             try
             {
                 //We use AddorUpdate method that allows us to update the user information
-                Cliente _obj = SearchClient(obj.documento);
+                Cliente _cliente = BuscarCliente(cliente.Documento);
 
-                if (_obj.documento != null)
+                if (_cliente.Documento != null)
                 {
-                    dbVentaVehiculos.Clientes.AddOrUpdate(_obj);
+                    dbVentaVehiculos.Clientes.AddOrUpdate(_cliente);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Cliente " + obj.nombre + " se ha actualizado exitosamente";
+                    return "El Cliente " + _cliente.Nombre + " se ha actualizado exitosamente";
                 }
                 else
                 {
@@ -63,24 +63,24 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public Cliente SearchClient(string documento)
+        public Cliente BuscarCliente(string documento)
         {
             //We use lambda to take the object type we are using
-            return dbVentaVehiculos.Clientes.FirstOrDefault(x => x.documento == documento);
+            return dbVentaVehiculos.Clientes.FirstOrDefault(x => x.Documento == documento);
         }
 
-        public string DeleteClient()
+        public string EliminarCliente()
         {
             try
             {
                 //We use Search method that we created to allow us searching for the user id we want to delete
-                Cliente _obj = SearchClient(obj.documento);
+                Cliente _cliente = BuscarCliente(cliente.Documento);
 
-                if (_obj.documento != null)
+                if (_cliente.Documento != null)
                 {
-                    dbVentaVehiculos.Clientes.Remove(_obj);
+                    dbVentaVehiculos.Clientes.Remove(_cliente);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Cliente " + obj.nombre + " con documento " + obj.documento + " ha sido eliminado exitosamente";
+                    return "El Cliente " + _cliente.Nombre + " con documento " + _cliente.Documento + " ha sido eliminado exitosamente";
                 }
                 else
                 {
@@ -95,21 +95,22 @@ namespace VentaVehiculos.Clases
         }
 
         //Method IQuearyable
-        public IQueryable FillClientTable()
+        public IQueryable LlenarTablaCliente()
         {
             return from C in dbVentaVehiculos.Set<Cliente>()
-                   join TC in dbVentaVehiculos.Set<Tipo_Cliente>()
-                   on C.id_tipo_cliente equals TC.id_tipo_cliente
-                   orderby TC.membresia, C.nombre
+                   join TC in dbVentaVehiculos.Set<TipoCliente>()
+                   on C.IdTipoCliente equals TC.Id
+                   orderby TC.Membresia, C.Nombre
                    select new
                    {
-                       Documento = C.documento,
-                       Nombre = C.nombre,
-                       Apellido = C.apellido,
-                       Edad = C.edad,
-                       Correo = C.correo_electronico,
-                       Telefono = C.telefono,
-                       Membresia = TC.membresia,
+                       Documento = C.Documento,
+                       Nombre = C.Nombre,
+                       Apellido = C.Apellido,
+                       Direccion = C.Direccion,
+                       Email = C.Correo,
+                       Telefono = C.Telefono,
+                       Membresia = TC.Membresia,
+                       Descuento = TC.Descuento,
                    };
         }
     }

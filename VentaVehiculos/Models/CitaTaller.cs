@@ -12,15 +12,16 @@ namespace VentaVehiculos.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Garantia
+    public partial class CitaTaller
     {
         public int Codigo { get; set; }
-        public int CodVenta { get; set; }
-        public System.DateTime FechaInicio { get; set; }
-        public System.DateTime FechaFinal { get; set; }
-        public int CodTipoGarantia { get; set; }
+        public string DocCliente { get; set; }
+        public string PlacaVeh { get; set; }
+        public int CodTipoServicio { get; set; }
+        public Nullable<System.DateTime> FechaHora { get; set; }
     
-        public virtual TipoGarantia TipoGarantia { get; set; }
-        public virtual Venta Venta { get; set; }
+        public virtual TipoServicio TipoServicio { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual Vehiculo Vehiculo { get; set; }
     }
 }

@@ -184,7 +184,6 @@
     <Compile Include="Clases\clsAdministrador.cs" />
     <Compile Include="Clases\clsCliente.cs" />
     <Compile Include="Clases\clsTipoCliente.cs" />
-    <Compile Include="Clases\clsUsuario.cs" />
     <Compile Include="Clases\clsVehiculo.cs" />
     <Compile Include="Clases\clsVenta.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
@@ -194,74 +193,74 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Administradore.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\Administrador.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Citas_Taller.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\CitaTaller.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBVentaVehiculos.Context.cs">
+    <Compile Include="Models\DbVentaVehiculos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBVentaVehiculos.Context.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBVentaVehiculos.cs">
+    <Compile Include="Models\DbVentaVehiculos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBVentaVehiculos.Designer.cs">
+    <Compile Include="Models\DbVentaVehiculos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBVentaVehiculos.edmx</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Estado_Servicio.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\EstadoServicio.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Estado_Vehiculo.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\EstadoVehiculo.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Factura.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Garantia.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Permiso.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\Rol.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Role.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Servicios_de_Taller.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\ServicioTaller.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tipo_Cliente.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\TipoCliente.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tipo_Garantia.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\TipoGarantia.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tipo_Servicio.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\TipoServicio.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tipo_Vehiculo.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+    <Compile Include="Models\TipoVehiculo.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuarioRol.cs">
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vehiculo.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Venta.cs">
-      <DependentUpon>DBVentaVehiculos.tt</DependentUpon>
+      <DependentUpon>DbVentaVehiculos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -285,15 +284,15 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DBVentaVehiculos.Context.tt">
+    <Content Include="Models\DbVentaVehiculos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBVentaVehiculos.edmx</DependentUpon>
-      <LastGenOutput>DBVentaVehiculos.Context.cs</LastGenOutput>
+      <DependentUpon>DbVentaVehiculos.edmx</DependentUpon>
+      <LastGenOutput>DbVentaVehiculos.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBVentaVehiculos.tt">
+    <Content Include="Models\DbVentaVehiculos.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBVentaVehiculos.edmx</DependentUpon>
-      <LastGenOutput>DBVentaVehiculos.cs</LastGenOutput>
+      <DependentUpon>DbVentaVehiculos.edmx</DependentUpon>
+      <LastGenOutput>DbVentaVehiculos.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -301,13 +300,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\DBVentaVehiculos.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBVentaVehiculos.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DBVentaVehiculos.edmx.diagram">
-      <DependentUpon>DBVentaVehiculos.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -327,6 +319,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\DbVentaVehiculos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbVentaVehiculos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbVentaVehiculos.edmx.diagram">
+      <DependentUpon>DbVentaVehiculos.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
