@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JP Servicios - Cliente</title>
+    <title>JP Servicios - Administrador</title>
     <link rel="icon" href="Images/Designer-Photoroom.png" />
 
     <!-- Google Font: Source Sans Pro -->
@@ -21,13 +21,13 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">CLIENTES</h3>
+                            <h3 class="card-title">ADMINISTRADORES</h3>
                         </div>
                         <form id="frmIncapacidades">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header">
-                                        <h3 class="card-title">DATOS DEL CLIENTE</h3>
+                                        <h3 class="card-title">DATOS DEl ADMINISTRADOR</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -57,30 +57,24 @@
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtCargo">Cargo</label>
+                                                    <input type="text" class="form-control" id="txtCargo" placeholder="Cargo">
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="txtDireccion">Direccion</label>
-                                                    <input type="text" class="form-control" id="txtDireccion" placeholder="Direccion">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtTelefono">Telefono</label>
-                                                    <input type="text" class="form-control" id="txtTelefono" placeholder="Telefono">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtCorreoElectronico">Correo Electronico</label>
                                                     <input type="text" class="form-control" id="txtCorreoElectronico" placeholder="Correo Electronico">
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <!--<div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtContraseña">Contraseña</label>
                                                     <input type="password" class="form-control" id="txtContraseña" placeholder="Ingresa Contraseña">
                                                 </div>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -92,19 +86,19 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success">INSERTAR</button>
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="AddTicket()">INSERTAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning">ACTUALIZAR</button>
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Update()">ACTUALIZAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger">ELIMINAR</button>
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Delete()">ELIMINAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info">CONSULTAR</button>
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="Search()">CONSULTAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -121,6 +115,6 @@
     </section>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="Scripts/Pagina1.js"></script>
+    <script src="Scripts/Admin.js"></script>
 </body>
 </html>
