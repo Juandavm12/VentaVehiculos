@@ -9,6 +9,7 @@
 
 namespace VentaVehiculos.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -23,9 +24,12 @@ namespace VentaVehiculos.Models
         public int id_rol { get; set; }
         public Nullable<int> id_usuario { get; set; }
         public string nombre_rol { get; set; }
-    
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Permiso> Permisos { get; set; }
+
+        [JsonIgnore]
         public virtual Usuario Usuario { get; set; }
     }
 }

@@ -9,6 +9,7 @@
 
 namespace VentaVehiculos.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.Web.UI.WebControls;
@@ -22,16 +23,19 @@ namespace VentaVehiculos.Models
         public Nullable<int> id_tipo_cliente { get; set; }
 
         public Cliente (int id_cliente, int id_usuario, string documento, string nombre, string apellido, int edad, 
-            string correo_electronico, string contraseña, string tipo_usuario, string direccion, string telefono, int id_tipo_cliente) : 
-            base (id_usuario, documento, nombre, apellido, edad, correo_electronico, contraseña, tipo_usuario) 
+            string correo_electronico, string tipo_usuario, string direccion, string telefono, int id_tipo_cliente) : 
+            base (id_usuario, documento, nombre, apellido, edad, correo_electronico, tipo_usuario) 
         {
             this.id_cliente = id_cliente;
             this.direccion = direccion;
             this.telefono = telefono;
             this.id_tipo_cliente = id_tipo_cliente;
         }
-    
+
+        [JsonIgnore]
         public virtual Tipo_Cliente Tipo_Cliente { get; set; }
+
+        [JsonIgnore]
         public virtual Usuario Usuario { get; set; }
     }
 }

@@ -19,12 +19,18 @@ namespace VentaVehiculos.Clases
         {
             try
             {
-                //Add method and Usuario data call
-                dbVentaVehiculos.Clientes.Add(obj);
+                Cliente _obj = SearchClient(obj.documento);
 
-                //SaveChanges method call to save the client in the database
-                dbVentaVehiculos.SaveChanges();
-                return "El Cliente " + obj.nombre + " con documento " + obj.documento + " ha sido creado exitosamente";
+                if (_obj.documento == null)
+                {
+                    dbVentaVehiculos.Clientes.Add(_obj);
+                    dbVentaVehiculos.SaveChanges();
+                    return "El Cliente " + obj.nombre + " ha sido creado exitosamente";
+                }
+                else
+                {
+                    return "El documento " + obj.documento + " ya esta asociado a un cliente";
+                }
             }
             catch (Exception ex)
             {
@@ -38,10 +44,18 @@ namespace VentaVehiculos.Clases
             try
             {
                 //We use AddorUpdate method that allows us to update the user information
-                dbVentaVehiculos.Clientes.AddOrUpdate(obj);
+                Cliente _obj = SearchClient(obj.documento);
 
-                dbVentaVehiculos.SaveChanges();
-                return "El Cliente ha sido actualizado exitosamente";
+                if (_obj.documento != null)
+                {
+                    dbVentaVehiculos.Clientes.AddOrUpdate(_obj);
+                    dbVentaVehiculos.SaveChanges();
+                    return "El Cliente " + obj.nombre + " se ha actualizado exitosamente";
+                }
+                else
+                {
+                    return "El Cliente que intenta actualizar no existe";
+                }
             }
             catch (Exception ex)
             {
@@ -80,25 +94,23 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        //Method to search for a user
-        public string AuthClient(Cliente newclient)
+        //Method IQuearyable
+        public IQueryable FillClientTable()
         {
-            try
-            {
-                SearchClient(obj.documento);
-                if (newclient.documento.Equals(obj.documento))
-                {
-                    return "El cliente con el documento " + obj.documento + " ya existe";
-                }
-                else
-                {
-                    return AddClient();
-                }
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
+            return from C in dbVentaVehiculos.Set<Cliente>()
+                   join TC in dbVentaVehiculos.Set<Tipo_Cliente>()
+                   on C.id_tipo_cliente equals TC.id_tipo_cliente
+                   orderby TC.membresia, C.nombre
+                   select new
+                   {
+                       Documento = C.documento,
+                       Nombre = C.nombre,
+                       Apellido = C.apellido,
+                       Edad = C.edad,
+                       Correo = C.correo_electronico,
+                       Telefono = C.telefono,
+                       Membresia = TC.membresia,
+                   };
         }
     }
 }

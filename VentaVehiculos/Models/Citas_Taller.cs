@@ -9,6 +9,7 @@
 
 namespace VentaVehiculos.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,9 +21,14 @@ namespace VentaVehiculos.Models
         public Nullable<int> id_servicio { get; set; }
         public Nullable<System.DateTime> fecha_cita { get; set; }
         public Nullable<System.TimeSpan> hora_cita { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Servicios_de_Taller Servicios_de_Taller { get; set; }
+
+        [JsonIgnore]
         public virtual Usuario Usuario { get; set; }
+
+        [JsonIgnore]
         public virtual Vehiculo Vehiculo { get; set; }
     }
 }
