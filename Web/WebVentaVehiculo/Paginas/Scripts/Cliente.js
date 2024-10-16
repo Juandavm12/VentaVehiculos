@@ -1,7 +1,7 @@
 ﻿
 async function Execute(Method, Function) {
-    const cliente = new Cliente($("#txtIdTipoCliente").val(), $("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("txtFechaNacimiento").val(),
-        $("#txtDireccion").val(), $("#txtTelefono").val(), $("#txtCorreoElectronico").val());
+    const cliente = new Cliente($("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtDireccion").val(),
+        $("#txtCorreo").val(), $("#txtTelefono").val(), $("txtFechaNacimiento").val(), $("#txtIdTipoCliente").val());
     let URl = "https://localhost:44337/api/Clientes/" + Function; 
     ExecuteCommandService(Method, URL, cliente);
 }
@@ -14,15 +14,15 @@ async function Search() {
     const cliente = await SearchService(URL);
 
     if (cliente != null) { 
-
-        $("#txtIdTipoCliente").val(Cliente.IdTipoCliente);
+     
         $("#txtDocumento").val(Cliente.Documento);
         $("#txtNombre").val(Cliente.Nombre);
-        $("#txtApellido").val(Cliente.Apellido);
-        $("#txtFechaNacimiento").val(Cliente.FechaNacimiento);
+        $("#txtApellido").val(Cliente.Apellido);      
         $("#txtDireccion").val(Cliente.Direccion);
-        $("#txtTelefono").val(Cliente.Telefono);
-        $("#txtCorreoElectronico").val(Cliente.CorreoElectronico);
+        $("#txtCorreoElectronico").val(Cliente.Correo);
+        $("#txtTelefono").val(Cliente.Telefono);      
+        $("#txtFechaNacimiento").val(Cliente.FechaNacimiento);
+        $("#txtIdTipoCliente").val(Cliente.IdTipoCliente);
     }
     else {
         $("#dvMensaje").html("No se encontro el cliente");
@@ -30,16 +30,16 @@ async function Search() {
 }
 
 class Cliente {
-    constructor(IdTipoCliente, Documento, Nombre, Apellido, FechaNacimiento , Direccion, Telefono, CorreoElectronico) {
-        this.IdTipoCliente = IdTipoCliente;
+    constructor(Documento, Nombre, Apellido, Direccion, Correo, Telefono, FechaNacimiento, IdTipoCliente) {
+        
         this.Documento = Documento;
         this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.FechaNacimiento = FechaNacimiento;
-        this.Direccion = Direccion;
+        this.Apellido = Apellido;    
+        this.Direccion = Direccion;       
+        this.Correo = Correo;
         this.Telefono = Telefono;
-        this.CorreoElectronico = CorreoElectronico;
-
+        this.FechaNacimiento = FechaNacimiento;
+        this.IdTipoCliente = IdTipoCliente;
     }
 }
 

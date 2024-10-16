@@ -22,15 +22,15 @@ namespace VentaVehiculos.Clases
             {
                 Administrador _admin = BuscarAdmin(admin.Documento);
 
-                if (_admin.Documento == null)
+                if (_admin == null)
                 {
-                    dbVentaVehiculos.Administradors.Add(_admin);
+                    dbVentaVehiculos.Administradors.Add(admin);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Administrador " + _admin.Nombre + " ha sido creado exitosamente";
+                    return "El Administrador " + admin.Nombre + " ha sido creado exitosamente";
                 }
                 else
                 {
-                    return "El documento " + _admin.Documento + " ya esta asociado a un administrador";
+                    return "El documento " + admin.Documento + " ya esta asociado a un administrador";
                 }
             }
             catch (Exception ex)
@@ -47,11 +47,11 @@ namespace VentaVehiculos.Clases
                 //We use AddorUpdate method that allows us to update the user information
                 Administrador _admin = BuscarAdmin(admin.Documento);
 
-                if (_admin.Documento != null)
+                if (_admin != null)
                 {
-                    dbVentaVehiculos.Administradors.AddOrUpdate(_admin);
+                    dbVentaVehiculos.Administradors.AddOrUpdate(admin);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Administrador " + _admin.Nombre + " se ha actualizado exitosamente";
+                    return "El Administrador " + admin.Nombre + " se ha actualizado exitosamente";
                 }
                 else
                 {
@@ -76,11 +76,11 @@ namespace VentaVehiculos.Clases
                 //We use Search method that we created to allow us searching for the user id we want to delete
                 Administrador _admin = BuscarAdmin(admin.Documento);
 
-                if (_admin.Documento != null)
+                if (_admin != null)
                 {
                     dbVentaVehiculos.Administradors.Remove(_admin);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Administrador " + _admin.Nombre + " se ha eliminado exitosamente";
+                    return "El Administrador " + admin.Nombre + " se ha eliminado exitosamente";
                 }
                 else
                 {

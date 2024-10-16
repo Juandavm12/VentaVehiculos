@@ -21,15 +21,15 @@ namespace VentaVehiculos.Clases
             {
                 Vehiculo _vehiculo = BuscarVehiculo(vehiculo.Placa);
 
-                if (_vehiculo.Placa == null)
+                if (_vehiculo == null)
                 {
-                    dbVentaVehiculos.Vehiculoes.Add(_vehiculo);
+                    dbVentaVehiculos.Vehiculoes.Add(vehiculo);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Vehiculo " + _vehiculo.Marca + " con placas " + _vehiculo.Placa + " ha sido creado exitosamente";
+                    return "El Vehiculo " + vehiculo.Marca + " con placas " + vehiculo.Placa + " ha sido creado exitosamente";
                 }
                 else
                 {
-                    return "La placa " + _vehiculo.Placa + " ya esta asociada a un vehiculo";
+                    return "La placa " + vehiculo.Placa + " ya esta asociada a un vehiculo";
                 }
             }
             catch (Exception ex)
@@ -46,11 +46,11 @@ namespace VentaVehiculos.Clases
                 //We use AddorUpdate method that allows us to update the user information
                 Vehiculo _vehiculo = BuscarVehiculo(vehiculo.Placa);
 
-                if (_vehiculo.Placa != null)
+                if (_vehiculo != null)
                 {
-                    dbVentaVehiculos.Vehiculoes.AddOrUpdate(_vehiculo);
+                    dbVentaVehiculos.Vehiculoes.AddOrUpdate(vehiculo);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Vehiculo con placas " + _vehiculo.Placa + " se ha actualizado exitosamente";
+                    return "El Vehiculo con placas " + vehiculo.Placa + " se ha actualizado exitosamente";
                 }
                 else
                 {
@@ -80,7 +80,7 @@ namespace VentaVehiculos.Clases
                 {
                     dbVentaVehiculos.Vehiculoes.Remove(_vehiculo);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Vehiculo con placas " + _vehiculo.Placa + " se ha eliminado exitosamente";
+                    return "El Vehiculo con placas " + vehiculo.Placa + " se ha eliminado exitosamente";
                 }
                 else
                 {

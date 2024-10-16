@@ -21,15 +21,16 @@ namespace VentaVehiculos.Clases
             {
                 Cliente _cliente = BuscarCliente(cliente.Documento);
 
-                if (_cliente.Documento == null)
+                if (_cliente == null)
                 {
-                    dbVentaVehiculos.Clientes.Add(_cliente);
+                    dbVentaVehiculos.Clientes.Add(cliente);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Cliente " + _cliente.Nombre + " ha sido creado exitosamente";
+                    return "El Cliente " + cliente.Nombre + " ha sido creado exitosamente";
+                     
                 }
                 else
                 {
-                    return "El documento " + _cliente.Documento + " ya esta asociado a un cliente";
+                    return "El documento " + cliente.Documento + " ya esta asociado a un cliente";
                 }
             }
             catch (Exception ex)
@@ -46,11 +47,11 @@ namespace VentaVehiculos.Clases
                 //We use AddorUpdate method that allows us to update the user information
                 Cliente _cliente = BuscarCliente(cliente.Documento);
 
-                if (_cliente.Documento != null)
+                if (_cliente != null)
                 {
-                    dbVentaVehiculos.Clientes.AddOrUpdate(_cliente);
+                    dbVentaVehiculos.Clientes.AddOrUpdate(cliente);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Cliente " + _cliente.Nombre + " se ha actualizado exitosamente";
+                    return "El Cliente " + cliente.Nombre + " se ha actualizado exitosamente";
                 }
                 else
                 {
@@ -76,11 +77,11 @@ namespace VentaVehiculos.Clases
                 //We use Search method that we created to allow us searching for the user id we want to delete
                 Cliente _cliente = BuscarCliente(cliente.Documento);
 
-                if (_cliente.Documento != null)
+                if (_cliente != null)
                 {
                     dbVentaVehiculos.Clientes.Remove(_cliente);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Cliente " + _cliente.Nombre + " con documento " + _cliente.Documento + " ha sido eliminado exitosamente";
+                    return "El Cliente " + cliente.Nombre + " con documento " + cliente.Documento + " ha sido eliminado exitosamente";
                 }
                 else
                 {

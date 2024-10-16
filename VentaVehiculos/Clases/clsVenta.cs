@@ -36,15 +36,15 @@ namespace VentaVehiculos.Clases
             {
                 Venta _venta = BuscarVenta(venta.Codigo);
 
-                if (_venta.Codigo.Equals(null))
+                if (_venta == null)
                 {
                     return "La Venta que intenta actualizar no existe";
                 }
                 else
                 {
-                    dbVentaVehiculos.Ventas.AddOrUpdate(_venta);
+                    dbVentaVehiculos.Ventas.AddOrUpdate(venta);
                     dbVentaVehiculos.SaveChanges();
-                    return "La Venta " + _venta.Codigo + " ha sido actualizada exitosamente";
+                    return "La Venta " + venta.Codigo + " ha sido actualizada exitosamente";
                 }
             }
             catch (Exception ex)
@@ -65,7 +65,7 @@ namespace VentaVehiculos.Clases
             {
                 Venta _venta = BuscarVenta(venta.Codigo);
 
-                if (_venta.Codigo.Equals(null))
+                if (_venta == null)
                 {
                     return "La Venta que intenta eliminar no existe";
                 }
@@ -73,7 +73,7 @@ namespace VentaVehiculos.Clases
                 {        
                     dbVentaVehiculos.Ventas.Remove(_venta);
                     dbVentaVehiculos.SaveChanges();
-                    return "La Venta " + _venta.Codigo + " de " + admin.Nombre + " ha sido eliminada exitosamente";
+                    return "La Venta " + venta.Codigo + " de " + admin.Nombre + " ha sido eliminada exitosamente";
                 }
 
             }
