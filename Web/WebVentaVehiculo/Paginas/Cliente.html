@@ -33,6 +33,17 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
+                                                    <label for="txtIdTipoCliente">Tipo de Cliente</label>
+                                                    <select class="form-control" id="txtIdTipoCliente">
+                                                        <option value="" disabled selected>Tipo de Cliente</option>
+                                                        <option value="1">Estandar</option>
+                                                        <option value="2">VIP</option>
+                                                        <option value="3">Premiun</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
                                                     <label for="txtDocumento">Documento</label>
                                                     <input type="text" class="form-control" id="txtDocumento" placeholder="Documento">
                                                 </div>
@@ -49,18 +60,18 @@
                                                     <input type="text" class="form-control" id="txtApellido" placeholder="Apellido">
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtEdad">Edad</label>
-                                                    <input type="text" class="form-control" id="txtEdad" placeholder="Edad">
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtDireccion">Direccion</label>
-                                                    <input type="text" class="form-control" id="txtDireccion" placeholder="Direccion">
+                                                    <label for="txtFechaNacimiento">Fecha de Nacimiento</label>
+                                                    <input type="date" class="form-control" id="txtFechaNacimiento" placeholder="Fecha de Nacimiento">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtDireccion">Dirección</label>
+                                                    <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -75,12 +86,6 @@
                                                     <input type="text" class="form-control" id="txtCorreoElectronico" placeholder="Correo Electronico">
                                                 </div>
                                             </div>
-                                            <!--<div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtContraseña">Contraseña</label>
-                                                    <input type="password" class="form-control" id="txtContraseña" placeholder="Ingresa Contraseña">
-                                                </div>
-                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -92,19 +97,19 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick = "AddTicket()">INSERTAR</button>
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','Add')">INSERTAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick = "Update()">ACTUALIZAR</button>
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','Update')">ACTUALIZAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick = "Delete()">ELIMINAR</button>
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','Delete')">ELIMINAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick = "Search()">CONSULTAR</button>
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="Search()">CONSULTAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -121,6 +126,7 @@
     </section>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/Comunes/CRUD.js"></script>
     <script src="Scripts/Cliente.js"></script>
 </body>
 </html>
