@@ -4,9 +4,6 @@
 });
 
 async function ExecuteCommandService(Method, URlService, Object) {
-    const cliente = new Cliente($("#txtTipoCliente").val(), $("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("txtFechaNacimiento").val(),
-        $("#txtDireccion").val(), $("#txtTelefono").val(), $("#txtCorreoElectronico").val());
-
     try {
         const Response = await fetch(URlService,
             {
