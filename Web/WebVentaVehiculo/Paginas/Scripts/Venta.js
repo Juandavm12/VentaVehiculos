@@ -18,9 +18,9 @@ async function BuscarVenta() {
     URL = "https://localhost:44337/api/Ventas/VentaxCodigo?Codigo=" + Codigo;
 
     //invoco el servicio generico 
-    const venta = await SearchService(URL);
+    const Venta = await SearchService(URL);
 
-    if (venta != null) {
+    if (Venta != null) {
 
         $("#txtCodigo").val(Venta.Codigo);
         $("#txtDocCliente").val(Venta.DocCliente);

@@ -14,7 +14,6 @@ namespace VentaVehiculos.Clases
 
         //Objeto de la tabla usuario
         public Venta venta { get; set; }
-        public Administrador admin { get; set; }
 
         public string InsertarVenta()
         {
@@ -22,7 +21,7 @@ namespace VentaVehiculos.Clases
             {
                 dbVentaVehiculos.Ventas.Add(venta);
                 dbVentaVehiculos.SaveChanges();
-                return "Se ha registrado una venta por " + admin.Nombre + " en la fecha " + venta.Fecha;
+                return "Se ha registrado una venta el dia " + venta.Fecha;
             }
             catch (Exception ex)
             {
@@ -73,7 +72,7 @@ namespace VentaVehiculos.Clases
                 {        
                     dbVentaVehiculos.Ventas.Remove(_venta);
                     dbVentaVehiculos.SaveChanges();
-                    return "La Venta " + venta.Codigo + " de " + admin.Nombre + " ha sido eliminada exitosamente";
+                    return "La Venta " + venta.Codigo + " ha sido eliminada exitosamente";
                 }
 
             }

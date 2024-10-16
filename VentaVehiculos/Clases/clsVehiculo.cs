@@ -25,11 +25,11 @@ namespace VentaVehiculos.Clases
                 {
                     dbVentaVehiculos.Vehiculoes.Add(vehiculo);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Vehiculo " + vehiculo.Marca + " con placas " + vehiculo.Placa + " ha sido creado exitosamente";
+                    return "El Vehiculo con Placas " + vehiculo.Placa + " ha sido creado exitosamente";
                 }
                 else
                 {
-                    return "La placa " + vehiculo.Placa + " ya esta asociada a un vehiculo";
+                    return "La Placa " + vehiculo.Placa + " ya esta asociada a un Vehiculo";
                 }
             }
             catch (Exception ex)
