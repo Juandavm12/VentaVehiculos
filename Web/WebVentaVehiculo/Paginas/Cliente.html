@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
     <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+
+    <!--Estilos para las tablas-->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -77,12 +82,9 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdTipoCliente">Tipo de Cliente</label>
-                                                    <select class="form-control" id="txtIdTipoCliente">
-                                                        <option value="" disabled selected>Tipo de Cliente</option>
-                                                        <option value="1">Estandar</option>
-                                                        <option value="2">VIP</option>
-                                                        <option value="3">Premiun</option>
+                                                    <label for="cboTipoCliente">Tipo de Cliente</label>
+                                                    <select id="cboTipoCliente" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -113,6 +115,24 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="tblCliente" class="table table-bordered table-striped" style="width:100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Documento</th>
+                                                        <th>Nombre</th>
+                                                        <th>Apellido</th>
+                                                        <th>Direccion</th>
+                                                        <th>Email</th>
+                                                        <th>Telefono</th>
+                                                        <th>Membresia</th>
+                                                        <th>Descuento</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -126,6 +146,13 @@
     </section>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
+
+    <!--Tables-->
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.js"></script>
+
+    <!--Archivos Comunes-->
+    <script src="Scripts/Index.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
     <script src="Scripts/Cliente.js"></script>
 </body>

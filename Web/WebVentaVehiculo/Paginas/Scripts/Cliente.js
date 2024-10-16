@@ -1,4 +1,15 @@
-﻿
+﻿jQuery(function () {
+
+    //Al iniciar la pagina se llena el combo de TipoCliente
+    LlenarComboxServicios("https://localhost:44337/api/TipoClientes/TipoClienteCombo", "#cboTipoCliente");
+    LlenarTablaCliente();
+
+});
+
+function LlenarTablaCliente() {
+    LlenarTablaxServicios("https://localhost:44337/api/Clientes/LlenarTablaCliente", "#tblCliente");
+}
+
 async function Execute(Method, Function) {
     const cliente = new Cliente($("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtDireccion").val(),
         $("#txtCorreo").val(), $("#txtTelefono").val(), $("#txtFechaNacimiento").val(), $("#txtIdTipoCliente").val());
@@ -27,6 +38,8 @@ async function BuscarCliente() {
         $("#dvMensaje").html("No se encontro el cliente");
     }
 }
+
+LlenarComboxServicios("https://localhost:44337/api/TipoClientes/TipoClienteCombo", "#cboTipoCliente");
 
 class Cliente {
     constructor(Documento, Nombre, Apellido, Direccion, Correo, Telefono, FechaNacimiento, IdTipoCliente) {

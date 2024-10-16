@@ -58,8 +58,40 @@ async function LlenarComboxServicios(URLServicio, ComboLlenar) {
 
         //Se recorre un ciclo para llenar el select con la informacion
         for (i = 0; i < Rpta.length; i++) {
-            $(ComboLlenar).append('<option value=' + Rpta[i].Documento + '>' + Rpta[i].Nombre + '</option>');
+            $(ComboLlenar).append('<option value=' + Rpta[i].Id + '>' + Rpta[i].Membresia + '</option>');
         }
+    }
+    catch (error) {
+        $("#dvMensaje").html(error);
+    }
+}
+
+async function LlenarTablaxServicios(URLServicio, TablaLlenar) {
+    try {
+        const Respuesta = await fetch(URLServicio,
+            {
+                method: "GET",
+                mode: "cors",
+                headers: { "Content-Type": "application/json" }
+            });
+        const Rpta = await Respuesta.json();
+
+        //Llenar el encabezado
+        var Columnas = [];
+        NombreColumnas = Object.keys(Rpta[0]);
+        for (var i in NombreColumnas) {
+            Columnas.push({
+                data: NombreColumnas[i],
+                title: NombreColumnas[i]
+            });
+        }
+
+        //Llenar los datos
+        $(TablaLlenar).DataTable({
+            data: Rpta,
+            columns: Columnas,
+            destroy: true
+        });
     }
     catch (error) {
         $("#dvMensaje").html(error);
