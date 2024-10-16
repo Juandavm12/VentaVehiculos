@@ -6,9 +6,9 @@ async function Execute(Method, Function) {
     ExecuteCommandService(Method, URL, cliente);
 }
 
-async function Search() {
+async function BuscarCliente() {
     let Documento = $("#txtDocumento").val();
-    URl = "https://localhost:44337/api/Clientes/SearchxDocument?Documento=" + Documento;
+    URl = "https://localhost:44337/api/Clientes/BuscarxDocumento?Documento=" + Documento;
 
     //invoco el servicio generico 
     const cliente = await SearchService(URL);
