@@ -1,27 +1,26 @@
 ﻿
 async function Execute(Method, Function) {
     const cliente = new Cliente($("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtDireccion").val(),
-        $("#txtCorreo").val(), $("#txtTelefono").val(), $("txtFechaNacimiento").val(), $("#txtIdTipoCliente").val());
-    let URl = "https://localhost:44337/api/Clientes/" + Function; 
+        $("#txtCorreo").val(), $("#txtTelefono").val(), $("#txtFechaNacimiento").val(), $("#txtIdTipoCliente").val());
+    let URL = "https://localhost:44337/api/Clientes/" + Function; 
     ExecuteCommandService(Method, URL, cliente);
 }
 
 async function BuscarCliente() {
     let Documento = $("#txtDocumento").val();
-    URl = "https://localhost:44337/api/Clientes/BuscarxDocumento?Documento=" + Documento;
+    URL = "https://localhost:44337/api/Clientes/BuscarxDocumento?Documento=" + Documento;
 
     //invoco el servicio generico 
-    const cliente = await SearchService(URL);
+    const Cliente = await SearchService(URL);
 
-    if (cliente != null) { 
+    if (Cliente != null) { 
      
-        $("#txtDocumento").val(Cliente.Documento);
         $("#txtNombre").val(Cliente.Nombre);
         $("#txtApellido").val(Cliente.Apellido);      
         $("#txtDireccion").val(Cliente.Direccion);
-        $("#txtCorreoElectronico").val(Cliente.Correo);
-        $("#txtTelefono").val(Cliente.Telefono);      
-        $("#txtFechaNacimiento").val(Cliente.FechaNacimiento);
+        $("#txtCorreo").val(Cliente.Correo);
+        $("#txtTelefono").val(Cliente.Telefono);  
+        $("#txtFechaNacimiento").val(Cliente.FechaNacimiento.split('T')[0]);
         $("#txtIdTipoCliente").val(Cliente.IdTipoCliente);
     }
     else {
