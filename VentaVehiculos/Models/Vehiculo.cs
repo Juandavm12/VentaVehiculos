@@ -9,6 +9,7 @@
 
 namespace VentaVehiculos.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -29,14 +30,23 @@ namespace VentaVehiculos.Models
         public int Kilometraje { get; set; }
         public int CodEstadoVehiculo { get; set; }
         public int CodTipoVehiculo { get; set; }
-    
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CitaTaller> CitaTallers { get; set; }
+
+        [JsonIgnore]
         public virtual EstadoVehiculo EstadoVehiculo { get; set; }
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Facturas { get; set; }
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServicioTaller> ServicioTallers { get; set; }
+
+        [JsonIgnore]
         public virtual TipoVehiculo TipoVehiculo { get; set; }
     }
 }

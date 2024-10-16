@@ -15,7 +15,7 @@ namespace VentaVehiculos.Controllers
     public class ClientesController : ApiController
     {
         [HttpPost]
-        [Route("InsertarClient")]
+        [Route("InsertarCliente")]
         public string InsertarCliente([FromBody] Cliente Cliente)
         {
             //To call AuthClient from Cliente class, we create a type clsCliente object
@@ -50,11 +50,11 @@ namespace VentaVehiculos.Controllers
 
         [HttpGet]
         [Route("BuscarxDocumento")]
-        public Cliente BuscarCliente(string Cliente)
+        public Cliente BuscarCliente(string Documento)
         {
             //To call Search from Cliente class, we create a type clsCliente object
             clsCliente _cliente = new clsCliente();
-            return _cliente.BuscarCliente(Cliente);
+            return _cliente.BuscarCliente(Documento);
         }
 
         [HttpGet]

@@ -15,7 +15,7 @@ namespace VentaVehiculos.Controllers
     public class TipoClientesController : ApiController
     {
         [HttpGet]
-        [Route("TipoClientCombo")]
+        [Route("TipoClienteCombo")]
         public List<TipoCliente> TipoClienteCombo()
         {
             clsTipoCliente tipoCliente = new clsTipoCliente();

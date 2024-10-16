@@ -11,21 +11,27 @@ namespace VentaVehiculos.Clases
     public class clsAdministrador 
     {
         //Atributo DbVentaVehiculos
-        VentaVehiculosEntities2 dbVentaVehiculos = new VentaVehiculosEntities2();
+        VentaVehiculosEntities dbVentaVehiculos = new VentaVehiculosEntities();
 
         //Objeto de la tabla usuario
-        public Administradore obj { get; set; }
+        public Administrador admin { get; set; }
 
-        public string AddAdmin()
+        public string InsertarAdmin()
         {
             try
             {
-                //Add method and Usuario data call
-                dbVentaVehiculos.Administradores.Add(obj);
+                Administrador _admin = BuscarAdmin(admin.Documento);
 
-                //SaveChanges method call to save the client in the database
-                dbVentaVehiculos.SaveChanges();
-                return "El Admin " + obj.nombre + " con documento " + obj.documento + " ha sido creado exitosamente";
+                if (_admin.Documento == null)
+                {
+                    dbVentaVehiculos.Administradors.Add(_admin);
+                    dbVentaVehiculos.SaveChanges();
+                    return "El Administrador " + _admin.Nombre + " ha sido creado exitosamente";
+                }
+                else
+                {
+                    return "El documento " + _admin.Documento + " ya esta asociado a un administrador";
+                }
             }
             catch (Exception ex)
             {
@@ -34,15 +40,23 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public string UpdateAdmin()
+        public string ActualizarAdmin()
         {
             try
             {
                 //We use AddorUpdate method that allows us to update the user information
-                dbVentaVehiculos.Administradores.AddOrUpdate(obj);
+                Administrador _admin = BuscarAdmin(admin.Documento);
 
-                dbVentaVehiculos.SaveChanges();
-                return "El Admin ha sido actualizado exitosamente";
+                if (_admin.Documento != null)
+                {
+                    dbVentaVehiculos.Administradors.AddOrUpdate(_admin);
+                    dbVentaVehiculos.SaveChanges();
+                    return "El Administrador " + _admin.Nombre + " se ha actualizado exitosamente";
+                }
+                else
+                {
+                    return "El Administrador que intenta actualizar no existe";
+                }
             }
             catch (Exception ex)
             {
@@ -50,49 +64,29 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public Administradore SearchAdmin(string documento)
+        public Administrador BuscarAdmin(string documento)
         {
-            //We use lambda to take the object type we are using
-            return dbVentaVehiculos.Administradores.FirstOrDefault(x => x.documento == documento);
+            return dbVentaVehiculos.Administradors.FirstOrDefault(x => x.Documento == documento);
         }
 
-        public string DeleteAdmin()
+        public string EliminarAdmin()
         {
             try
             {
                 //We use Search method that we created to allow us searching for the user id we want to delete
-                Administradore _obj = SearchAdmin(obj.documento);
+                Administrador _admin = BuscarAdmin(admin.Documento);
 
-                if (_obj.documento != null)
+                if (_admin.Documento != null)
                 {
-                    dbVentaVehiculos.Administradores.Remove(_obj);
+                    dbVentaVehiculos.Administradors.Remove(_admin);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Admin " + obj.nombre + " con documento " + obj.documento + " ha sido eliminado exitosamente";
+                    return "El Administrador " + _admin.Nombre + " se ha eliminado exitosamente";
                 }
                 else
                 {
-                    return "El Admin que intenta eliminar no existe";
+                    return "El Administrador que intenta eliminar no existe";
                 }
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
 
-        public string AuthAdmin(Administradore newadmin)
-        {
-            try
-            {
-                SearchAdmin(obj.documento);
-                if (newadmin.documento.Equals(obj.documento))
-                {
-                    return "El admin con el documento " + obj.documento + " ya existe";
-                }
-                else
-                {
-                    return AddAdmin();
-                }
             }
             catch (Exception ex)
             {
