@@ -9,23 +9,23 @@
 
 async function Execute(Method, Function) {
     const venta = new Venta($("#txtCodigo").val(), $("#txtDocCliente").val(), $("#txtDocAdmin").val(), $("#txtFecha").val());
-    let URl = "https://localhost:44337/api/Ventas/" + Function;
+    let URL = "https://localhost:44337/api/Ventas/" + Function;
     ExecuteCommandService(Method, URL, venta);
 }
 
 async function BuscarVenta() {
     let Codigo = $("#txtCodigo").val();
-    URl = "https://localhost:44337/api/Ventas/VentaxCodigo?Codigo=" + Codigo;
+    URL = "https://localhost:44337/api/Ventas/VentaxCodigo?Codigo=" + Codigo;
 
     //invoco el servicio generico 
-    const Codigo = await SearchService(URL);
+    const venta = await SearchService(URL);
 
     if (venta != null) {
 
         $("#txtCodigo").val(Venta.Codigo);
         $("#txtDocCliente").val(Venta.DocCliente);
         $("#txtDocAdmin").val(Venta.DocAdmin);
-        $("#txtFecha").val(Venta.Fecha);
+        $("#txtFecha").val(Venta.Fecha.split('T')[0]);
     }
     else {
 
