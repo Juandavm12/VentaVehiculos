@@ -1,4 +1,13 @@
-﻿
+﻿jQuery(function () {
+
+    LlenarTablaCliente();
+
+});
+
+function LlenarTablaCliente() {
+    LlenarTablaxServicios("https://localhost:44337/api/Vehiculos/LlenarTablaVehiculo", "#tblVehiculo");
+}
+
 class Vehiculo {
 
     constructor(CodTipoVehiculo, Placa, Marca, Modelo, Precio, Kilometraje, CodEstadoVehiculo) {
