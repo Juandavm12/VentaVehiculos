@@ -93,5 +93,24 @@ namespace VentaVehiculos.Clases
                 return ex.Message;
             }
         }
+
+        public IQueryable LlenarTablaAdmin()
+        {
+            return from A in dbVentaVehiculos.Set<Administrador>()
+                   //join  in dbVentaVehiculos.Set<>()
+                   //on A.Cargo equals 
+                   //orderby 
+                   select new
+                   {
+                       Documento = C.Documento,
+                       Nombre = C.Nombre,
+                       Apellido = C.Apellido,
+                       Direccion = C.Direccion,
+                       Email = C.Correo,
+                       Telefono = C.Telefono,
+                       Cargo = C.Cargo,
+                   };
+        }
     }
+}
 }
