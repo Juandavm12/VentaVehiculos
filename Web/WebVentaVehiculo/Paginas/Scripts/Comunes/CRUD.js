@@ -1,4 +1,9 @@
-﻿async function ExecuteCommandService(Method, URLService, Object) {
+﻿jQuery(function () {
+    //Registrar los botones para responder al evento click
+    $("#dvMenu").load("../Paginas/Menu.html")
+});
+
+async function ExecuteCommandService(Method, URLService, Object) {
     try {
         const Response = await fetch(URLService,
             {
