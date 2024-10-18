@@ -8,7 +8,7 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
     <link href="Estilos/adminlte.min.css" rel="stylesheet" />
@@ -27,38 +27,38 @@
                 </div>
                 <div class="col-md-12">
                     <div class="card card-primary">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color: #0096C7; color: #ffffff;">
                             <h3 class="card-title">CLIENTES</h3>
                         </div>
                         <form id="frmIncapacidades">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
-                                    <div class="card-header">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">DATOS DEL CLIENTE</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtDocumento">Documento</label>
+                                                    <label for="txtDocumento"><i class="fas fa-id-card"></i> Documento</label>
                                                     <input type="text" class="form-control" id="txtDocumento" placeholder="Documento">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtNombre">Nombre</label>
+                                                    <label for="txtNombre"><i class="fas fa-user"></i> Nombre</label>
                                                     <input type="text" class="form-control" id="txtNombre" placeholder="Nombre">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtApellido">Apellido</label>
+                                                    <label for="txtApellido"><i class="fas fa-user-tag"></i> Apellido</label>
                                                     <input type="text" class="form-control" id="txtApellido" placeholder="Apellido">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtDireccion">Dirección</label>
+                                                    <label for="txtDireccion"><i class="fas fa-map-marker-alt"></i> Dirección</label>
                                                     <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
                                                 </div>
                                             </div>
@@ -66,25 +66,25 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCorreo">Correo Electronico</label>
+                                                    <label for="txtCorreo"><i class="fas fa-envelope"></i> Correo Electronico</label>
                                                     <input type="text" class="form-control" id="txtCorreo" placeholder="Correo Electronico">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtTelefono">Telefono</label>
+                                                    <label for="txtTelefono"><i class="fas fa-phone"></i> Telefono</label>
                                                     <input type="text" class="form-control" id="txtTelefono" placeholder="Telefono">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtFechaNacimiento">Fecha de Nacimiento</label>
+                                                    <label for="txtFechaNacimiento"><i class="fas fa-calendar-alt"></i> Fecha de Nacimiento</label>
                                                     <input type="date" class="form-control" id="txtFechaNacimiento" placeholder="Fecha de Nacimiento">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="cboTipoCliente">Tipo de Cliente</label>
+                                                    <label for="cboTipoCliente"><i class="fa-solid fa-address-book"></i> Tipo de Cliente</label>
                                                     <select id="cboTipoCliente" class="form-control">
                                                         <option value="0">SELECCIONAR</option>
                                                     </select>
@@ -94,32 +94,34 @@
                                     </div>
                                 </div>
                                 <div class="card card-danger">
-                                    <div class="card-header">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">PROCESO</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarCliente')">
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
+                                                        onclick="Execute('POST','InsertarCliente')">
                                                     <i class="fas fa-plus"></i> INSERTAR
                                                 </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarCliente')">
-                                                    <i class="fas fa-edit"></i> ACTUALIZAR
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
+                                                    onclick="Execute('PUT','ActualizarCliente')"><i class="fas fa-edit"></i> ACTUALIZAR
                                                 </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarCliente')">
-                                                    <i class="fas fa-trash-alt"></i>  ELIMINAR
+                                                    <button type="button" id="btnEliminar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;" 
+                                                    onclick="Execute('DELETE','EliminarCliente')"><i class="fas fa-trash-alt"></i>  ELIMINAR
                                                 </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarCliente()">
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"
+                                                        onclick="BuscarCliente()">
                                                     <i class="fas fa-search"></i> CONSULTAR
                                                 </button>
                                             </div>

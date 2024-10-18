@@ -8,6 +8,8 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
     <link href="Estilos/adminlte.min.css" rel="stylesheet" />
 
@@ -25,44 +27,44 @@
                 </div>
                 <div class="col-md-12">
                     <div class="card card-primary">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color: #0096C7; color: #ffffff;">
                             <h3 class="card-title">NUESTROS VEHÍCULOS</h3>
                         </div>
                         <form id="frmVehiculos">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
-                                    <div class="card-header">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">DATOS DEL VEHÍCULO</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="txtCodTipoVehiculo">Tipo Vehículo</label>
-                                                        <select class="form-control" id="txtCodTipoVehiculo">
-                                                            <option value="" disabled selected>Seleccionar Vehiculo</option>
-                                                            <option value="1">Automovil</option>
-                                                            <option value="2">Moto</option>
-                                                            <option value="1">Camioneta</option>
-                                                            <option value="2">Bus</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtPlaca">Placa del Vehículo</label>
+                                                    <label for="txtCodTipoVehiculo"><i class="fas fa-car"></i> Tipo Vehículo</label>
+                                                    <select class="form-control" id="txtCodTipoVehiculo">
+                                                        <option value="" disabled selected>Seleccionar Vehículo</option>
+                                                        <option value="1">Automóvil</option>
+                                                        <option value="2">Moto</option>
+                                                        <option value="3">Camioneta</option>
+                                                        <option value="4">Bus</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtPlaca"><i class="fas fa-id-card"></i> Placa del Vehículo</label>
                                                     <input type="text" class="form-control" id="txtPlaca" placeholder="Placa del Vehículo">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtMarca">Marca</label>
+                                                    <label for="txtMarca"><i class="fas fa-tag"></i> Marca</label>
                                                     <input type="text" class="form-control" id="txtMarca" placeholder="Marca">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtModelo">Modelo</label>
+                                                    <label for="txtModelo"><i class="fas fa-calendar-alt"></i> Modelo</label>
                                                     <input type="text" class="form-control" id="txtModelo" placeholder="Modelo">
                                                 </div>
                                             </div>
@@ -70,19 +72,19 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtPrecio">Precio</label>
+                                                    <label for="txtPrecio"><i class="fas fa-dollar-sign"></i> Precio</label>
                                                     <input type="text" class="form-control" id="txtPrecio" placeholder="Precio">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtKilometraje">Kilometraje</label>
+                                                    <label for="txtKilometraje"><i class="fas fa-tachometer-alt"></i> Kilometraje</label>
                                                     <input type="text" class="form-control" id="txtKilometraje" placeholder="Kilometraje">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCodEstadoVehiculo">Estado del Vehículo</label>
+                                                    <label for="txtCodEstadoVehiculo"><i class="fas fa-info-circle"></i> Estado del Vehículo</label>
                                                     <select class="form-control" id="txtCodEstadoVehiculo">
                                                         <option value="" disabled selected>Seleccionar Estado</option>
                                                         <option value="Nuevo">Nuevo</option>
@@ -92,35 +94,36 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="card card-danger">
-                                    <div class="card-header">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">PROCESO</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarVehiculo')">
-                                                    <i class="fas fa-plus"></i> INSERTAR
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
+                                                    onclick="Execute('POST','InsertarVehiculo')"><i class="fas fa-plus"></i> INSERTAR
                                                 </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarVehiculo')">
-                                                    <i class="fas fa-edit"></i> ACTUALIZAR
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
+                                                    onclick="Execute('PUT','ActualizarVehiculo')"><i class="fas fa-edit"></i> ACTUALIZAR
                                                 </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarVehiculo')">
-                                                    <i class="fas fa-trash-alt"></i>  ELIMINAR
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;"
+                                                    onclick="Execute('DELETE','EliminarVehiculo')"><i class="fas fa-trash-alt"></i>  ELIMINAR
                                                 </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarVehiculo()">
-                                                    <i class="fas fa-search"></i> CONSULTAR
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"
+                                                    onclick="BuscarVehiculo()"><i class="fas fa-search"></i> CONSULTAR
                                                 </button>
                                             </div>
                                         </div>
