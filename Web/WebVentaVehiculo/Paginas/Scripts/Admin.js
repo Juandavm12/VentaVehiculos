@@ -38,5 +38,16 @@ async function BuscarAdmin() {
     }
     else {
         $("#dvMensaje").html("No se encontro el Administrador");
+        $("#txtNombre").val("");
+        $("#txtApellido").val("");
+        $("#txtDireccion").val("");
+        $("#txtCorreo").val("");
+        $("#txtTelefono").val("");
+        $("#txtFechaNacimiento").val("");
+        $("#txtCargo").val("");
     }
+}
+
+function LlenarTablaAdmin() {
+    LlenarTablaxServicios("https://localhost:44337/api/Clientes/LlenarTablaCliente", "#tblAdmin");
 }

@@ -52,5 +52,14 @@ namespace VentaVehiculos.Controllers
             clsAdministrador _admin = new clsAdministrador();
             return _admin.BuscarAdmin(Documento);
         }
+
+        [HttpGet]
+        [Route("LlenarTablaAdmin")]
+        public IQueryable LlenarTablaAdmin()
+        {
+
+            clsAdministrador _admin = new clsAdministrador();
+            return _admin.LlenarTablaAdmin();
+        }
     }
 }
