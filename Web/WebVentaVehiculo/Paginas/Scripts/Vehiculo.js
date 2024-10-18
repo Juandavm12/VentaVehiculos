@@ -1,4 +1,13 @@
-﻿
+﻿jQuery(function () {
+
+    LlenarTablaVehiculo();
+});
+
+function LlenarTablaVehiculo() {
+
+    LlenarTablaxServicios("https://localhost:44337/api/Vehiculos/LlenarTablaVehiculo", "#tblVehiculo");
+}
+
 class Vehiculo {
 
     constructor(CodTipoVehiculo, Placa, Marca, Modelo, Precio, Kilometraje, CodEstadoVehiculo) {
@@ -19,6 +28,7 @@ async function Execute(Method, Function) {
         $("#txtPrecio").val(), $("#txtKilometraje").val(), $("#txtCodEstadoVehiculo").val());
     let URL = "https://localhost:44337/api/Vehiculos/" + Function;
     ExecuteCommandService(Method, URL, vehiculo);
+    LlenarTablaVehiculo();
 }
 
 async function BuscarVehiculo() {

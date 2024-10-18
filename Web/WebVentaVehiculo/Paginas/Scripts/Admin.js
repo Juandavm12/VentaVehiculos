@@ -1,4 +1,13 @@
-﻿class Admin {
+﻿jQuery(function () {
+
+    LlenarTablaAdmin();
+
+});
+
+function LlenarTablaAdmin() {
+    LlenarTablaxServicios("https://localhost:44337/api/Admins/LlenarTablaAdmin", "#tblAdmin");
+}
+class Admin {
     constructor(Documento, Nombre, Apellido, Direccion, Correo, Telefono, FechaNacimiento, Cargo) {
 
         this.Documento = Documento;
@@ -17,6 +26,7 @@ async function Execute(Method, Function) {
         $("#txtCorreo").val(), $("#txtTelefono").val(), $("#txtFechaNacimiento").val(), $("#txtCargo").val());
     let URL = "https://localhost:44337/api/Admins/" + Function;
     ExecuteCommandService(Method, URL, admin);
+    LlenarTablaAdmin();
 }
 
 async function BuscarAdmin() {
@@ -48,6 +58,3 @@ async function BuscarAdmin() {
     }
 }
 
-function LlenarTablaAdmin() {
-    LlenarTablaxServicios("https://localhost:44337/api/Clientes/LlenarTablaCliente", "#tblAdmin");
-}

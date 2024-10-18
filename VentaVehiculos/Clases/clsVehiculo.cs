@@ -93,5 +93,22 @@ namespace VentaVehiculos.Clases
                 return ex.Message;
             }
         }
+
+        //Method IQuearyable
+        public IQueryable LlenarTablaVehiculo()
+        {
+            return from V in dbVentaVehiculos.Set<Vehiculo>()
+                       //join TC in dbVentaVehiculos.Set<TipoCliente>()
+                       //on C.IdTipoCliente equals TC.Id
+                   orderby V.Marca
+                   select new
+                   {
+                       Placa = V.Placa,
+                       Marca = V.Marca,
+                       Modelo = V.Modelo,
+                       Precio = V.Precio,
+                       Kilometraje = V.Kilometraje,
+                   };
+        }
     }
 }

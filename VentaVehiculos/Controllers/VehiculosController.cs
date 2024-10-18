@@ -52,5 +52,13 @@ namespace VentaVehiculos.Controllers
             clsVehiculo _vehiculo = new clsVehiculo();
             return _vehiculo.BuscarVehiculo(Placa);
         }
+
+        [HttpGet]
+        [Route("LlenarTablaVehiculo")]
+        public IQueryable LlenarTablaVehiculo()
+        {
+            clsVehiculo vehiculo = new clsVehiculo();
+            return vehiculo.LlenarTablaVehiculo();
+        }
     }
 }
