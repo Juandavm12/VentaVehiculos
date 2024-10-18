@@ -36,10 +36,10 @@
                                                         <label for="txtCodTipoVehiculo">Tipo Vehículo</label>
                                                         <select class="form-control" id="txtCodTipoVehiculo">
                                                             <option value="" disabled selected>Seleccionar Vehiculo</option>
-                                                            <option value="1">Automovil</option>
-                                                            <option value="2">Moto</option>
-                                                            <option value="1">Camioneta</option>
-                                                            <option value="2">Bus</option>
+                                                            <option value="Automovil">Automovil</option>
+                                                            <option value="Moto">Moto</option>
+                                                            <option value="Camioneta">Camioneta</option>
+                                                            <option value="Bus">Bus</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -80,8 +80,8 @@
                                                     <label for="txtCodEstadoVehiculo">Estado del Vehículo</label>
                                                     <select class="form-control" id="txtCodEstadoVehiculo">
                                                         <option value="" disabled selected>Seleccionar Estado</option>
-                                                        <option value="1">Nuevo</option>
-                                                        <option value="2">Usado</option>
+                                                        <option value="Nuevo">Nuevo</option>
+                                                        <option value="Usado">Usado</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -96,19 +96,27 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarVehiculo')">INSERTAR</button>
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarVehiculo')">
+                                                    <i class="fas fa-plus"></i> INSERTAR
+                                                </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarVehiculo')">ACTUALIZAR</button>
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarVehiculo')">
+                                                    <i class="fas fa-edit"></i> ACTUALIZAR
+                                                </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarVehiculo')">ELIMINAR</button>
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarVehiculo')">
+                                                    <i class="fas fa-trash-alt"></i>  ELIMINAR
+                                                </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarVehiculo()">CONSULTAR</button>
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarVehiculo()">
+                                                    <i class="fas fa-search"></i> CONSULTAR
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

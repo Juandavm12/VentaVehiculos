@@ -8,6 +8,8 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
     <link href="Estilos/adminlte.min.css" rel="stylesheet" />
 
@@ -99,19 +101,27 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarCliente')">INSERTAR</button>
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarCliente')">
+                                                    <i class="fas fa-plus"></i> INSERTAR
+                                                </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarCliente')">ACTUALIZAR</button>
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarCliente')">
+                                                    <i class="fas fa-edit"></i> ACTUALIZAR
+                                                </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarCliente')">ELIMINAR</button>
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarCliente')">
+                                                    <i class="fas fa-trash-alt"></i>  ELIMINAR
+                                                </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarCliente()">CONSULTAR</button>
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarCliente()">
+                                                    <i class="fas fa-search"></i> CONSULTAR
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
