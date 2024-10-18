@@ -102,15 +102,14 @@ namespace VentaVehiculos.Clases
                    //orderby 
                    select new
                    {
-                       Documento = C.Documento,
-                       Nombre = C.Nombre,
-                       Apellido = C.Apellido,
-                       Direccion = C.Direccion,
-                       Email = C.Correo,
-                       Telefono = C.Telefono,
-                       Cargo = C.Cargo,
+                       Documento = A.Documento,
+                       Nombre = A.Nombre,
+                       Apellido = A.Apellido,
+                       Direccion = A.Direccion,
+                       Email = A.Correo,
+                       Telefono = A.Telefono,
+                       Cargo = A.Cargo,
                    };
         }
     }
-}
 }

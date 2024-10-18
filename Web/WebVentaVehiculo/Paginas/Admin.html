@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
     <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+
+    <!--Estilos para las tablas-->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -50,10 +55,10 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
-                                                 <div class="form-group">
-                                                      <label for="txtDireccion">Dirección</label>
-                                                      <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
-                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="txtDireccion">Dirección</label>
+                                                    <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -143,6 +148,13 @@
     </section>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
+
+    <!--Tables-->
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.js"></script>
+
+    <!--Archivos Comunes-->
+    <script src="Scripts/Index.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
     <script src="Scripts/Admin.js"></script>
 </body>

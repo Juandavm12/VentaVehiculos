@@ -1,10 +1,10 @@
 ﻿jQuery(function () {
 
-    LlenarTablaCliente();
-
+    LlenarTablaVehiculo();
 });
 
-function LlenarTablaCliente() {
+function LlenarTablaVehiculo() {
+
     LlenarTablaxServicios("https://localhost:44337/api/Vehiculos/LlenarTablaVehiculo", "#tblVehiculo");
 }
 
@@ -28,6 +28,7 @@ async function Execute(Method, Function) {
         $("#txtPrecio").val(), $("#txtKilometraje").val(), $("#txtCodEstadoVehiculo").val());
     let URL = "https://localhost:44337/api/Vehiculos/" + Function;
     ExecuteCommandService(Method, URL, vehiculo);
+    LlenarTablaVehiculo();
 }
 
 async function BuscarVehiculo() {

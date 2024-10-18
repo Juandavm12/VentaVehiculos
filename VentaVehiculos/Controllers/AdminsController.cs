@@ -58,8 +58,8 @@ namespace VentaVehiculos.Controllers
         public IQueryable LlenarTablaAdmin()
         {
 
-            clsAdministrador _admin = new clsAdministrador();
-            return _admin.LlenarTablaAdmin();
+            clsAdministrador admin = new clsAdministrador();
+            return admin.LlenarTablaAdmin();
         }
     }
 }
