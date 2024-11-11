@@ -49,7 +49,7 @@ async function BuscarCliente() {
 
 class Cliente {
     constructor(Documento, Nombre, Apellido, Direccion, Correo, Telefono, FechaNacimiento, IdTipoCliente) {
-        
+
         this.Documento = Documento;
         this.Nombre = Nombre;
         this.Apellido = Apellido;    

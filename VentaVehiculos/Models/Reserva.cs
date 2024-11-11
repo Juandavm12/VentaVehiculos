@@ -12,16 +12,17 @@ namespace VentaVehiculos.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CitaTaller
+    public partial class Reserva
     {
         public int Codigo { get; set; }
         public int IdCliente { get; set; }
+        public int IdVendedor { get; set; }
         public int IdVeh { get; set; }
-        public int CodTipoServicio { get; set; }
-        public Nullable<System.DateTime> FechaHora { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public System.DateTime FechaVen { get; set; }
     
-        public virtual TipoServicio TipoServicio { get; set; }
         public virtual Cliente Cliente { get; set; }
         public virtual Vehiculo Vehiculo { get; set; }
+        public virtual Vendedor Vendedor { get; set; }
     }
 }

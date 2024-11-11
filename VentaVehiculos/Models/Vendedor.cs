@@ -9,36 +9,34 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Venta
+    public partial class Vendedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Venta()
+        public Vendedor()
         {
             this.Facturas = new HashSet<Factura>();
-            this.Garantias = new HashSet<Garantia>();
+            this.Reservas = new HashSet<Reserva>();
+            this.Usuarios = new HashSet<Usuario>();
         }
     
-        public int Codigo { get; set; }
-        public string DocCliente { get; set; }
-        public string DocAdmin { get; set; }
-        public System.DateTime Fecha { get; set; }
-
-        [JsonIgnore]
-        public virtual Administrador Administrador { get; set; }
-
-        [JsonIgnore]
-        public virtual Cliente Cliente { get; set; }
-
-        [JsonIgnore]
+        public int Id { get; set; }
+        public string Documento { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Direccion { get; set; }
+        public string Correo { get; set; }
+        public string Telefono { get; set; }
+        public Nullable<System.DateTime> FechaNacimiento { get; set; }
+        public string Cargo { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Facturas { get; set; }
-
-        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Garantia> Garantias { get; set; }
+        public virtual ICollection<Reserva> Reservas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }

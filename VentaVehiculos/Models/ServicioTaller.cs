@@ -9,30 +9,22 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
     public partial class ServicioTaller
     {
         public int Id { get; set; }
-        public string DocCliente { get; set; }
-        public string PlacaVeh { get; set; }
+        public int IdCliente { get; set; }
+        public int IdVeh { get; set; }
         public int CodEstadoServicio { get; set; }
         public int CodTipoServicio { get; set; }
         public System.DateTime Fecha { get; set; }
         public string Comentarios { get; set; }
-
-        [JsonIgnore]
+    
         public virtual Cliente Cliente { get; set; }
-
-        [JsonIgnore]
         public virtual EstadoServicio EstadoServicio { get; set; }
-
-        [JsonIgnore]
         public virtual TipoServicio TipoServicio { get; set; }
-
-        [JsonIgnore]
         public virtual Vehiculo Vehiculo { get; set; }
     }
 }

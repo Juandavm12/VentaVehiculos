@@ -9,22 +9,18 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
     public partial class Garantia
     {
         public int Codigo { get; set; }
-        public int CodVenta { get; set; }
+        public int NumFactura { get; set; }
         public System.DateTime FechaInicio { get; set; }
         public System.DateTime FechaFinal { get; set; }
         public int CodTipoGarantia { get; set; }
-
-        [JsonIgnore]
+    
+        public virtual Factura Factura { get; set; }
         public virtual TipoGarantia TipoGarantia { get; set; }
-
-        [JsonIgnore]
-        public virtual Venta Venta { get; set; }
     }
 }

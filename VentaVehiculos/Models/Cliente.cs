@@ -9,7 +9,6 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -19,10 +18,12 @@ namespace VentaVehiculos.Models
         public Cliente()
         {
             this.CitaTallers = new HashSet<CitaTaller>();
+            this.Facturas = new HashSet<Factura>();
+            this.Reservas = new HashSet<Reserva>();
             this.ServicioTallers = new HashSet<ServicioTaller>();
-            this.Ventas = new HashSet<Venta>();
         }
     
+        public int Id { get; set; }
         public string Documento { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
@@ -31,17 +32,15 @@ namespace VentaVehiculos.Models
         public string Telefono { get; set; }
         public Nullable<System.DateTime> FechaNacimiento { get; set; }
         public Nullable<int> IdTipoCliente { get; set; }
-
-        [JsonIgnore]
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CitaTaller> CitaTallers { get; set; }
-        [JsonIgnore]
         public virtual TipoCliente TipoCliente { get; set; }
-        [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura> Facturas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserva> Reservas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServicioTaller> ServicioTallers { get; set; }
-        [JsonIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

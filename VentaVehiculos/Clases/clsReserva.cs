@@ -7,21 +7,21 @@ using VentaVehiculos.Models;
 
 namespace VentaVehiculos.Clases
 {
-    public class clsVenta
+    public class clsReserva
     {
         //Atributo DbVentaVehiculos
         VentaVehiculosEntities dbVentaVehiculos = new VentaVehiculosEntities();
 
         //Objeto de la tabla usuario
-        public Venta venta { get; set; }
+        public Reserva reserva { get; set; }
 
-        public string InsertarVenta()
+        public string InsertarReserva()
         {
             try
             {
-                dbVentaVehiculos.Ventas.Add(venta);
+                dbVentaVehiculos.Reservas.Add(reserva);
                 dbVentaVehiculos.SaveChanges();
-                return "Se ha registrado una venta el dia " + venta.Fecha;
+                return "Se ha registrado una reserva el dia " + reserva.Fecha;
             }
             catch (Exception ex)
             {
@@ -29,21 +29,21 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public string ActualizarVenta()
+        public string ActualizarReserva()
         {
             try
             {
-                Venta _venta = BuscarVenta(venta.Codigo);
+                Reserva _reserva = BuscarReserva(reserva.Codigo);
 
-                if (_venta == null)
+                if (_reserva == null)
                 {
-                    return "La Venta que intenta actualizar no existe";
+                    return "La reserva que intenta actualizar no existe";
                 }
                 else
                 {
-                    dbVentaVehiculos.Ventas.AddOrUpdate(venta);
+                    dbVentaVehiculos.Reservas.AddOrUpdate(reserva);
                     dbVentaVehiculos.SaveChanges();
-                    return "La Venta " + venta.Codigo + " ha sido actualizada exitosamente";
+                    return "La Reserva " + reserva.Codigo + " ha sido actualizada exitosamente";
                 }
             }
             catch (Exception ex)
@@ -52,27 +52,27 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public Venta BuscarVenta(int codigo)
+        public Reserva BuscarReserva(int codigo)
         {
             //We use lambda to take the object type we are using
-            return dbVentaVehiculos.Ventas.FirstOrDefault(x => x.Codigo == codigo);
+            return dbVentaVehiculos.Reservas.FirstOrDefault(x => x.Codigo == codigo);
         }
 
-        public string EliminarVenta()
+        public string EliminarReserva()
         {
             try
             {
-                Venta _venta = BuscarVenta(venta.Codigo);
+                Reserva _reserva = BuscarReserva(reserva.Codigo);
 
-                if (_venta == null)
+                if (_reserva == null)
                 {
-                    return "La Venta que intenta eliminar no existe";
+                    return "La Reserva que intenta eliminar no existe";
                 }
                 else
                 {        
-                    dbVentaVehiculos.Ventas.Remove(_venta);
+                    dbVentaVehiculos.Reservas.Remove(_reserva);
                     dbVentaVehiculos.SaveChanges();
-                    return "La Venta " + venta.Codigo + " ha sido eliminada exitosamente";
+                    return "La Reserva " + reserva.Codigo + " ha sido eliminada exitosamente";
                 }
 
             }

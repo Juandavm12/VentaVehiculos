@@ -13,11 +13,15 @@ namespace VentaVehiculos.Clases
 
         public TipoCliente  tipoCliente { get; set; }
 
-        public List<TipoCliente> TipoClienteCombo()
+        public IQueryable TipoClienteCombo()
         {
             return dbVentaVehiculos.TipoClientes
                 .OrderBy(t => t.Membresia)
-                .ToList();
+                .Select(t => new
+                {
+                    Id = t.Id,
+                    Nombre = t.Membresia
+                });
         }
     }
 }

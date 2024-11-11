@@ -58,7 +58,7 @@ async function LlenarComboxServicios(URLServicio, ComboLlenar) {
 
         //Se recorre un ciclo para llenar el select con la informacion
         for (i = 0; i < Rpta.length; i++) {
-            $(ComboLlenar).append('<option value=' + Rpta[i].Id + '>' + Rpta[i].Membresia + '</option>');
+            $(ComboLlenar).append('<option value=' + Rpta[i].Id + '>' + Rpta[i].Nombre + '</option>');
         }
     }
     catch (error) {

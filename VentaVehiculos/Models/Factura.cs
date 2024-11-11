@@ -9,25 +9,31 @@
 
 namespace VentaVehiculos.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
     public partial class Factura
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Factura()
+        {
+            this.Garantias = new HashSet<Garantia>();
+        }
+    
         public int Numero { get; set; }
-        public int CodVenta { get; set; }
-        public string PlacaVeh { get; set; }
+        public int IdCliente { get; set; }
+        public int IdVeh { get; set; }
+        public int IdVendedor { get; set; }
         public double Cantidad { get; set; }
         public double VUnidad { get; set; }
         public double Subtotal { get; set; }
         public double Descuento { get; set; }
         public double VTotal { get; set; }
-
-        [JsonIgnore]
-        public virtual Venta Venta { get; set; }
-
-        [JsonIgnore]
+    
+        public virtual Cliente Cliente { get; set; }
         public virtual Vehiculo Vehiculo { get; set; }
+        public virtual Vendedor Vendedor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Garantia> Garantias { get; set; }
     }
 }

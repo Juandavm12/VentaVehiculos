@@ -16,7 +16,7 @@ namespace VentaVehiculos.Controllers
     {
         [HttpGet]
         [Route("TipoClienteCombo")]
-        public List<TipoCliente> TipoClienteCombo()
+        public IQueryable TipoClienteCombo()
         {
             clsTipoCliente tipoCliente = new clsTipoCliente();
             return tipoCliente.TipoClienteCombo();

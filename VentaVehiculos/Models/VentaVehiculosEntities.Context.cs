@@ -25,13 +25,13 @@ namespace VentaVehiculos.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Administrador> Administradors { get; set; }
         public virtual DbSet<CitaTaller> CitaTallers { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<EstadoServicio> EstadoServicios { get; set; }
         public virtual DbSet<EstadoVehiculo> EstadoVehiculoes { get; set; }
         public virtual DbSet<Factura> Facturas { get; set; }
         public virtual DbSet<Garantia> Garantias { get; set; }
+        public virtual DbSet<Reserva> Reservas { get; set; }
         public virtual DbSet<Rol> Rols { get; set; }
         public virtual DbSet<ServicioTaller> ServicioTallers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -42,6 +42,6 @@ namespace VentaVehiculos.Models
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<UsuarioRol> UsuarioRols { get; set; }
         public virtual DbSet<Vehiculo> Vehiculoes { get; set; }
-        public virtual DbSet<Venta> Ventas { get; set; }
+        public virtual DbSet<Vendedor> Vendedors { get; set; }
     }
 }

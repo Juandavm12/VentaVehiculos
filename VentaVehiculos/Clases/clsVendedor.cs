@@ -8,29 +8,29 @@ using VentaVehiculos.Models;
 
 namespace VentaVehiculos.Clases
 {
-    public class clsAdministrador 
+    public class clsVendedor 
     {
         //Atributo DbVentaVehiculos
         VentaVehiculosEntities dbVentaVehiculos = new VentaVehiculosEntities();
 
         //Objeto de la tabla usuario
-        public Administrador admin { get; set; }
+        public Vendedor vendedor { get; set; }
 
-        public string InsertarAdmin()
+        public string InsertarVendedor()
         {
             try
             {
-                Administrador _admin = BuscarAdmin(admin.Documento);
+                Vendedor _admin = BuscarVendedor(vendedor.Documento);
 
                 if (_admin == null)
                 {
-                    dbVentaVehiculos.Administradors.Add(admin);
+                    dbVentaVehiculos.Vendedors.Add(vendedor);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Administrador " + admin.Nombre + " ha sido creado exitosamente";
+                    return "El Vendedor " + vendedor.Nombre + " ha sido creado exitosamente";
                 }
                 else
                 {
-                    return "El documento " + admin.Documento + " ya esta asociado a un administrador";
+                    return "El documento " + vendedor.Documento + " ya esta asociado a un vendedor";
                 }
             }
             catch (Exception ex)
@@ -40,22 +40,22 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public string ActualizarAdmin()
+        public string ActualizarVendedor()
         {
             try
             {
                 //We use AddorUpdate method that allows us to update the user information
-                Administrador _admin = BuscarAdmin(admin.Documento);
+                Vendedor _admin = BuscarVendedor(vendedor.Documento);
 
                 if (_admin != null)
                 {
-                    dbVentaVehiculos.Administradors.AddOrUpdate(admin);
+                    dbVentaVehiculos.Vendedors.AddOrUpdate(vendedor);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Administrador " + admin.Nombre + " se ha actualizado exitosamente";
+                    return "El Vendedor " + vendedor.Nombre + " se ha actualizado exitosamente";
                 }
                 else
                 {
-                    return "El Administrador que intenta actualizar no existe";
+                    return "El Vendedor que intenta actualizar no existe";
                 }
             }
             catch (Exception ex)
@@ -64,27 +64,27 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public Administrador BuscarAdmin(string documento)
+        public Vendedor BuscarVendedor(string documento)
         {
-            return dbVentaVehiculos.Administradors.FirstOrDefault(x => x.Documento == documento);
+            return dbVentaVehiculos.Vendedors.FirstOrDefault(x => x.Documento == documento);
         }
 
-        public string EliminarAdmin()
+        public string EliminarVendedor()
         {
             try
             {
                 //We use Search method that we created to allow us searching for the user id we want to delete
-                Administrador _admin = BuscarAdmin(admin.Documento);
+                Vendedor _admin = BuscarVendedor(vendedor.Documento);
 
                 if (_admin != null)
                 {
-                    dbVentaVehiculos.Administradors.Remove(_admin);
+                    dbVentaVehiculos.Vendedors.Remove(vendedor);
                     dbVentaVehiculos.SaveChanges();
-                    return "El Administrador " + admin.Nombre + " se ha eliminado exitosamente";
+                    return "El Vendedor " + vendedor.Nombre + " se ha eliminado exitosamente";
                 }
                 else
                 {
-                    return "El Administrador que intenta eliminar no existe";
+                    return "El Vendedor que intenta eliminar no existe";
                 }
 
             }
@@ -94,9 +94,9 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        public IQueryable LlenarTablaAdmin()
+        public IQueryable LlenarTablaVendedor()
         {
-            return from A in dbVentaVehiculos.Set<Administrador>()
+            return from A in dbVentaVehiculos.Set<Vendedor>()
                    //join  in dbVentaVehiculos.Set<>()
                    //on A.Cargo equals 
                    //orderby 
