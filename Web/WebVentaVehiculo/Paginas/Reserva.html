@@ -45,20 +45,32 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtDocCliente">Documento Cliente</label>
-                                                    <input type="number" class="form-control" id="txtDocCliente" placeholder="Documento Cliente">
+                                                    <label for="txtIdCliente">Cliente</label>
+                                                    <input type="number" class="form-control" id="txtIdCliente" placeholder="Cliente">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtDocAdmin">Documento Administrador</label>
-                                                    <input type="number" class="form-control" id="txtDocAdmin" placeholder="Documento Admin">
+                                                    <label for="txtIdVendedor">Vendedor</label>
+                                                    <input type="number" class="form-control" id="txtIdVendedor" placeholder="Vendedor">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtIdVeh">Vehiculo</label>
+                                                    <input type="number" class="form-control" id="txtIdVeh" placeholder="Placa Vehiculo">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtFecha">Fecha de Venta</label>
-                                                    <input type="date" class="form-control" id="txtFecha" placeholder="Fecha de Venta">
+                                                    <input type="date" class="form-control" id="txtFecha" placeholder="Fecha de Reserva">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtFechaVen">Fecha de Venta</label>
+                                                    <input type="date" class="form-control" id="txtFechaVen" placeholder="Fecha de Vencimiento">
                                                 </div>
                                             </div>
                                         </div>
@@ -72,19 +84,19 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarVenta')">INSERTAR</button>
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarReserva')">INSERTAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarVenta')">ACTUALIZAR</button>
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarReserva')">ACTUALIZAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarVenta')">ELIMINAR</button>
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarReserva')">ELIMINAR</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarVenta()">CONSULTAR</button>
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarReserva()">CONSULTAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +113,14 @@
     </section>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="Scripts/Comunes/CRUD.js"></script>>
-    <script src="Scripts/Venta.js"></script>
+
+    <!--Tables-->
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.js"></script>
+
+    <!--Archivos Comunes-->
+    <script src="Scripts/Index.js"></script>
+    <script src="Scripts/Comunes/CRUD.js"></script>
+    <script src="Scripts/Reserva.js"></script>
 </body>
 </html>
