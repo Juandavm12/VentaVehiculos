@@ -3,13 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JP Servicios - Venta Vehículos</title>
+    <title>JP Servicios - Reservas Vehículos</title>
     <link rel="icon" href="Images/Designer-Photoroom.png" />
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
     <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+
+    <!--Estilos para las tablas-->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -21,13 +27,13 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">VENTAS DE VEHÍCULOS</h3>
+                            <h3 class="card-title">RESERVAS DE VEHÍCULOS</h3>
                         </div>
-                        <form id="frmVentas">
+                        <form id="frmReservas">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header">
-                                        <h3 class="card-title">DATOS DE LA VENTA</h3>
+                                        <h3 class="card-title">DATOS DE LA RESERVA</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -40,13 +46,13 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtDocCliente">Documento Cliente</label>
-                                                    <input type="text" class="form-control" id="txtDocCliente" placeholder="Documento Cliente">
+                                                    <input type="number" class="form-control" id="txtDocCliente" placeholder="Documento Cliente">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtDocAdmin">Documento Administrador</label>
-                                                    <input type="text" class="form-control" id="txtDocAdmin" placeholder="Documento Admin">
+                                                    <input type="number" class="form-control" id="txtDocAdmin" placeholder="Documento Admin">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">

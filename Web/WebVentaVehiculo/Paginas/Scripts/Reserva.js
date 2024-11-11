@@ -25,13 +25,15 @@ async function BuscarReserva() {
 
     if (Reserva != null) {
 
-        $("#txtCodigo").val(Venta.Codigo);
-        $("#txtDocCliente").val(Venta.DocCliente);
-        $("#txtDocAdmin").val(Venta.DocAdmin);
-        $("#txtFecha").val(Venta.Fecha.split('T')[0]);
+        $("#txtCodigo").val(Reserva.Codigo);
+        $("#txtIdCliente").val(Reserva.IdCliente);
+        $("#txtIdVendedor").val(Reserva.IdVendedor);
+        $("#txtIdVeh").val(Reserva.IdVeh);
+        $("#txtFecha").val(Reserva.Fecha.split('T')[0])
+        $("#txtFechaVen").val(Reserva.FechaVen.split('T')[0]);
     }
     else {
 
-        $("#dvMensaje").html("No se encontro la venta");
+        $("#dvMensaje").html("No se encontro la Reserva");
     }
 }
