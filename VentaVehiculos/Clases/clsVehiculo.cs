@@ -98,16 +98,20 @@ namespace VentaVehiculos.Clases
         public IQueryable LlenarTablaVehiculo()
         {
             return from V in dbVentaVehiculos.Set<Vehiculo>()
-                       //join TC in dbVentaVehiculos.Set<TipoCliente>()
-                       //on C.IdTipoCliente equals TC.Id
+                       join EV in dbVentaVehiculos.Set<EstadoVehiculo>()
+                       on V.CodEstadoVehiculo equals EV.Codigo
+                       join TV in dbVentaVehiculos.Set<TipoVehiculo>()
+                       on V.CodTipoVehiculo equals TV.Codigo
                    orderby V.Marca
                    select new
                    {
+                       Tipo = TV.Tipo,
                        Placa = V.Placa,
                        Marca = V.Marca,
                        Modelo = V.Modelo,
                        Precio = V.Precio,
                        Kilometraje = V.Kilometraje,
+                       Estado = EV.Estado,
                    };
         }
 
