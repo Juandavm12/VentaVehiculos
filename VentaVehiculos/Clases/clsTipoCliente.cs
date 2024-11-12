@@ -20,7 +20,8 @@ namespace VentaVehiculos.Clases
                 .Select(t => new
                 {
                     Id = t.Id,
-                    Nombre = t.Membresia
+                    Nombre = t.Membresia,
+                    Descuento = t.Descuento
                 });
         }
     }
