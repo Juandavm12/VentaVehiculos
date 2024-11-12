@@ -193,9 +193,11 @@
     <Compile Include="Clases\clsReserva.cs" />
     <Compile Include="Controllers\EstadoServiciosController.cs" />
     <Compile Include="Controllers\EstadoVehiculosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiciosTallerController.cs" />
     <Compile Include="Controllers\TipoServiciosController.cs" />
     <Compile Include="Controllers\TipoVehiculosController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VendedoresController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\TipoClientesController.cs" />
