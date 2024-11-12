@@ -6,6 +6,10 @@
 
 });
 
+function LimpiarCliente() {
+    LimpiarFormularios('frmClientes');
+}
+
 function LlenarTablaCliente() {
     LlenarTablaxServicios("https://localhost:44337/api/Clientes/LlenarTablaCliente", "#tblCliente");
 }

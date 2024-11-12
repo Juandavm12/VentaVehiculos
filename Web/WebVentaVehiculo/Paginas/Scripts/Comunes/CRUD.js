@@ -3,6 +3,22 @@
     $("#dvMenu").load("../Paginas/Menu.html")
 });
 
+function LimpiarFormularios(frmid) {
+    try {
+        const form = document.getElementById(frmid);
+        if (form) {
+            form.reset();
+        }
+        else {
+            console.warn(`No se encontró el formulario con el ID: ${formularioId}`);
+        }
+
+    }
+    catch (error) {
+        $("#dvMensaje").html(error);
+    }
+}
+
 async function ExecuteCommandService(Method, URLService, Object) {
     try {
         const Response = await fetch(URLService,
@@ -33,7 +49,7 @@ async function SearchService(URLService) {
 
         const Result = await Response.json();
 
-        return Result; 
+        return Result;
     }
     catch (error) {
         $("#dvMensaje").html(error);

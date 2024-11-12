@@ -30,7 +30,7 @@
                         <div class="card-header" style="background-color: #0096C7; color: #ffffff;">
                             <h3 class="card-title">CLIENTES</h3>
                         </div>
-                        <form id="frmIncapacidades">
+                        <form id="frmClientes">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
@@ -109,20 +109,29 @@
                                             <div class="col-md-3">
                                                 <br />
                                                 <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
-                                                    onclick="Execute('PUT','ActualizarCliente')"><i class="fas fa-edit"></i> ACTUALIZAR
+                                                        onclick="Execute('PUT','ActualizarCliente')">
+                                                    <i class="fas fa-edit"></i> ACTUALIZAR
                                                 </button>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <br />
-                                                    <button type="button" id="btnEliminar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;" 
-                                                    onclick="Execute('DELETE','EliminarCliente')"><i class="fas fa-trash-alt"></i>  ELIMINAR
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;"
+                                                        onclick="Execute('DELETE','EliminarCliente')">
+                                                    <i class="fas fa-trash-alt"></i>  ELIMINAR
                                                 </button>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <br />
                                                 <button type="button" id="btnConsultar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"
                                                         onclick="BuscarCliente()">
                                                     <i class="fas fa-search"></i> CONSULTAR
+                                                </button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <br />
+                                                <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"
+                                                        onclick="LimpiarCliente()">
+                                                    <i class="fas fa-refresh"></i> LIMPIAR
                                                 </button>
                                             </div>
                                         </div>
