@@ -102,7 +102,7 @@ namespace VentaVehiculos.Clases
                        on V.CodEstadoVehiculo equals EV.Codigo
                        join TV in dbVentaVehiculos.Set<TipoVehiculo>()
                        on V.CodTipoVehiculo equals TV.Codigo
-                   orderby V.Marca
+                   orderby TV.Tipo, V.Marca
                    select new
                    {
                        Tipo = TV.Tipo,
