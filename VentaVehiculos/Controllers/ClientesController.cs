@@ -53,8 +53,8 @@ namespace VentaVehiculos.Controllers
         public Cliente BuscarCliente(string Documento)
         {
             //To call Search from Cliente class, we create a type clsCliente object
-            clsCliente _cliente = new clsCliente();
-            return _cliente.BuscarCliente(Documento);
+            clsCliente cliente = new clsCliente();
+            return cliente.BuscarCliente(Documento);
         }
 
         [HttpGet]

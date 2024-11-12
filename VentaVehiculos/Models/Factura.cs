@@ -9,6 +9,7 @@
 
 namespace VentaVehiculos.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -29,10 +30,14 @@ namespace VentaVehiculos.Models
         public double Subtotal { get; set; }
         public double Descuento { get; set; }
         public double VTotal { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Cliente Cliente { get; set; }
+        [JsonIgnore]
         public virtual Vehiculo Vehiculo { get; set; }
+        [JsonIgnore]
         public virtual Vendedor Vendedor { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Garantia> Garantias { get; set; }
     }

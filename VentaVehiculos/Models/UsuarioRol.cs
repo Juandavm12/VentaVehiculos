@@ -9,6 +9,7 @@
 
 namespace VentaVehiculos.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -18,8 +19,10 @@ namespace VentaVehiculos.Models
         public int IdUsuario { get; set; }
         public int IdRol { get; set; }
         public string Estado { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Rol Rol { get; set; }
+        [JsonIgnore]
         public virtual Usuario Usuario { get; set; }
     }
 }
