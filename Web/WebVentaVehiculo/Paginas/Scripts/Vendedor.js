@@ -4,6 +4,10 @@
 
 });
 
+function LimpiarVendedor() {
+    LimpiarFormularios('frmVendedor');
+}
+
 function LlenarTablaVendedor() {
     LlenarTablaxServicios("https://localhost:44337/api/Vendedores/LlenarTablaVendedor", "#tblVendedor");
 }

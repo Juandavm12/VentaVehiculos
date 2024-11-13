@@ -26,50 +26,50 @@
                 </div>
                 <div class="col-md-12">
                     <div class="card card-primary">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color: #0096C7; color: #ffffff;">
                             <h3 class="card-title">RESERVAS DE VEHÍCULOS</h3>
                         </div>
-                        <form id="frmReservas">
+                        <form id="frmReserva">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
-                                    <div class="card-header">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">DATOS DE LA RESERVA</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCodigo">Codigo de Venta</label>
+                                                    <label for="txtCodigo"><i class="fas fa-barcode"></i> Codigo de Venta</label>
                                                     <input type="number" class="form-control" id="txtCodigo" placeholder="Codigo de Venta">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdCliente">Cliente</label>
+                                                    <label for="txtIdCliente"><i class="fas fa-user"></i> Cliente</label>
                                                     <input type="number" class="form-control" id="txtIdCliente" placeholder="Cliente">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdVendedor">Vendedor</label>
+                                                    <label for="txtIdVendedor"><i class="fas fa-id-badge"></i> Vendedor</label>
                                                     <input type="number" class="form-control" id="txtIdVendedor" placeholder="Vendedor">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdVeh">Vehiculo</label>
+                                                    <label for="txtIdVeh"><i class="fas fa-car"></i> Vehiculo</label>
                                                     <input type="number" class="form-control" id="txtIdVeh" placeholder="Placa Vehiculo">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtFecha">Fecha de Venta</label>
+                                                    <label for="txtFecha"><i class="fas fa-calendar-alt"></i> Fecha de Venta</label>
                                                     <input type="date" class="form-control" id="txtFecha" placeholder="Fecha de Reserva">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtFechaVen">Fecha de Venta</label>
+                                                    <label for="txtFechaVen"><i class="fas fa-calendar-alt"></i> Fecha de Vencimiento</label>
                                                     <input type="date" class="form-control" id="txtFechaVen" placeholder="Fecha de Vencimiento">
                                                 </div>
                                             </div>
@@ -77,26 +77,44 @@
                                     </div>
                                 </div>
                                 <div class="card card-danger">
-                                    <div class="card-header">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">PROCESO</h3>
                                     </div>
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-success" onclick="Execute('POST','InsertarReserva')">INSERTAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-warning" onclick="Execute('PUT','ActualizarReserva')">ACTUALIZAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Execute('DELETE','EliminarReserva')">ELIMINAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-info" onclick="BuscarReserva()">CONSULTAR</button>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
+                                                            onclick="Execute('POST','InsertarReserva')">
+                                                        <i class="fas fa-plus"></i> INSERTAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
+                                                            onclick="Execute('PUT','ActualizarReserva')">
+                                                        <i class="fas fa-edit"></i> ACTUALIZAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnEliminar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;"
+                                                            onclick="Execute('DELETE','EliminarReserva')">
+                                                        <i class="fas fa-trash-alt"></i> ELIMINAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnConsultar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"
+                                                            onclick="BuscarReserva()">
+                                                        <i class="fas fa-search"></i> CONSULTAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
+                                                            onclick="LimpiarReserva()">
+                                                        <i class="fas fa-refresh"></i> LIMPIAR
+                                                    </button>
+                                                </div>
+                                               <div class="col-md-1"></div>
                                             </div>
                                         </div>
                                     </div>
