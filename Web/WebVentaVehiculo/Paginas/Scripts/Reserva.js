@@ -1,4 +1,8 @@
-﻿class Reserva {
+﻿function LimpiarReserva() {
+    LimpiarFormularios('frmReserva');
+}
+
+class Reserva {
     constructor(Codigo, IdCliente, IdVendedor, IdVeh, Fecha, FechaVen) {
         this.Codigo = Codigo;
         this.IdCliente = IdCliente;

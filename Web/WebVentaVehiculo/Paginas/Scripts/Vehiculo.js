@@ -1,7 +1,13 @@
 ﻿jQuery(function () {
 
+    /*LlenarComboxServicios("", "#cboTipoVehiculo");*/
+    /*LlenarComboxServicios("", "#cboEstadoVehiculo");*/
     LlenarTablaVehiculo();
 });
+
+function LimpiarVehiculo() {
+    LimpiarFormularios('frmVehiculo');
+}
 
 function LlenarTablaVehiculo() {
 
