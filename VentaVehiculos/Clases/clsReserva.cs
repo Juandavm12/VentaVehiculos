@@ -12,7 +12,7 @@ namespace VentaVehiculos.Clases
         //Atributo DbVentaVehiculos
         VentaVehiculosEntities dbVentaVehiculos = new VentaVehiculosEntities();
 
-        //Objeto de la tabla usuario
+        //Objeto de la tabla Reserva
         public Reserva reserva { get; set; }
 
         public string InsertarReserva()
