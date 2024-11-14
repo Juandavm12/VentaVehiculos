@@ -121,6 +121,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Paginas\CitaTaller.html" />
     <Content Include="Paginas\Estilos\adminlte.css" />
     <Content Include="Paginas\Estilos\adminlte.min.css" />
     <Content Include="Paginas\Estilos\all.min.css" />
@@ -167,6 +168,9 @@
     <Content Include="Paginas\Images\Moto1.jpg" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Cliente.html" />
+    <Content Include="Paginas\Scripts\CitaTaller.js" />
+    <Content Include="Paginas\Scripts\ServicioTaller.js" />
+    <Content Include="Paginas\ServicioTaller.html" />
     <Content Include="Paginas\Vendedor.html" />
     <Content Include="Paginas\Scripts\Comunes\CRUD.js" />
     <Content Include="Paginas\Vehiculo.html" />

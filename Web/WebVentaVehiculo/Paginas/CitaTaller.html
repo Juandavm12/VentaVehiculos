@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JP Servicios - ServicioTaller</title>
+    <link rel="icon" href="Images/Designer-Photoroom.png" />
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+
+    <!--Estilos para las tablas-->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12" id="dvMenu">
+                </div>
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header" style="background-color: #0096C7; color: #ffffff;">
+                            <h3 class="card-title">CITAS PARA TALLER</h3>
+                        </div>
+                        <form id="frmCita">
+                            <div class="card-body">
+                                <div class="card card-gray-dark">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
+                                        <h3 class="card-title">DATOS DE LA CITA</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtCodigo"><i class="fas fa-barcode"></i>Codigo de la Cita</label>
+                                                    <input type="text" class="form-control" id="txtCodigo" placeholder="Codigo">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtIdCliente"><i class="fas fa-id-card"></i> Id del Cliente</label>
+                                                    <input type="text" class="form-control" id="txtIdCliente" placeholder="Id del Cliente">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtIdVeh"><i class="fas fa-car"></i> Id del Vehículo</label>
+                                                    <input type="text" class="form-control" id="txtIdVeh" placeholder="Id del Vehículo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="cboTipoServicio"><i class="fas fa-list"></i> Tipo de Servicio</label>
+                                                    <select id="cboTipoServicio" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <!--<div class="form-group">
+                                                    <label for="txtFechaHora"><i class="fas fa-calendar-alt"></i> Fecha y Hora de la Cita</label>
+                                                    <input type="datetime-local" class="form-control" id="txtFechaHora" placeholder="Fecha y Hora">
+                                                </div>-->
+                                                <div class="form-group">
+                                                    <i class="fas fa-calendar-alt"></i> <label>Fecha y hora</label>
+                                                    <div class="input-group date" id="dthFechaHora" data-target-input="nearest">
+                                                        <input type="text" class="form-control datetimepicker-input" data-target="#dthFechaHora" />
+                                                        <div class="input-group-append" data-target="#dthFechaHora" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-danger">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
+                                        <h3 class="card-title">PROCESO</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
+                                                            onclick="Execute('POST','InsertarCita')">
+                                                        <i class="fas fa-plus"></i> INSERTAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
+                                                            onclick="Execute('PUT','ActualizarCita')">
+                                                        <i class="fas fa-edit"></i> ACTUALIZAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnEliminar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;"
+                                                            onclick="Execute('DELETE','EliminarCita')">
+                                                        <i class="fas fa-trash-alt"></i> ELIMINAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnConsultar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"
+                                                            onclick="BuscarCita()">
+                                                        <i class="fas fa-search"></i> CONSULTAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
+                                                            onclick="LimpiarCita()">
+                                                        <i class="fas fa-refresh"></i> LIMPIAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="tblCita" class="table table-bordered table-striped" style="width:100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Tipo de Servicio</th>
+                                                        <th>Cliente</th>
+                                                        <th>Vehiculo</th>
+                                                        <th>Fecha y Hora</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+
+    <!--Tables-->
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.js"></script>
+
+    <!--Archivos Comunes-->
+    <script src="Scripts/Index.js"></script>
+    <script src="Scripts/Comunes/CRUD.js"></script>
+    <script src="Scripts/CitaTaller.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
+    <script>
+        $(function () {
+            //Fecha y hora
+            $('#dthFechaHora').datetimepicker({ icons: { time: 'far fa-clock' } });
+            $('[data-mask]').inputmask();
+        })
+    </script>
+</body>
+</html>
+
