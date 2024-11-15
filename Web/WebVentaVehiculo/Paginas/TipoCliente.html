@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JP Servicios - Vehículos</title>
+    <title>JP Servicios - TipoCliente</title>
     <link rel="icon" href="Images/Designer-Photoroom.png" />
 
     <!-- Google Font: Source Sans Pro -->
@@ -28,67 +28,30 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header" style="background-color: #0096C7; color: #ffffff;">
-                            <h3 class="card-title">VEHÍCULOS</h3>
+                            <h3 class="card-title">NUESTROS CLIENTES</h3>
                         </div>
-                        <form id="frmVehiculos">
+                        <form id="frmTC">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
-                                        <h3 class="card-title">DATOS DEL VEHÍCULO</h3>
+                                        <h3 class="card-title">TIPOS DE CLIENTES</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="cboTipoVehiculo"><i class="fas fa-car"></i> Tipo Vehículo</label>
-                                                    <select class="form-control" id="cboTipoVehiculo">
-                                                        <option value="0">SELECCIONAR</option>
-                                                    </select>
+                                                    <label for="txtMembresia"><i class="fas fa-star"></i> Membresia</label>
+                                                    <input type="text" class="form-control" id="txtMembresia" placeholder="Membresia">
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="txtPlaca"><i class="fas fa-id-card"></i> Placa del Vehículo</label>
-                                                    <input type="text" class="form-control" id="txtPlaca" placeholder="Placa del Vehículo">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtMarca"><i class="fas fa-tag"></i> Marca</label>
-                                                    <input type="text" class="form-control" id="txtMarca" placeholder="Marca">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtModelo"><i class="fas fa-calendar-alt"></i> Modelo</label>
-                                                    <input type="text" class="form-control" id="txtModelo" placeholder="Modelo">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtPrecio"><i class="fas fa-dollar-sign"></i> Precio</label>
-                                                    <input type="text" class="form-control" id="txtPrecio" placeholder="Precio">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtKilometraje"><i class="fas fa-tachometer-alt"></i> Kilometraje</label>
-                                                    <input type="text" class="form-control" id="txtKilometraje" placeholder="Kilometraje">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="cboEstadoVehiculo"><i class="fas fa-info-circle"></i> Estado del Vehículo</label>
-                                                    <select class="form-control" id="cboEstadoVehiculo">
-                                                        <option value="0">SELECCIONAR</option>
-                                                    </select>
+                                                    <label for="txtDescuento"><i class="fas fa-percentage"></i> Descuento</label>
+                                                    <input type="number" class="form-control" id="txtDescuento" placeholder="Descuento">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="card card-danger">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
@@ -100,31 +63,31 @@
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
-                                                            onclick="Execute('POST','InsertarVehiculo')">
+                                                            onclick="Execute('POST','InsertarTC')">
                                                         <i class="fas fa-plus"></i> INSERTAR
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
-                                                            onclick="Execute('PUT','ActualizarVehiculo')">
+                                                            onclick="Execute('PUT','ActualizarTC')">
                                                         <i class="fas fa-edit"></i> ACTUALIZAR
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnEliminar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;"
-                                                            onclick="Execute('DELETE','EliminarVehiculo')">
-                                                        <i class="fas fa-trash-alt"></i>  ELIMINAR
+                                                            onclick="Execute('DELETE','EliminarTC')">
+                                                        <i class="fas fa-trash-alt"></i> ELIMINAR
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnConsultar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"
-                                                            onclick="BuscarVehiculo()">
+                                                            onclick="BuscarTC()">
                                                         <i class="fas fa-search"></i> CONSULTAR
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
-                                                            onclick="LimpiarVehiculo()">
+                                                            onclick="LimpiarTC()">
                                                         <i class="fas fa-refresh"></i> LIMPIAR
                                                     </button>
                                                 </div>
@@ -134,15 +97,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <table id="tblVehiculo" class="table table-bordered table-striped" style="width:100%;">
+                                            <table id="tblTC" class="table table-bordered table-striped" style="width:100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Placa</th>
-                                                        <th>Marca</th>
-                                                        <th>Modelo</th>
-                                                        <th>Precio</th>
-                                                        <th>Kilometraje</th>
-                                                        <th>Estado</th>
+                                                        <th>Codigo</th>
+                                                        <th>Membresia</th>
+                                                        <th>Descuento</th>
                                                     </tr>
                                                 </thead>
                                             </table>
@@ -169,6 +129,8 @@
     <!--Archivos Comunes-->
     <script src="Scripts/Index.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
-    <script src="Scripts/Vehiculo.js"></script>
+    <script src="Scripts/TipoCliente.js"></script>
+
 </body>
 </html>
+
