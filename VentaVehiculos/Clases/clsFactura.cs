@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using VentaVehiculos.Models;
@@ -23,13 +24,12 @@ namespace VentaVehiculos.Clases
             return dbVentaVehiculos.Facturas.FirstOrDefault(x => x.Numero == numero);
         }
 
-        public Cliente DescuentoTipoCliente(int id)
+        public Factura DescuentoTipoCliente(int id)
         {
             factura = new Factura();
-            cliente = new Cliente();
             cliente.IdTipoCliente = id;
             CalculoFactura();
-            return cliente;
+            return factura;
         }
 
         public void CalculoFactura()
@@ -56,6 +56,99 @@ namespace VentaVehiculos.Clases
             }
         }
 
+        public string InsertarFactura()
+        {
+            try
+            {
+                Factura _factura = BuscarFactura(factura.Numero);
 
+                if (_factura == null)
+                {
+                    dbVentaVehiculos.Facturas.Add(factura);
+                    dbVentaVehiculos.SaveChanges();
+                    return "La Factura numero " + factura.Numero + " ha sido creadoa exitosamente a nombre de " + cliente.Nombre;
+                }
+                else
+                {
+                    return "La Factura numero " + factura.Numero + " ya esta creada";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
+        }
+
+        public string ActualizarFactura()
+        {
+            try
+            {
+                //We use AddorUpdate method that allows us to update the user information
+                Factura _factura = BuscarFactura(factura.Numero);
+
+                if (_factura != null)
+                {
+                    dbVentaVehiculos.Facturas.AddOrUpdate(factura);
+                    dbVentaVehiculos.SaveChanges();
+                    return "La Factura numero " + factura.Numero + " se ha actualizado exitosamente";
+                }
+                else
+                {
+                    return "La Factura que intenta actualizar no existe";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string EliminarFactura()
+        {
+            try
+            {
+                //We use AddorUpdate method that allows us to update the user information
+                Factura _factura = BuscarFactura(factura.Numero);
+
+                if (_factura == null)
+                {
+                    return "La Factura que intenta eliminar no existe";
+                }
+                else
+                {
+                    dbVentaVehiculos.Facturas.Remove(factura);
+                    dbVentaVehiculos.SaveChanges();
+                    return "La Factura numero " + factura.Numero + " ha sido eliminada exitosamente";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        //Method IQuearyable
+        public IQueryable LlenarTablaFactura()
+        {
+            return from F in dbVentaVehiculos.Set<Factura>()
+                   join C in dbVentaVehiculos.Set<Cliente>() on F.IdCliente equals C.Id
+                   join V in dbVentaVehiculos.Set<Vehiculo>() on F.IdVeh equals V.Id
+                   join Ven in dbVentaVehiculos.Set<Vendedor>() on F.IdVendedor equals Ven.Id
+                   orderby F.Numero ascending
+                   select new
+                   {
+                       Numero = F.Numero,
+                       Cliente = C.Nombre,
+                       Placas = V.Placa,
+                       Vehiculo = V.Marca,
+                       Vendedor = Ven.Nombre,
+                       Cantidad = F.Cantidad,
+                       ValorUnidad = F.VUnidad,
+                       Subtotal = F.Subtotal,
+                       Descuento = F.Descuento,
+                       Total = F.VTotal
+                   };
+        }
     }
 }

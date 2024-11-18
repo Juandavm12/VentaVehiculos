@@ -198,6 +198,7 @@
     <Compile Include="Controllers\CitasTallerController.cs" />
     <Compile Include="Controllers\EstadoServiciosController.cs" />
     <Compile Include="Controllers\EstadoVehiculosController.cs" />
+    <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiciosTallerController.cs" />
     <Compile Include="Controllers\TipoGarantiasController.cs" />
