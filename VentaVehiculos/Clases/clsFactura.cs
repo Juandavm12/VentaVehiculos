@@ -25,6 +25,7 @@ namespace VentaVehiculos.Clases
 
         public Cliente DescuentoTipoCliente(int id)
         {
+            factura = new Factura();
             cliente = new Cliente();
             cliente.IdTipoCliente = id;
             CalculoFactura();
@@ -33,9 +34,6 @@ namespace VentaVehiculos.Clases
 
         public void CalculoFactura()
         {
-            factura = new Factura();
-            cliente = new Cliente();
-
             switch (cliente.IdTipoCliente)
             {
                 case 1:
