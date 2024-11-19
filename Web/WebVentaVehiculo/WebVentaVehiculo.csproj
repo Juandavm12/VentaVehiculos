@@ -163,9 +163,11 @@
     <Content Include="Paginas\Images\Carro1.jpg" />
     <Content Include="Paginas\Images\Carro2.jpg" />
     <Content Include="Paginas\Images\Designer-Photoroom.png" />
-    <Content Include="Paginas\Images\Designer.jpeg" />
+    <Content Include="Paginas\Images\Estandar.jpeg" />
     <Content Include="Paginas\Images\LOGO.png" />
     <Content Include="Paginas\Images\Moto1.jpg" />
+    <Content Include="Paginas\Images\Premium.jpeg" />
+    <Content Include="Paginas\Images\VIP.jpeg" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Cliente.html" />
     <Content Include="Paginas\Scripts\CitaTaller.js" />

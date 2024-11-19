@@ -17,6 +17,30 @@
     <link href="Estilos/dataTables.min.css" rel="stylesheet" />
     <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
+    <style>
+        .membership-card {
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+            .membership-card:hover {
+                transform: scale(1.05);
+            }
+
+        .membership-icon {
+            font-size: 25px;
+            color: #ffc107;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .membership-image {
+            width: 100%;
+            height: 370px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -32,6 +56,55 @@
                         </div>
                         <form id="frmTC">
                             <div class="card-body">
+                                <!-- Información sobre los tipos de membresías -->
+                                <div class="card card-info mb-3">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
+                                        <h3 class="card-title">TIPOS DE MEMBRESÍAS Y DESCUENTOS</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <!-- Membresía Estándar -->
+                                            <div class="col-md-4">
+                                                <div class="card membership-card">
+                                                    <div class="card-body">
+                                                        <i class="fas fa-star membership-icon"></i>
+                                                        <div class="text-center">
+                                                            <h5 class="card-title mt-2" style="margin-bottom: 10px;"><strong>Estandar</strong></h5>
+                                                            <p class="card-text">Descuento del 5% en todos nuestros servicios.</p>
+                                                            <img src="Images/Estandar.jpeg" class="membership-image" alt="Estandar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Membresía VIP -->
+                                            <div class="col-md-4">
+                                                <div class="card membership-card">
+                                                    <div class="card-body">
+                                                        <i class="fas fa-crown membership-icon"></i>
+                                                        <div class="text-center">
+                                                            <h5 class="card-title mt-2" style="margin-bottom: 10px;"><strong>VIP</strong></h5>
+                                                            <p class="card-text">Descuento del 10% en todos nuestros servicios.</p>
+                                                            <img src="Images/VIP.jpeg" class="membership-image" alt="VIP">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Membresía Premium -->
+                                            <div class="col-md-4">
+                                                <div class="card membership-card">
+                                                    <div class="card-body">
+                                                        <i class="fas fa-gem membership-icon"></i>
+                                                        <div class="text-center">
+                                                            <h5 class="card-title mt-2" style="margin-bottom: 10px;"><strong>Premuim</strong></h5>
+                                                            <p class="card-text">Descuento del 18% en todos nuestros servicios.</p>
+                                                            <img src="Images/Premium.jpeg" class="membership-image" alt="Premium">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="card card-gray-dark">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">TIPOS DE CLIENTES</h3>
@@ -86,7 +159,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
+                                                    <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent;"
                                                             onclick="LimpiarTC()">
                                                         <i class="fas fa-refresh"></i> LIMPIAR
                                                     </button>

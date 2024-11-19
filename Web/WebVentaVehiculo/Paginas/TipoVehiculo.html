@@ -17,6 +17,17 @@
     <link href="Estilos/dataTables.min.css" rel="stylesheet" />
     <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
+    <style>
+        .card-custom {
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+            .card-custom:hover {
+                transform: scale(1.05);
+            }
+    </style>
+
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -32,6 +43,50 @@
                         </div>
                         <form id="frmTV">
                             <div class="card-body">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- Carro -->
+                                        <div class="col-md-3">
+                                            <div class="card card-custom">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-car fa-3x"></i>
+                                                    <h5 class="card-title mt-2">Carro</h5>
+                                                    <p class="card-text">Cómodos y eficientes para tus viajes.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Moto -->
+                                        <div class="col-md-3">
+                                            <div class="card card-custom">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-motorcycle fa-3x"></i>
+                                                    <h5 class="card-title mt-2">Moto</h5>
+                                                    <p class="card-text">Agilidad y rapidez en cada recorrido.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Camioneta -->
+                                        <div class="col-md-3">
+                                            <div class="card card-custom">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-truck fa-3x"></i>
+                                                    <h5 class="card-title mt-2">Camioneta</h5>
+                                                    <p class="card-text">Espacio y potencia para tus necesidades.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bus -->
+                                        <div class="col-md-3">
+                                            <div class="card card-custom">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-bus fa-3x"></i>
+                                                    <h5 class="card-title mt-2">Bus</h5>
+                                                    <p class="card-text">Ideal para transporte de grupos grandes.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="card card-gray-dark">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">TIPOS</h3>
@@ -125,4 +180,3 @@
     <script src="Scripts/TipoVehiculo.js"></script>
 </body>
 </html>
-
