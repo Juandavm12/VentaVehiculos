@@ -51,5 +51,13 @@ namespace VentaVehiculos.Controllers
             clsCitaTaller cita = new clsCitaTaller();
             return cita.BuscarCita(Codigo);
         }
+
+        [HttpGet]
+        [Route("LlenarTablaCita")]
+        public IQueryable LlenarTablaCita()
+        {
+            clsCitaTaller cita = new clsCitaTaller();
+            return cita.LlenarTablaCita();
+        }
     }
 }

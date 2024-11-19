@@ -51,5 +51,13 @@ namespace VentaVehiculos.Controllers
             clsReserva reserva = new clsReserva();
             return reserva.BuscarReserva(Codigo);
         }
+
+        [HttpGet]
+        [Route("LlenarTablaReserva")]
+        public IQueryable LlenarTablaReserva()
+        {
+            clsReserva reserva = new clsReserva();
+            return reserva.LlenarTablaReserva();
+        }
     }
 }
