@@ -190,7 +190,7 @@
     <Compile Include="Clases\clsTipoGarantia.cs" />
     <Compile Include="Clases\clsTipoServicio.cs" />
     <Compile Include="Clases\clsTipoVehiculo.cs" />
-    <Compile Include="Clases\clsVendedor.cs" />
+    <Compile Include="Clases\clsEmpleado.cs" />
     <Compile Include="Clases\clsCliente.cs" />
     <Compile Include="Clases\clsTipoCliente.cs" />
     <Compile Include="Clases\clsVehiculo.cs" />
@@ -199,13 +199,14 @@
     <Compile Include="Controllers\EstadoServiciosController.cs" />
     <Compile Include="Controllers\EstadoVehiculosController.cs" />
     <Compile Include="Controllers\FacturasController.cs" />
+    <Compile Include="Controllers\GarantiasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiciosTallerController.cs" />
     <Compile Include="Controllers\TipoGarantiasController.cs" />
     <Compile Include="Controllers\TipoServiciosController.cs" />
     <Compile Include="Controllers\TipoVehiculosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Controllers\VendedoresController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\TipoClientesController.cs" />
     <Compile Include="Controllers\VehiculosController.cs" />
@@ -217,6 +218,9 @@
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs">
+      <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Empleado.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EstadoServicio.cs">
@@ -231,10 +235,10 @@
     <Compile Include="Models\Garantia.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Reserva.cs">
+    <Compile Include="Models\Perfil.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Rol.cs">
+    <Compile Include="Models\Reserva.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ServicioTaller.cs">
@@ -258,13 +262,10 @@
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UsuarioRol.cs">
+    <Compile Include="Models\UsuarioPerfil.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vehiculo.cs">
-      <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Vendedor.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VentaVehiculosEntities.Context.cs">

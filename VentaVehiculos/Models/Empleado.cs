@@ -13,10 +13,10 @@ namespace VentaVehiculos.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Vendedor
+    public partial class Empleado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Vendedor()
+        public Empleado()
         {
             this.Facturas = new HashSet<Factura>();
             this.Reservas = new HashSet<Reserva>();

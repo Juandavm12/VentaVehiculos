@@ -22,12 +22,22 @@ namespace VentaVehiculos.Clases
         {
             try
             {
-                dbVentaVehiculos.Garantias.Add(garantia);
-                dbVentaVehiculos.SaveChanges();
-                return "Se ha registrado una garantia con el codigo " + garantia.Codigo + " a la factura numero " + factura.Numero;
+                Garantia _garantia = BuscarGarantia(garantia.Codigo);
+
+                if (_garantia == null)
+                {
+                    dbVentaVehiculos.Garantias.Add(garantia);
+                    dbVentaVehiculos.SaveChanges();
+                    return "La Garantia con el codigo " + garantia.Codigo + " ha sido creada exitosamente para la factura " + factura.Numero;
+                }
+                else
+                {
+                    return "La Garantia con el codigo " + garantia.Codigo + " ya esta creada";
+                }
             }
             catch (Exception ex)
             {
+
                 return ex.Message;
             }
         }
@@ -83,6 +93,22 @@ namespace VentaVehiculos.Clases
             {
                 return ex.Message;
             }
+        }
+
+        public IQueryable LlenarTablaGarantia()
+        {
+            return from G in dbVentaVehiculos.Set<Garantia>()
+                   join TG in dbVentaVehiculos.Set<TipoGarantia>() on G.CodTipoGarantia equals TG.Codigo
+                   orderby G.FechaFinal, TG.Nombre
+                   select new
+                   {
+                       Codigo = G.Codigo,
+                       Nombre = TG.Nombre,
+                       Factura = G.NumFactura,
+                       Inicio = G.FechaInicio,
+                       Finaliza = G.FechaFinal,
+                       Descripcion = TG.Descripcion
+                   };
         }
     }
 }

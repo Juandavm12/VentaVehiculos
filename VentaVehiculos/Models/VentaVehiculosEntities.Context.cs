@@ -27,12 +27,13 @@ namespace VentaVehiculos.Models
     
         public virtual DbSet<CitaTaller> CitaTallers { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Empleado> Empleadoes { get; set; }
         public virtual DbSet<EstadoServicio> EstadoServicios { get; set; }
         public virtual DbSet<EstadoVehiculo> EstadoVehiculoes { get; set; }
         public virtual DbSet<Factura> Facturas { get; set; }
         public virtual DbSet<Garantia> Garantias { get; set; }
+        public virtual DbSet<Perfil> Perfils { get; set; }
         public virtual DbSet<Reserva> Reservas { get; set; }
-        public virtual DbSet<Rol> Rols { get; set; }
         public virtual DbSet<ServicioTaller> ServicioTallers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TipoCliente> TipoClientes { get; set; }
@@ -40,8 +41,7 @@ namespace VentaVehiculos.Models
         public virtual DbSet<TipoServicio> TipoServicios { get; set; }
         public virtual DbSet<TipoVehiculo> TipoVehiculoes { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<UsuarioRol> UsuarioRols { get; set; }
+        public virtual DbSet<UsuarioPerfil> UsuarioPerfils { get; set; }
         public virtual DbSet<Vehiculo> Vehiculoes { get; set; }
-        public virtual DbSet<Vendedor> Vendedors { get; set; }
     }
 }

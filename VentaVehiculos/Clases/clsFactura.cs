@@ -66,7 +66,7 @@ namespace VentaVehiculos.Clases
                 {
                     dbVentaVehiculos.Facturas.Add(factura);
                     dbVentaVehiculos.SaveChanges();
-                    return "La Factura numero " + factura.Numero + " ha sido creadoa exitosamente a nombre de " + cliente.Nombre;
+                    return "La Factura numero " + factura.Numero + " ha sido creada exitosamente a nombre de " + cliente.Nombre;
                 }
                 else
                 {
@@ -134,15 +134,15 @@ namespace VentaVehiculos.Clases
             return from F in dbVentaVehiculos.Set<Factura>()
                    join C in dbVentaVehiculos.Set<Cliente>() on F.IdCliente equals C.Id
                    join V in dbVentaVehiculos.Set<Vehiculo>() on F.IdVeh equals V.Id
-                   join Ven in dbVentaVehiculos.Set<Vendedor>() on F.IdVendedor equals Ven.Id
+                   join E in dbVentaVehiculos.Set<Empleado>() on F.IdEmpleado equals E.Id
                    orderby F.Numero ascending
                    select new
                    {
                        Numero = F.Numero,
                        Cliente = C.Nombre,
-                       Placas = V.Placa,
-                       Vehiculo = V.Marca,
-                       Vendedor = Ven.Nombre,
+                       PlacaVehiculo = V.Placa,
+                       MarcaVehiculo = V.Marca,
+                       Vendedor = E.Nombre,
                        Cantidad = F.Cantidad,
                        ValorUnidad = F.VUnidad,
                        Subtotal = F.Subtotal,

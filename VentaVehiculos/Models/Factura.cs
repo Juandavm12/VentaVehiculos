@@ -22,9 +22,10 @@ namespace VentaVehiculos.Models
         }
     
         public int Numero { get; set; }
+        public System.DateTime Fecha { get; set; }
         public int IdCliente { get; set; }
         public int IdVeh { get; set; }
-        public int IdVendedor { get; set; }
+        public int IdEmpleado { get; set; }
         public double Cantidad { get; set; }
         public double VUnidad { get; set; }
         public double Subtotal { get; set; }
@@ -34,9 +35,9 @@ namespace VentaVehiculos.Models
         [JsonIgnore]
         public virtual Cliente Cliente { get; set; }
         [JsonIgnore]
-        public virtual Vehiculo Vehiculo { get; set; }
+        public virtual Empleado Empleado { get; set; }
         [JsonIgnore]
-        public virtual Vendedor Vendedor { get; set; }
+        public virtual Vehiculo Vehiculo { get; set; }
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Garantia> Garantias { get; set; }

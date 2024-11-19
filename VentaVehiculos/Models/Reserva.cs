@@ -17,7 +17,7 @@ namespace VentaVehiculos.Models
     {
         public int Codigo { get; set; }
         public int IdCliente { get; set; }
-        public int IdVendedor { get; set; }
+        public int IdEmpleado { get; set; }
         public int IdVeh { get; set; }
         public System.DateTime Fecha { get; set; }
         public System.DateTime FechaVen { get; set; }
@@ -25,8 +25,8 @@ namespace VentaVehiculos.Models
         [JsonIgnore]
         public virtual Cliente Cliente { get; set; }
         [JsonIgnore]
-        public virtual Vehiculo Vehiculo { get; set; }
+        public virtual Empleado Empleado { get; set; }
         [JsonIgnore]
-        public virtual Vendedor Vendedor { get; set; }
+        public virtual Vehiculo Vehiculo { get; set; }
     }
 }

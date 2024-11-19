@@ -18,18 +18,19 @@ namespace VentaVehiculos.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.UsuarioRols = new HashSet<UsuarioRol>();
+            this.UsuarioPerfils = new HashSet<UsuarioPerfil>();
         }
     
         public int Id { get; set; }
-        public int IdVendedor { get; set; }
-        public string UserName { get; set; }
+        public int IdEmpleado { get; set; }
+        public string NombreUsuario { get; set; }
         public string Clave { get; set; }
+        public string Salt { get; set; }
 
         [JsonIgnore]
-        public virtual Vendedor Vendedor { get; set; }
+        public virtual Empleado Empleado { get; set; }
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsuarioRol> UsuarioRols { get; set; }
+        public virtual ICollection<UsuarioPerfil> UsuarioPerfils { get; set; }
     }
 }

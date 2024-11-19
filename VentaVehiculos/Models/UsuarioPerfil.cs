@@ -13,19 +13,16 @@ namespace VentaVehiculos.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Rol
+    public partial class UsuarioPerfil
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rol()
-        {
-            this.UsuarioRols = new HashSet<UsuarioRol>();
-        }
-    
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdPerfil { get; set; }
+        public bool Activo { get; set; }
 
         [JsonIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsuarioRol> UsuarioRols { get; set; }
+        public virtual Perfil Perfil { get; set; }
+        [JsonIgnore]
+        public virtual Usuario Usuario { get; set; }
     }
 }
