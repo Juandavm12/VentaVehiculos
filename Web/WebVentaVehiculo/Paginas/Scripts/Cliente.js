@@ -48,6 +48,7 @@ async function BuscarCliente() {
         $("#txtCorreo").val("");
         $("#txtTelefono").val("");
         $("#txtFechaNacimiento").val("");
+        $("#cboTipoCliente").val("");
     }
 }
 

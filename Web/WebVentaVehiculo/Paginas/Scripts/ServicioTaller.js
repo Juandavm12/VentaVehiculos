@@ -14,7 +14,8 @@ function LlenarTablaServicio() {
 }
 
 async function Execute(Method, Function) {
-    const servicio = new Servicio($("#txtId").val(), $("#txtIdCliente").val(), $("#txtIdVeh").val(), $("#txtCodEstadoServicio").val(), $("#txtCodTipoServicio").val(),
+    const servicio = new Servicio($("#txtId").val(), $("#txtIdCliente").val(), $("#txtIdVeh").val(),
+        $("#cboEstadoServicio").val(), $("#cboTipoServicio").val(),
         $("#txtFecha").val(), $("#txtComentarios").val());
     let URL = "https://localhost:44337/api/Servicios/" + Function;
     await ExecuteCommandService(Method, URL, servicio);
@@ -34,8 +35,8 @@ async function BuscarServicio() {
         $("#txtId").val(Servicio.Id);
         $("#txtIdCliente").val(Servicio.IdCliente);
         $("#txtIdVeh").val(Servicio.IdVeh);
-        $("#txtCodEstadoServicio").val(Servicio.CodEstadoServicio);
-        $("#txtCodTipoServicio").val(Servicio.CodTipoServicio); 
+        $("#cboEstadoServicio").val(Servicio.CodEstadoServicio);
+        $("#cboTipoServicio").val(Servicio.CodTipoServicio); 
         $("#txtFecha").val(Servicio.Fecha.split('T')[0]);
         $("#txtComentarios").val(Servicio.Comentarios); 
     }
@@ -45,8 +46,8 @@ async function BuscarServicio() {
         $("#txtId").val("");
         $("#txtIdCliente").val("");
         $("#txtIdVeh").val("");
-        $("#txtCodEstadoServicio").val("");
-        $("#txtCodTipoServicio").val("");
+        $("#cboEstadoServicio").val("");
+        $("#cboTipoServicio").val("");
         $("#txtFecha").val("");
         $("#txtComentarios").val("");
     }
