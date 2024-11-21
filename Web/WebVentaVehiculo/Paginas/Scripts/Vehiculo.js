@@ -1,7 +1,7 @@
 ﻿jQuery(function () {
 
-    /*LlenarComboxServicios("", "#cboTipoVehiculo");*/
-    /*LlenarComboxServicios("", "#cboEstadoVehiculo");*/
+    LlenarComboxServicios("https://localhost:44337/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
+    LlenarComboxServicios("https://localhost:44337/api/EstadoVehiculos/EstadoVehiculoCombo", "#cboEstadoVehiculo");
     LlenarTablaVehiculo();
 });
 

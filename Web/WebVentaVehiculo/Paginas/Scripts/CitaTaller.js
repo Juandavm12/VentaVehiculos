@@ -1,6 +1,6 @@
 jQuery(function () {
 
-    //LlenarComboxServicios("link", "#cboTipoServicio");
+    LlenarComboxServicios("https://localhost:44337/api/TipoServicios/TipoServicioCombo", "#cboTipoServicio");
     LlenarTablaCita();
 });
 function LimpiarCita() {
@@ -8,13 +8,13 @@ function LimpiarCita() {
 }
 
 function LlenarTablaCita() {
-    /*LlenarTablaxServicios("link", "#tblCita");*/
+    LlenarTablaxServicios("https://localhost:44337/api/Citas/LlenarTablaCita", "#tblCita");
 }
 
 async function Execute(Method, Function) {
     const cita = new Cita($("#txtCodigo").val(), $("#txtIdCliente").val(), $("#txtIdVeh").val(), $("#txtCodTipoServicio").val(),
         $("#txtFechaHora").val());
-    let URL = "/*link*/" + Function;
+    let URL = "https://localhost:44337/api/Citas/" + Function;
     await ExecuteCommandService(Method, URL, cita);
     LlenarTablaCita();
 }
@@ -30,9 +30,9 @@ class Cita {
     }
 }
 
-async function BuscarServicio() {
+async function BuscarCita() {
     let Codigo = $("#txtCodigo").val();
-    URL = "link" + Codigo;
+    URL = "https://localhost:44337/api/Citas/CitaxCodigo?Codigo=" + Codigo;
 
     //invoco el servicio generico 
     const Cita = await SearchService(URL);

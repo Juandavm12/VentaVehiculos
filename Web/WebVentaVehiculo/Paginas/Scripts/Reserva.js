@@ -3,10 +3,10 @@
 }
 
 class Reserva {
-    constructor(Codigo, IdCliente, IdVendedor, IdVeh, Fecha, FechaVen) {
+    constructor(Codigo, IdCliente, IdEmpleado, IdVeh, Fecha, FechaVen) {
         this.Codigo = Codigo;
         this.IdCliente = IdCliente;
-        this.IdVendedor = IdVendedor;
+        this.IdEmpleado = IdEmpleado;
         this.IdVeh = IdVeh;
         this.Fecha = Fecha;
         this.FechaVen = FechaVen;
@@ -14,7 +14,7 @@ class Reserva {
 }
 
 async function Execute(Method, Function) {
-    const venta = new Venta($("#txtCodigo").val(), $("#txtIdCliente").val(), $("#txtIdVendedor").val(),
+    const venta = new Venta($("#txtCodigo").val(), $("#txtIdCliente").val(), $("#txtIdEmpleado").val(),
         $("#txtIdVeh").val(), $("#txtFecha").val(), $("#txtFechaVen").val());
     let URL = "https://localhost:44337/api/Reservas/" + Function;
     ExecuteCommandService(Method, URL, reserva);
@@ -31,7 +31,7 @@ async function BuscarReserva() {
 
         $("#txtCodigo").val(Reserva.Codigo);
         $("#txtIdCliente").val(Reserva.IdCliente);
-        $("#txtIdVendedor").val(Reserva.IdVendedor);
+        $("#txtIdEmpleado").val(Reserva.IdEmpleado);
         $("#txtIdVeh").val(Reserva.IdVeh);
         $("#txtFecha").val(Reserva.Fecha.split('T')[0])
         $("#txtFechaVen").val(Reserva.FechaVen.split('T')[0]);

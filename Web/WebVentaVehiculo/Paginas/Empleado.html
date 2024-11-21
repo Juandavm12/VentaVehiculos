@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JP Servicios - ReservasVehículos</title>
+    <title>JP Servicios - Empleado</title>
     <link rel="icon" href="Images/Designer-Photoroom.png" />
 
     <!-- Google Font: Source Sans Pro -->
@@ -16,6 +16,7 @@
     <!--Estilos para las tablas-->
     <link href="Estilos/dataTables.min.css" rel="stylesheet" />
     <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -27,56 +28,74 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header" style="background-color: #0096C7; color: #ffffff;">
-                            <h3 class="card-title">RESERVAS DE VEHÍCULOS</h3>
+                            <h3 class="card-title">EMPLEADOS</h3>
                         </div>
-                        <form id="frmReserva">
+                        <form id="frmEmpleado">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
-                                        <h3 class="card-title">DATOS DE LA RESERVA</h3>
+                                        <h3 class="card-title">DATOS DEL EMPLEADO</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCodigo"><i class="fas fa-barcode"></i> Codigo de Venta</label>
-                                                    <input type="number" class="form-control" id="txtCodigo" placeholder="Codigo de Venta">
+                                                    <label for="txtDocumento"><i class="fas fa-id-card"></i> Documento</label>
+                                                    <input type="text" class="form-control" id="txtDocumento" placeholder="Documento">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdCliente"><i class="fas fa-user"></i> Cliente</label>
-                                                    <input type="number" class="form-control" id="txtIdCliente" placeholder="Cliente">
+                                                    <label for="txtNombre"><i class="fas fa-user"></i> Nombre</label>
+                                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdEmpleado"><i class="fas fa-id-badge"></i> Vendedor</label>
-                                                    <input type="number" class="form-control" id="txtIdEmpleado" placeholder="Vendedor">
+                                                    <label for="txtApellido"><i class="fas fa-user-tag"></i> Apellido</label>
+                                                    <input type="text" class="form-control" id="txtApellido" placeholder="Apellido">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtDireccion"><i class="fas fa-map-marker-alt"></i> Dirección</label>
+                                                    <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdVeh"><i class="fas fa-car"></i> Vehiculo</label>
-                                                    <input type="number" class="form-control" id="txtIdVeh" placeholder="Placa Vehiculo">
+                                                    <label for="txtCorreo"><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                                                    <input type="text" class="form-control" id="txtCorreo" placeholder="Correo Electrónico">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtFecha"><i class="fas fa-calendar-alt"></i> Fecha de Reserva</label>
-                                                    <input type="date" class="form-control" id="txtFecha" placeholder="Fecha de Reserva">
+                                                    <label for="txtTelefono"><i class="fas fa-phone"></i> Teléfono</label>
+                                                    <input type="text" class="form-control" id="txtTelefono" placeholder="Teléfono">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtFechaVen"><i class="fas fa-calendar-alt"></i> Fecha de Vencimiento</label>
-                                                    <input type="date" class="form-control" id="txtFechaVen" placeholder="Fecha de Vencimiento">
+                                                    <label for="txtFechaNacimiento"><i class="fas fa-calendar-alt"></i> Fecha de Nacimiento</label>
+                                                    <input type="date" class="form-control" id="txtFechaNacimiento" placeholder="Fecha de Nacimiento">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtCargo"><i class="fas fa-briefcase"></i> Cargo Empleado</label>
+                                                    <select class="form-control" id="txtCargo">
+                                                        <option value="" disabled selected>Cargo </option>
+                                                        <option value="Gerente">Gerente</option>
+                                                        <option value="Líder">Líder</option>
+                                                        <option value="Supervisor">Supervisor</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="card card-danger">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
@@ -88,31 +107,31 @@
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
-                                                            onclick="Execute('POST','InsertarReserva')">
+                                                            onclick="Execute('POST','InsertarEmpleado')">
                                                         <i class="fas fa-plus"></i> INSERTAR
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
-                                                            onclick="Execute('PUT','ActualizarReserva')">
+                                                            onclick="Execute('PUT','ActualizarEmpleado')">
                                                         <i class="fas fa-edit"></i> ACTUALIZAR
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnEliminar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;"
-                                                            onclick="Execute('DELETE','EliminarReserva')">
+                                                            onclick="Execute('DELETE','EliminarEmpleado')">
                                                         <i class="fas fa-trash-alt"></i> ELIMINAR
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnConsultar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"
-                                                            onclick="BuscarReserva()">
+                                                            onclick="BuscarEmpleado()">
                                                         <i class="fas fa-search"></i> CONSULTAR
                                                     </button>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
-                                                            onclick="LimpiarReserva()">
+                                                            onclick="LimpiarEmpleado()">
                                                         <i class="fas fa-refresh"></i> LIMPIAR
                                                     </button>
                                                 </div>
@@ -122,16 +141,16 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <table id="tblReserva" class="table table-bordered table-striped" style="width:100%;">
+                                            <table id="tblEmpleado" class="table table-bordered table-striped" style="width:100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Codigo</th>
-                                                        <th>Cliente</th>
-                                                        <th>Vendedor</th>
-                                                        <th>Placa Vehiculo</th>
-                                                        <th>Marca Vehiculo</th>
-                                                        <th>Fecha Reserva</th>
-                                                        <th>Fecha Vencimiento</th>
+                                                        <th>Documento</th>
+                                                        <th>Nombre</th>
+                                                        <th>Apellido</th>
+                                                        <th>Direccion</th>
+                                                        <th>Email</th>
+                                                        <th>Telefono</th>
+                                                        <th>Cargo</th>
                                                     </tr>
                                                 </thead>
                                             </table>
@@ -158,6 +177,6 @@
     <!--Archivos Comunes-->
     <script src="Scripts/Index.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
-    <script src="Scripts/Reserva.js"></script>
+    <script src="Scripts/Empleado.js"></script>
 </body>
 </html>
