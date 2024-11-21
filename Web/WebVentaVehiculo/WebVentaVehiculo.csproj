@@ -158,6 +158,7 @@
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
+    <Content Include="Paginas\Factura.html" />
     <Content Include="Paginas\Images\Busscar1.jpg" />
     <Content Include="Paginas\Images\Camioneta1.jpg" />
     <Content Include="Paginas\Images\Carro1.jpg" />
