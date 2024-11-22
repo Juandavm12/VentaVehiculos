@@ -9,9 +9,9 @@ function LimpiarTG() {
     LimpiarFormularios('frmTG');
 }
 
-function LlenarTablaTG() {
-    LlenarTablaxServicios("link", "#tblTG");
-}
+//function LlenarTablaTG() {
+//    LlenarTablaxServicios(/*"link"*/, "#tblTG");
+//}
 
 async function Execute(Method, Function) {
     const tg = new TG($("#txtCodigo").val(), $("#txtNombre").val(), $("#txtDescripcion").val());

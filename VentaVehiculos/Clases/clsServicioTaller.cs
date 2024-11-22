@@ -99,15 +99,16 @@ namespace VentaVehiculos.Clases
         public IQueryable LlenarTablaServicio()
         {
             return from S in dbVentaVehiculos.Set<ServicioTaller>()
-                   join TS in dbVentaVehiculos.Set<TipoServicio>()
-                   on S.CodTipoServicio equals TS.Codigo
-                   join ES in dbVentaVehiculos.Set<EstadoServicio>()
-                   on S.CodEstadoServicio equals ES.Codigo
+                   join TS in dbVentaVehiculos.Set<TipoServicio>() on S.CodTipoServicio equals TS.Codigo
+                   join ES in dbVentaVehiculos.Set<EstadoServicio>() on S.CodEstadoServicio equals ES.Codigo
+                   join Cl in dbVentaVehiculos.Set<Cliente>() on S.IdCliente equals Cl.Id
+                   join V in dbVentaVehiculos.Set<Vehiculo>() on S.IdVeh equals V.Id
                    orderby TS.Tipo, S.IdCliente
                    select new
                    {
-                       Cliente = S.IdCliente,
-                       Vehiculo = S.IdVeh,
+                       NumServicio = S.Id,
+                       Cliente = Cl.Nombre + " " + Cl.Apellido,
+                       Vehiculo = V.Placa,
                        Estado = ES.Estado,
                        Tipo = TS.Tipo,
                        Fecha = S.Fecha,

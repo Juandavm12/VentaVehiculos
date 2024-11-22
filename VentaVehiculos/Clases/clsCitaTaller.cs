@@ -97,15 +97,17 @@ namespace VentaVehiculos.Clases
         public IQueryable LlenarTablaCita()
         {
             return from C in dbVentaVehiculos.Set<CitaTaller>()
-                   join TS in dbVentaVehiculos.Set<TipoServicio>()
-                   on C.CodTipoServicio equals TS.Codigo
+                   join TS in dbVentaVehiculos.Set<TipoServicio>() on C.CodTipoServicio equals TS.Codigo
+                   join Cl in dbVentaVehiculos.Set<Cliente>() on C.IdCliente equals Cl.Id 
+                   join V in dbVentaVehiculos.Set<Vehiculo>() on C.IdVeh equals V.Id
                    orderby TS.Tipo
                    select new
                    {
-                       Tipo = TS.Tipo,
-                       Cliente = C.IdCliente,
-                       Vehiculo = C.IdVeh,
-                       Fecha = C.FechaHora
+                       Numero = C.Codigo,
+                       Servicio = TS.Tipo,
+                       Cliente = Cl.Nombre + " " + Cl.Apellido,
+                       Vehiculo = V.Placa,
+                       FechaHora = C.FechaHora
                    };
         }
     }

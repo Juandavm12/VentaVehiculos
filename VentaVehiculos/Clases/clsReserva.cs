@@ -104,8 +104,8 @@ namespace VentaVehiculos.Clases
                    select new
                    {
                        Codigo = R.Codigo,
-                       Cliente = C.Nombre,
-                       Vendedor = E.Nombre,
+                       Cliente = C.Nombre + " " + C.Apellido,
+                       Vendedor = E.Nombre + " " + E.Apellido,
                        PlacaVehiculo = V.Placa,
                        MarcaVehiculo = V.Marca,
                        FechaReserva = R.Fecha,

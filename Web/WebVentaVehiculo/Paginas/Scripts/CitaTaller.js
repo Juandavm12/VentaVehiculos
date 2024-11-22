@@ -1,5 +1,6 @@
 jQuery(function () {
-
+    LlenarComboxServicios("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
+    LlenarComboxServicios("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
     LlenarComboxServicios("https://localhost:44337/api/TipoServicios/TipoServicioCombo", "#cboTipoServicio");
     LlenarTablaCita();
 });
@@ -12,7 +13,7 @@ function LlenarTablaCita() {
 }
 
 async function Execute(Method, Function) {
-    const cita = new Cita($("#txtCodigo").val(), $("#txtIdCliente").val(), $("#txtIdVeh").val(), $("#txtCodTipoServicio").val(),
+    const cita = new Cita($("#txtCodigo").val(), $("#cboCliente").val(), $("#cboVehiculo").val(), $("#cboTipoServicio").val(),
         $("#txtFechaHora").val());
     let URL = "https://localhost:44337/api/Citas/" + Function;
     await ExecuteCommandService(Method, URL, cita);
@@ -40,18 +41,18 @@ async function BuscarCita() {
     if (Cita != null) {
 
         $("#txtCodigo").val(Cita.Codigo);
-        $("#txtIdCliente").val(Cita.IdCliente);
-        $("#txtIdVeh").val(Cita.IdVeh);
-        $("#txtCodTipoServicio").val(Cita.CodTipoServicio);
-        $("#txtFechaHora").val(Cita.FechaHora.split('T')[0]);
+        $("#cboCliente").val(Cita.IdCliente);
+        $("#cboVehiculo").val(Cita.IdVeh);
+        $("#cboTipoServicio").val(Cita.CodTipoServicio);
+        $("#txtFechaHora").val(Cita.FechaHora);
     }
     else {
 
         $("#dvMensaje").html("No se encontro la Cita");
         $("#txtCodigo").val("");
-        $("#txtIdCliente").val("");
-        $("#txtIdVeh").val("");
-        $("#txtCodTipoServicio").val("");
+        $("#cboCliente").val("");
+        $("#cboVehiculo").val("");
+        $("#cboTipoServicio").val("");
         $("#txtFechaHora").val("");
     }
 }

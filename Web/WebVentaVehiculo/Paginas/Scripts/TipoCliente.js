@@ -12,7 +12,7 @@ function LlenarTablaTC() {
 
 async function Execute(Method, Function) {
     const tc = new TC($("#txtMembresia").val(), $("#txtDescuento").val());
-    let URL = "/*link*/" + Function;
+    let URL = /*"link"*/ + Function;
     await ExecuteCommandService(Method, URL, tc);
     LlenarTablaTC();
 }
