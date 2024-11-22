@@ -11,6 +11,7 @@ function LimpiarEmpleado() {
 function LlenarTablaEmpleado() {
     LlenarTablaxServicios("https://localhost:44337/api/Empleados/LlenarTablaEmpleado", "#tblEmpleado");
 }
+
 class Empleado {
     constructor(Documento, Nombre, Apellido, Direccion, Correo, Telefono, FechaNacimiento, Cargo) {
 

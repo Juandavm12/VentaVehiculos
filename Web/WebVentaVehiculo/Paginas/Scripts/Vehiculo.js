@@ -6,7 +6,7 @@
 });
 
 function LimpiarVehiculo() {
-    LimpiarFormularios('frmVehiculo');
+    LimpiarFormularios('frmVehiculos');
 }
 
 function LlenarTablaVehiculo() {
@@ -16,24 +16,24 @@ function LlenarTablaVehiculo() {
 
 class Vehiculo {
 
-    constructor(CodTipoVehiculo, Placa, Marca, Modelo, Precio, Kilometraje, CodEstadoVehiculo) {
+    constructor(Placa, Marca, Modelo, Precio, Kilometraje, CodEstadoVehiculo, CodTipoVehiculo) {
 
-        this.CodTipoVehiculo = CodTipoVehiculo;
         this.Placa = Placa;
         this.Marca = Marca;
         this.Modelo = Modelo;
         this.Precio = Precio;
         this.Kilometraje = Kilometraje;
-        this.CodEstadoVehiculo = CodEstadoVehiculo; 
+        this.CodEstadoVehiculo = CodEstadoVehiculo;
+        this.CodTipoVehiculo = CodTipoVehiculo;
 
     }
 }
 
 async function Execute(Method, Function) {
-    const vehiculo = new Vehiculo($("#txtCodTipoVehiculo").val(), $("#txtPlaca").val(), $("#txtMarca").val(), $("#txtModelo").val(),
-        $("#txtPrecio").val(), $("#txtKilometraje").val(), $("#txtCodEstadoVehiculo").val());
+    const vehiculo = new Vehiculo($("#txtPlaca").val(), $("#txtMarca").val(), $("#txtModelo").val(),
+        $("#txtPrecio").val(), $("#txtKilometraje").val(), $("#cboEstadoVehiculo").val(), $("#cboTipoVehiculo").val());
     let URL = "https://localhost:44337/api/Vehiculos/" + Function;
-    ExecuteCommandService(Method, URL, vehiculo);
+    await ExecuteCommandService(Method, URL, vehiculo);
     LlenarTablaVehiculo();
 }
 
@@ -46,13 +46,13 @@ async function BuscarVehiculo() {
 
     if (Vehiculo != null) {
 
-        $("#txtCodTipoVehiculo").val(Vehiculo.CodTipoVehiculo);
         $("#txtPlaca").val(Vehiculo.Placa);
         $("#txtMarca").val(Vehiculo.Marca);
         $("#txtModelo").val(Vehiculo.Modelo);
         $("#txtPrecio").val(Vehiculo.Precio);
         $("#txtKilometraje").val(Vehiculo.Kilometraje);
-        $("#txtCodEstadoVehiculo").val(Vehiculo.CodEstadoVehiculo);
+        $("#cboEstadoVehiculo").val(Vehiculo.CodEstadoVehiculo);
+        $("#cboTipoVehiculo").val(Vehiculo.CodTipoVehiculo);
     }
     else {
         $("#dvMensaje").html("No se encontro el Vehiculo");

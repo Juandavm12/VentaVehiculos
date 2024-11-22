@@ -57,9 +57,16 @@ namespace VentaVehiculos.Controllers
         [Route("LlenarTablaEmpleado")]
         public IQueryable LlenarTablaEmpleado()
         {
-
             clsEmpleado empleado = new clsEmpleado();
             return empleado.LlenarTablaEmpleado();
+        }
+
+        [HttpGet]
+        [Route("EmpleadoCombo")]
+        public IQueryable EmpleadoCombo()
+        {
+            clsEmpleado empleado = new clsEmpleado();
+            return empleado.EmpleadoCombo();
         }
     }
 }

@@ -114,5 +114,16 @@ namespace VentaVehiculos.Clases
                        Descuento = TC.Descuento,
                    };
         }
+
+        public IQueryable ClienteCombo()
+        {
+            return dbVentaVehiculos.Clientes
+                .OrderBy(t => t.Nombre)
+                .Select(t => new
+                {
+                    Id = t.Id,
+                    Nombre = t.Nombre + " " + t.Apellido
+                });
+        }
     }
 }

@@ -64,5 +64,13 @@ namespace VentaVehiculos.Controllers
             clsCliente cliente = new clsCliente();
             return cliente.LlenarTablaCliente();
         }
+
+        [HttpGet]
+        [Route("ClienteCombo")]
+        public IQueryable ClienteCombo()
+        {
+            clsCliente cliente = new clsCliente();
+            return cliente.ClienteCombo();
+        }
     }
 }

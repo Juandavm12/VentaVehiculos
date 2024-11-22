@@ -30,7 +30,7 @@ namespace VentaVehiculos.Clases
                 }
                 else
                 {
-                    return "El documento " + empleado.Documento + " ya esta asociado a un empleado";
+                    return "El Documento " + empleado.Documento + " ya esta asociado a un empleado";
                 }
             }
             catch (Exception ex)
@@ -77,7 +77,7 @@ namespace VentaVehiculos.Clases
 
                 if (_empleado != null)
                 {
-                    dbVentaVehiculos.Empleadoes.Remove(empleado);
+                    dbVentaVehiculos.Empleadoes.Remove(_empleado);
                     dbVentaVehiculos.SaveChanges();
                     return "El Empleado " + empleado.Nombre + " se ha eliminado exitosamente";
                 }
@@ -96,7 +96,7 @@ namespace VentaVehiculos.Clases
         public IQueryable LlenarTablaEmpleado()
         {
             return from E in dbVentaVehiculos.Set<Empleado>()
-                   join U in dbVentaVehiculos.Set<Usuario>() on E.Id equals U.IdEmpleado 
+                   //join U in dbVentaVehiculos.Set<Usuario>() on E.Id equals U.IdEmpleado 
                    orderby E.Nombre, E.Cargo
                    select new
                    {
@@ -107,9 +107,19 @@ namespace VentaVehiculos.Clases
                        Email = E.Correo,
                        Telefono = E.Telefono,
                        FechaNacimiento = E.FechaNacimiento,
-                       Cargo = E.Cargo,
-                       Usuario = U.NombreUsuario
+                       Cargo = E.Cargo
                    };
+        }
+
+        public IQueryable EmpleadoCombo()
+        {
+            return dbVentaVehiculos.Empleadoes
+                .OrderBy(t => t.Nombre)
+                .Select(t => new
+                {
+                    Id = t.Id,
+                    Nombre = t.Nombre + " " + t.Apellido
+                });
         }
     }
 }

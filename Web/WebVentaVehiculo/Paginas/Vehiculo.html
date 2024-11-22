@@ -41,7 +41,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="cboTipoVehiculo"><i class="fas fa-car"></i> Tipo Vehículo</label>
-                                                    <select class="form-control" id="cboTipoVehiculo">
+                                                    <select id="cboTipoVehiculo" class="form-control">
                                                         <option value="0">SELECCIONAR</option>
                                                     </select>
                                                 </div>
@@ -69,23 +69,23 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="txtPrecio"><i class="fas fa-dollar-sign"></i> Precio</label>
-                                                    <input type="text" class="form-control" id="txtPrecio" placeholder="Precio">
+                                                    <input type="number" class="form-control" id="txtPrecio" placeholder="Precio">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="txtKilometraje"><i class="fas fa-tachometer-alt"></i> Kilometraje</label>
-                                                    <input type="text" class="form-control" id="txtKilometraje" placeholder="Kilometraje">
+                                                    <input type="number" class="form-control" id="txtKilometraje" placeholder="Kilometraje">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="cboEstadoVehiculo"><i class="fas fa-info-circle"></i> Estado del Vehículo</label>
-                                                    <select class="form-control" id="cboEstadoVehiculo">
+                                                    <select id="cboEstadoVehiculo" class="form-control">
                                                         <option value="0">SELECCIONAR</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div>                                            
                                         </div>
                                     </div>
 
@@ -137,6 +137,7 @@
                                             <table id="tblVehiculo" class="table table-bordered table-striped" style="width:100%;">
                                                 <thead>
                                                     <tr>
+                                                        <th>Tipo</th>
                                                         <th>Placa</th>
                                                         <th>Marca</th>
                                                         <th>Modelo</th>

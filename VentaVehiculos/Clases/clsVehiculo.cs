@@ -115,6 +115,15 @@ namespace VentaVehiculos.Clases
                    };
         }
 
-
+        public IQueryable VehiculoCombo()
+        {
+            return dbVentaVehiculos.Vehiculoes
+                .OrderBy(t => t.Placa)
+                .Select(t => new
+                {
+                    Id = t.Id,
+                    Nombre = t.Placa
+                });
+        }
     }
 }

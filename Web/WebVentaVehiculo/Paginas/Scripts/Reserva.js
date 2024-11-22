@@ -1,5 +1,18 @@
-﻿function LimpiarReserva() {
+﻿jQuery(function () {
+
+    //Al iniciar la pagina se llena el combo de TipoCliente
+    LlenarComboxServicios("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
+    LlenarComboxServicios("https://localhost:44337/api/Empleados/EmpleadoCombo", "#cboEmpleado");
+    LlenarComboxServicios("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
+    LlenarTablaReserva();
+
+});
+function LimpiarReserva() {
     LimpiarFormularios('frmReserva');
+}
+
+function LlenarTablaReserva() {
+    LlenarTablaxServicios("https://localhost:44337/api/Reservas/LlenarTablaReserva", "#tblReserva");
 }
 
 class Reserva {
@@ -14,15 +27,16 @@ class Reserva {
 }
 
 async function Execute(Method, Function) {
-    const venta = new Venta($("#txtCodigo").val(), $("#txtIdCliente").val(), $("#txtIdEmpleado").val(),
-        $("#txtIdVeh").val(), $("#txtFecha").val(), $("#txtFechaVen").val());
+    const reserva = new Reserva($("#txtCodigo").val(), $("#cboCliente").val(), $("#cboEmpleado").val(),
+        $("#cboVehiculo").val(), $("#txtFecha").val(), $("#txtFechaVen").val());
     let URL = "https://localhost:44337/api/Reservas/" + Function;
-    ExecuteCommandService(Method, URL, reserva);
+    await ExecuteCommandService(Method, URL, reserva);
+    LlenarTablaReserva();
 }
 
 async function BuscarReserva() {
     let Codigo = $("#txtCodigo").val();
-    URL = "https://localhost:44337/api/Reservas/VentaxCodigo?Codigo=" + Codigo;
+    URL = "https://localhost:44337/api/Reservas/ReservaxCodigo?Codigo=" + Codigo;
 
     //invoco el servicio generico 
     const Reserva = await SearchService(URL);
@@ -30,9 +44,9 @@ async function BuscarReserva() {
     if (Reserva != null) {
 
         $("#txtCodigo").val(Reserva.Codigo);
-        $("#txtIdCliente").val(Reserva.IdCliente);
-        $("#txtIdEmpleado").val(Reserva.IdEmpleado);
-        $("#txtIdVeh").val(Reserva.IdVeh);
+        $("#cboCliente").val(Reserva.IdCliente);
+        $("#cboEmpleado").val(Reserva.IdEmpleado);
+        $("#cboVehiculo").val(Reserva.IdVeh);
         $("#txtFecha").val(Reserva.Fecha.split('T')[0])
         $("#txtFechaVen").val(Reserva.FechaVen.split('T')[0]);
     }
