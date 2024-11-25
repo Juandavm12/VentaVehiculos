@@ -9,10 +9,10 @@ namespace VentaVehiculos
     {
         public static void Register(HttpConfiguration config)
         {
-            config.EnableCors();
-
             // Web API configuration and services
-
+            config.EnableCors();
+            config.MessageHandlers.Add(new Clases.TokenValidationHandler());
+           
             // Web API routes
             config.MapHttpAttributeRoutes();
 

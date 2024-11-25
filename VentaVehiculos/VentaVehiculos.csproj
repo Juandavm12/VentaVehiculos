@@ -195,6 +195,8 @@
     <Compile Include="Clases\clsTipoCliente.cs" />
     <Compile Include="Clases\clsVehiculo.cs" />
     <Compile Include="Clases\clsReserva.cs" />
+    <Compile Include="Clases\TokenGenerator.cs" />
+    <Compile Include="Clases\TokenValidationHandler.cs" />
     <Compile Include="Controllers\CitasTallerController.cs" />
     <Compile Include="Controllers\EstadoServiciosController.cs" />
     <Compile Include="Controllers\EstadoVehiculosController.cs" />
@@ -235,6 +237,7 @@
     <Compile Include="Models\Garantia.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\modelLogin.cs" />
     <Compile Include="Models\Perfil.cs">
       <DependentUpon>VentaVehiculosEntities.tt</DependentUpon>
     </Compile>

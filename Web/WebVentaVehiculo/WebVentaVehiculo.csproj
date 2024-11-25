@@ -169,6 +169,7 @@
     <Content Include="Paginas\Images\Moto1.jpg" />
     <Content Include="Paginas\Images\Premium.jpeg" />
     <Content Include="Paginas\Images\VIP.jpeg" />
+    <Content Include="Paginas\Login.html" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Cliente.html" />
     <Content Include="Paginas\Scripts\CitaTaller.js" />

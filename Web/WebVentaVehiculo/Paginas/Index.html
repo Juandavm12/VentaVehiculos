@@ -22,11 +22,36 @@
             justify-content: center;
             align-items: center;
         }
+
+        .how-it-works {
+            padding: 40px 0;
+            background-color: #f8f9fa; /* Color de fondo ligero */
+            border-radius: 20px;
+        }
+
+        .how-it-works h2 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .how-it-works .step h5 {
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        .how-it-works .step p {
+            color: #6c757d; /* Texto con color gris tenue */
+            font-size: 1rem;
+        }
+            .how-it-works .step img {
+                width: 800px; /* Agrandar imagen */
+                height: 800px; /* Agrandar imagen */
+                object-fit: cover;
+            }
     </style>
 </head>
 <body class="hold-transition sidebar-mini">
     <div id="dvMenu"></div>
-
     <section class="content">
         <div class="container-fluid">
             <div class="jumbotron text-center">
@@ -35,7 +60,34 @@
                 <hr class="my-4">
                 <p>Explora nuestra amplia gama de vehículos y encuentra el que mejor se adapte a tus necesidades.</p>
             </div>
-
+            <section class="how-it-works text-center mt-5">
+                <h2>Descubre Nuestras Membresías</h2>
+                <p class="text-muted">Adquierelas para mejores descuentos</p>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-3">
+                        <div class="step">
+                            <img src="Images/Estandar.jpeg" alt="Paso 1" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                            <h5>1. Estandar</h5>
+                            <p>Descuento del 5% en todos nuestros servicio.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="step">
+                            <img src="Images/VIP.jpeg" alt="Paso 2" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                            <h5>2. VIP</h5>
+                            <p>Descuento del 15% en todos nuestros servicio.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="step">
+                            <img src="Images/Premium.jpeg" alt="Paso 3" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                            <h5>3. Premuim</h5>
+                            <p>Descuento del 18% en todos nuestros servicio.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br />
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="card">
