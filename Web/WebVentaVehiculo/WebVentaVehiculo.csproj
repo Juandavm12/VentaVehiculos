@@ -159,6 +159,7 @@
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
     <Content Include="Paginas\Garantia.html" />
+    <Content Include="Paginas\Images\Buscar.jpg" />
     <Content Include="Paginas\Images\Busscar1.jpg" />
     <Content Include="Paginas\Images\Camioneta1.jpg" />
     <Content Include="Paginas\Images\Carro1.jpg" />
@@ -178,12 +179,14 @@
     <Content Include="Paginas\Scripts\TipoCliente.js" />
     <Content Include="Paginas\Scripts\TipoGarantia.js" />
     <Content Include="Paginas\Scripts\TipoVehiculo.js" />
+    <Content Include="Paginas\Scripts\Usuario.js" />
     <Content Include="Paginas\ServicioTaller.html" />
     <Content Include="Paginas\TipoCliente.html" />
     <Content Include="Paginas\TipoGarantia.html" />
     <Content Include="Paginas\TipoVehiculo.html" />
     <Content Include="Paginas\Empleado.html" />
     <Content Include="Paginas\Scripts\Comunes\CRUD.js" />
+    <Content Include="Paginas\Usuario.html" />
     <Content Include="Paginas\Vehiculo.html" />
     <Content Include="Paginas\PaginaBase.html" />
     <Content Include="Paginas\Index.html" />

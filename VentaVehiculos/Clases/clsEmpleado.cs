@@ -121,5 +121,16 @@ namespace VentaVehiculos.Clases
                     Nombre = t.Nombre + " " + t.Apellido
                 });
         }
+
+        public IQueryable EmpleadoxCargo(string Documento)
+        {
+            return from E in dbVentaVehiculos.Set<Empleado>()
+                   where E.Documento == Documento
+                   select new
+                   {
+                       Empleado = E.Nombre + " " + E.Apellido,
+                       Cargo = E.Cargo
+                   };
+        }
     }
 }

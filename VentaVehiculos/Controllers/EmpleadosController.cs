@@ -68,5 +68,13 @@ namespace VentaVehiculos.Controllers
             clsEmpleado empleado = new clsEmpleado();
             return empleado.EmpleadoCombo();
         }
+
+        [HttpGet]
+        [Route("EmpleadoxCargo")]
+        public IQueryable EmpleadoxCargo(string Documento)
+        {
+            clsEmpleado empleado = new clsEmpleado();
+            return empleado.EmpleadoxCargo(Documento);
+        }
     }
 }

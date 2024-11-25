@@ -1,6 +1,5 @@
 ﻿jQuery(function () {
 
-    //Al iniciar la pagina se llena el combo de TipoCliente
     LlenarComboxServicios("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
     LlenarComboxServicios("https://localhost:44337/api/Empleados/EmpleadoCombo", "#cboEmpleado");
     LlenarComboxServicios("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
