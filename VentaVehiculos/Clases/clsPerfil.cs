@@ -10,16 +10,16 @@ namespace VentaVehiculos.Clases
     {
         private VentaVehiculosEntities dbVentaVehiculos = new VentaVehiculosEntities();
 
-        public Perfil perfil {  get; set; } 
+        public Perfil perfil {  get; set; }
 
         public IQueryable PerfilCombo()
         {
-            return from P in dbVentaVehiculos.Set<Perfil>()
-                   select new
-                   {
-                       Codigo = P.Id,
-                       Nombre = P.Nombre
-                   };
+            return dbVentaVehiculos.Perfils                
+                .Select(t => new
+                {
+                    Id = t.Id,
+                    Nombre = t.Nombre
+                });
         }
     }
 }

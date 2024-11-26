@@ -129,7 +129,8 @@ namespace VentaVehiculos.Clases
                    select new
                    {
                        Empleado = E.Nombre + " " + E.Apellido,
-                       Cargo = E.Cargo
+                       Cargo = E.Cargo,
+                       Id = E.Id
                    };
         }
     }

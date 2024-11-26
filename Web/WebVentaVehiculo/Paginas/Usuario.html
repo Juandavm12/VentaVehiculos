@@ -28,7 +28,7 @@
                         <div class="card-header" style="background-color: #0096C7; color: #ffffff;">
                             <h3 class="card-title">ADMINISTRACIÓN DE USUARIOS</h3>
                         </div>
-                        <form id="frmIncapacidades">
+                        <form id="frmUsuario">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
@@ -57,6 +57,13 @@
                                                 <div class="form-group">
                                                     <label for="txtCargo">CARGO</label>
                                                     <input type="text" class="form-control" id="txtCargo" placeholder="Cargo del empleado" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-0">
+                                                <div class="form-group">
+                                                    <label for="txtIdEmpleado"></label>
+                                                    <!--<input type="number" class="form-control" id="txtIdEmpleado" placeholder="Id" disabled>-->
+                                                    <input type="hidden" id="txtIdEmpleado">
                                                 </div>
                                             </div>
                                         </div>
@@ -89,13 +96,18 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #007bff; color: #007bff; background-color: transparent;"> INSERTAR</button>
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-2">
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
+                                                        onclick="Execute('POST','InsertarUsuario')">
+                                                    <i class="fas fa-plus"></i> INSERTAR
+                                                </button>
                                             </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"> ACTUALIZAR</button>
+                                            <div class="col-md-2">
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
+                                                        onclick="Execute('PUT','ActualizarCliente')">
+                                                    <i class="fas fa-edit"></i> ACTUALIZAR
+                                                </button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
@@ -103,7 +115,13 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnActivar"  class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"> ACTIVAR</button>
+                                                <button type="button" id="btnActivar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"> ACTIVAR</button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
+                                                        onclick="LimpiarUsuario()">
+                                                    <i class="fas fa-refresh"></i> LIMPIAR
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="row">
