@@ -30,7 +30,7 @@ async function Execute(Method, Function) {
     const empleado = new Empleado($("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtDireccion").val(),
         $("#txtCorreo").val(), $("#txtTelefono").val(), $("#txtFechaNacimiento").val(), $("#txtCargo").val());
     let URL = "https://localhost:44337/api/Empleados/" + Function;
-    ExecuteCommandService(Method, URL, empleado);
+    await ExecuteCommandService(Method, URL, empleado);
     LlenarTablaEmpleado();
 }
 
