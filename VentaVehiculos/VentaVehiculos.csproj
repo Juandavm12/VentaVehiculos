@@ -195,6 +195,7 @@
     <Compile Include="Clases\clsEmpleado.cs" />
     <Compile Include="Clases\clsCliente.cs" />
     <Compile Include="Clases\clsTipoCliente.cs" />
+    <Compile Include="Clases\clsUsuario.cs" />
     <Compile Include="Clases\clsVehiculo.cs" />
     <Compile Include="Clases\clsReserva.cs" />
     <Compile Include="Clases\TokenGenerator.cs" />
