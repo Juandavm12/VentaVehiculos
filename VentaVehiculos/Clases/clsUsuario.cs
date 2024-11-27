@@ -50,47 +50,44 @@ namespace VentaVehiculos.Clases
             }
         }
 
-        //public string ActualizarUsuario(int Perfil)
-        //{
-        //    try
-        //    {
-        //        clsCypher cifrar = new clsCypher();
-        //        cifrar.Password = usuario.Clave;
-        //        if (cifrar.CifrarClave())
-        //        {
-        //            //Se debe consultar el id del usuario y el id del usuario perfil
-        //            Usuario _usuario = ConsultarUsuario(usuario.Documento_Empleado);
-        //            if (_usuario == null)
-        //            {
-        //                return "No existe el usuario";
-        //            }
-        //            usuario.id = _usuario.id;
-        //            usuario.Salt = cifrar.Salt;
-        //            usuario.Clave = cifrar.PasswordCifrado;
-        //            dbVentaVehiculos.Usuarios.AddOrUpdate(usuario);
-        //            dbVentaVehiculos.SaveChanges();
+        public string ActualizarUsuario(int idUsuario, int idUsuarioPerfil, int idPerfil)
+        {
+            try
+            {
+                Usuario _usuario = dbVentaVehiculos.Usuarios.FirstOrDefault(u => u.Id == idUsuario);
+                _usuario.NombreUsuario = usuario.NombreUsuario;
+                dbVentaVehiculos.SaveChanges();
 
-        //            //Agregar el perfil del usuario
-        //            usuarioPerfil = ConsultarUsuarioPerfil(usuario.id);
-        //            usuarioPerfil.idUsuario = usuario.id;
-        //            usuarioPerfil.idPerfil = Perfil;
-        //            usuarioPerfil.Activo = true;
+                UsuarioPerfil usuarioPerfil = dbVentaVehiculos.UsuarioPerfils.FirstOrDefault(up => up.Id == idUsuarioPerfil);
+                usuarioPerfil.IdPerfil = idPerfil;
+                dbVentaVehiculos.SaveChanges();
+                return "Se actualizaron los datos del usuario: " + usuario.NombreUsuario;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
-        //            dbVentaVehiculos.UsuarioPerfils.AddOrUpdate(usuarioPerfil);
-        //            dbVentaVehiculos.SaveChanges();
+        public string ActivarUsuario(int idUsuarioPerfil, bool Activo)
+        {
+            try
+            {
+                UsuarioPerfil usuarioPerfil = dbVentaVehiculos.UsuarioPerfils.FirstOrDefault(u => u.Id == idUsuarioPerfil);
+                if (usuarioPerfil == null)
+                {
+                    return "El Usuario que intenta actualizar, no existe";
+                }
 
-        //            return "Se actualizó el usuario: " + usuario.userName;
-        //        }
-        //        else
-        //        {
-        //            return "No pudo cifrar la clave.";
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return ex.Message;
-        //    }
-        //}
+                usuarioPerfil.Activo = Activo;
+                dbVentaVehiculos.SaveChanges();
+                return "Se activó el usuario";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public IQueryable LlenarTablaUsuario()
         {
@@ -101,9 +98,12 @@ namespace VentaVehiculos.Clases
                    orderby E.Id
                    select new
                    {
-                       Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn-block btn-lg\" style=\"color: #000000;\"" +
-                       "onclick=\"EditarUsuario('" + U.Id + "', '" + E.Documento + "', '" + E.Nombre + " " + E.Apellido + "'," +
-                       "'" + E.Cargo + "', '" + E.Id + "', '" + U.NombreUsuario + "', '" + P.Id + "')\">Editar</button>",
+                       Editar = "<img src=\"Images/editar-informacion.png\" onclick=\"EditarUsuario('" + U.Id + "', " +
+                       "'" + E.Documento + "', '" + E.Nombre + " " + E.Apellido + "', '" + E.Cargo + "', '" + E.Id + "'," +
+                       "'" + U.NombreUsuario + "', '" + P.Id + "', '" + UP.Id + "')" +
+                       "\" style=\"width: 35px; height: 35px; cursor: pointer; margin-left: 5px;\" />" +
+                       "<img src =\"Images/encender.png\" onclick=\"ActivarUsuario('" + UP.Id + "', true)" +
+                       "\" style=\"width: 35px; height: 35px; cursor: pointer; margin-left: 5px;\" />",
                        Documento = E.Documento,
                        Empleado = E.Nombre + " " + E.Apellido,
                        Cargo = E.Cargo,

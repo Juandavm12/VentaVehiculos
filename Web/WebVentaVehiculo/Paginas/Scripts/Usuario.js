@@ -8,17 +8,30 @@ async function LlenarTablaUsuario() {
     LlenarTablaxServicios("https://localhost:44337/api/Usuarios/LlenarTablaUsuario", "#tblUsuarios");
 }
 
+async function ActivarUsuario(idUsuarioPerfil, Activo) {
+    if (window.confirm("Confirma si quiere activar este usuario")) {
+        let URL = "https://localhost:44337/api/Usuarios/ActivarUsuario?idUsuarioPerfil=" + idUsuarioPerfil + "&Activo=" + Activo;
+        await ExecuteCommandService("PUT", URL, null);
+        LlenarTablaUsuario();
+    }
+    else {
+        alert("Cancelo la activacion del usuario");
+    } 
+}
+
 function LimpiarUsuario() {
     LimpiarFormularios('frmUsuario');
 }
 
-function EditarUsuario(idUsuario, DocumentoEmpleado, Empleado, Cargo, IdEmpleado, Usuario, Perfil) {
+function EditarUsuario(IdUsuario, DocumentoEmpleado, Empleado, Cargo, IdEmpleado, Usuario, Perfil, IdUsuarioPerfil) {
     $("#txtDocumento").val(DocumentoEmpleado);
     $("#txtNombre").val(Empleado);
     $("#txtCargo").val(Cargo);
     $("#txtIdEmpleado").val(IdEmpleado);
     $("#txtUsuario").val(Usuario);
     $("#cboPerfil").val(Perfil);
+    $("#txtIdUsuario").val(IdUsuario);
+    $("#txtIdUsuarioPerfil").val(IdUsuarioPerfil);
 }
 
 async function Execute(Method, Function) {
@@ -31,8 +44,10 @@ async function Execute(Method, Function) {
         return;
     }
 
-    const usuario = new Usuario(0, $("#txtIdEmpleado").val(), $("#txtUsuario").val(), Clave);
-    let URL = "https://localhost:44337/api/Usuarios/" + Function + "?Perfil=" + idPerfil;
+    let idUsuario = Method == "PUT" ? $("#txtIdUsuario").val() : 0;
+    let idUsuarioPerfil = Method == "PUT" ? $("#txtIdUsuarioPerfil").val() : 0;
+    const usuario = new Usuario(idUsuario, $("#txtIdEmpleado").val(), $("#txtUsuario").val(), Clave);
+    let URL = "https://localhost:44337/api/Usuarios/" + Function + "?Perfil=" + idPerfil + "&idUsuarioPerfil=" + idUsuarioPerfil;
     await  ExecuteCommandService(Method, URL, usuario);
     LlenarTablaUsuario();
 }

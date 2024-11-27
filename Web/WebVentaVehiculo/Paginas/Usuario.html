@@ -43,7 +43,7 @@
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="txtDocumento" placeholder="Documento del empleado">
                                                         <div class="input-group-append">
-                                                            <img src="Images/buscar (1).png" onclick="EmpleadoxCargo()" style="width: 35px; height: 35px; cursor: pointer; margin-left: 5px;" />
+                                                            <img src="Images/buscar (1).png" onclick="EmpleadoxCargo()" style="width: 35px; height: 35px; cursor: pointer; margin-left: 5px;" />                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -73,6 +73,8 @@
                                                 <div class="form-group">
                                                     <label for="txtUsuario">USUARIO</label>
                                                     <input type="text" class="form-control" id="txtUsuario" placeholder="USUARIO">
+                                                    <input type="text" class="form-control" id="txtIdUsuario" placeholder="ID USUARIO" hidden>
+                                                    <input type="text" class="form-control" id="txtIdUsuarioPerfil" placeholder="ID USUARIO PERFIL" hidden>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -115,7 +117,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
-                                                            onclick="Execute('PUT','ActualizarCliente')">
+                                                            onclick="Execute('PUT','ActualizarUsuario')">
                                                         <i class="fas fa-edit"></i> ACTUALIZAR
                                                     </button>
                                                 </div>
