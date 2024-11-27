@@ -50,6 +50,48 @@ namespace VentaVehiculos.Clases
             }
         }
 
+        //public string ActualizarUsuario(int Perfil)
+        //{
+        //    try
+        //    {
+        //        clsCypher cifrar = new clsCypher();
+        //        cifrar.Password = usuario.Clave;
+        //        if (cifrar.CifrarClave())
+        //        {
+        //            //Se debe consultar el id del usuario y el id del usuario perfil
+        //            Usuario _usuario = ConsultarUsuario(usuario.Documento_Empleado);
+        //            if (_usuario == null)
+        //            {
+        //                return "No existe el usuario";
+        //            }
+        //            usuario.id = _usuario.id;
+        //            usuario.Salt = cifrar.Salt;
+        //            usuario.Clave = cifrar.PasswordCifrado;
+        //            dbVentaVehiculos.Usuarios.AddOrUpdate(usuario);
+        //            dbVentaVehiculos.SaveChanges();
+
+        //            //Agregar el perfil del usuario
+        //            usuarioPerfil = ConsultarUsuarioPerfil(usuario.id);
+        //            usuarioPerfil.idUsuario = usuario.id;
+        //            usuarioPerfil.idPerfil = Perfil;
+        //            usuarioPerfil.Activo = true;
+
+        //            dbVentaVehiculos.UsuarioPerfils.AddOrUpdate(usuarioPerfil);
+        //            dbVentaVehiculos.SaveChanges();
+
+        //            return "Se actualizó el usuario: " + usuario.userName;
+        //        }
+        //        else
+        //        {
+        //            return "No pudo cifrar la clave.";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ex.Message;
+        //    }
+        //}
+
         public IQueryable LlenarTablaUsuario()
         {
             return from U in dbVentaVehiculos.Set<Usuario>()

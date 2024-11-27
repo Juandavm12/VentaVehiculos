@@ -1,5 +1,7 @@
 jQuery(function () {
 
+    //Registrar los botones para responder al evento click
+    $("#dvMenu").load("../Paginas/MenuCliente.html")
     LlenarTablaTV();
 });
 function LimpiarTV() {

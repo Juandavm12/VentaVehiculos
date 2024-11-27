@@ -12,6 +12,7 @@
 
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
     <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+
     <!--Estilos para las tablas-->
     <link href="Estilos/dataTables.min.css" rel="stylesheet" />
     <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
@@ -36,15 +37,15 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtDocumento">DOCUMENTO</label>
-                                                    <input type="text" class="form-control" id="txtDocumento" placeholder="Documento del empleado">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <div class="form-group">
-                                                    <img src="../Paginas/Images/Buscar.jpg" onclick="EmpleadoxCargo()" />
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="txtDocumento" placeholder="Documento del empleado">
+                                                        <div class="input-group-append">
+                                                            <img src="Images/buscar (1).png" onclick="EmpleadoxCargo()" style="width: 35px; height: 35px; cursor: pointer; margin-left: 5px;" />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -62,11 +63,11 @@
                                             <div class="col-md-0">
                                                 <div class="form-group">
                                                     <label for="txtIdEmpleado"></label>
-                                                    <!--<input type="number" class="form-control" id="txtIdEmpleado" placeholder="Id" disabled>-->
                                                     <input type="hidden" id="txtIdEmpleado">
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
@@ -94,58 +95,73 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-2">
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
-                                                        onclick="Execute('POST','InsertarUsuario')">
-                                                    <i class="fas fa-plus"></i> INSERTAR
-                                                </button>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
-                                                        onclick="Execute('PUT','ActualizarCliente')">
-                                                    <i class="fas fa-edit"></i> ACTUALIZAR
-                                                </button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnDesactivar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;"> DESACTIVAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnActivar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"> ACTIVAR</button>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
-                                                        onclick="LimpiarUsuario()">
-                                                    <i class="fas fa-refresh"></i> LIMPIAR
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <table id="tblUsuarios" class="table table-bordered table-striped" style="width:100%;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Editar</th>
-                                                            <th>Documento</th>
-                                                            <th>Empleado</th>
-                                                            <th>Cargo</th>
-                                                            <th>Usuario</th>
-                                                            <th>Perfil</th>
-                                                            <th>Activo</th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer">
-                                    <div id="dvMensaje" class=""></div>
+                                <div class="card card-danger">
+                                    <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
+                                        <h3 class="card-title">PROCESO</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnInsertar" class="btn-block btn-lg" style="border: 2px solid #0096C7; color: #0096C7; background-color: transparent;"
+                                                            onclick="Execute('POST','InsertarUsuario')">
+                                                        <i class="fas fa-plus"></i> INSERTAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnActualizar" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
+                                                            onclick="Execute('PUT','ActualizarCliente')">
+                                                        <i class="fas fa-edit"></i> ACTUALIZAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnActivar" class="btn-block btn-lg" style="border: 2px solid #28a745; color: #28a745; background-color: transparent;"
+                                                            onclick="Activar(true)">
+                                                        <i class="fas fa-check-circle" style="color: #28a745;"></i> ACTIVAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnDesactivar" class="btn-block btn-lg" style="border: 2px solid #dc3545; color: #dc3545; background-color: transparent;"
+                                                            onclick="Activar(false)">
+                                                        <i class="fas fa-times-circle" style="color: #dc3545;"></i> DESACTIVAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
+                                                            onclick="LimpiarUsuario()">
+                                                        <i class="fas fa-refresh"></i> LIMPIAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="tblUsuarios" class="table table-bordered table-striped" style="width:100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Editar</th>
+                                                        <th>Documento</th>
+                                                        <th>Empleado</th>
+                                                        <th>Cargo</th>
+                                                        <th>Usuario</th>
+                                                        <th>Perfil</th>
+                                                        <th>Activo</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
                             </div>
                         </form>
                     </div>
@@ -162,9 +178,8 @@
 
     <!--Archivos comunes-->
     <script src="Scripts/Comunes/CRUD.js"></script>
-    <script src="Scripts/Index.js"></script>
-
     <!--Archivos de la página-->
     <script src="Scripts/Usuario.js"></script>
+
 </body>
 </html>

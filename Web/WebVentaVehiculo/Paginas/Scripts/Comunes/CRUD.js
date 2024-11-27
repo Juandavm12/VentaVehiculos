@@ -1,6 +1,6 @@
 ﻿jQuery(function () {
     //Registrar los botones para responder al evento click
-    $("#dvMenu").load("../Paginas/Menu.html")
+    $("#dvMenu").load("../Paginas/MenuEmpleado.html")
 });
 
 function LimpiarFormularios(frmid) {
@@ -31,6 +31,24 @@ async function ExecuteCommandService(Method, URLService, Object) {
 
         const Result = await Response.json();
         $("#dvMensaje").html(Result);
+    }
+    catch (error) {
+        $("#dvMensaje").html(error);
+    }
+}
+
+async function ExecuteCommandServiceRpta(Method, URLService, Object) {
+    try {
+        const Response = await fetch(URLService,
+            {
+                method: Method,
+                mode: "cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(Object)
+            });
+
+        const Result = await Response.json();
+        return Result; 
     }
     catch (error) {
         $("#dvMensaje").html(error);

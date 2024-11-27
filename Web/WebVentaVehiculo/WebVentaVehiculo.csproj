@@ -159,6 +159,7 @@
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
     <Content Include="Paginas\Garantia.html" />
+    <Content Include="Paginas\Images\buscar %281%29.png" />
     <Content Include="Paginas\Images\Buscar.jpg" />
     <Content Include="Paginas\Images\Busscar1.jpg" />
     <Content Include="Paginas\Images\Camioneta1.jpg" />
@@ -171,10 +172,13 @@
     <Content Include="Paginas\Images\Premium.jpeg" />
     <Content Include="Paginas\Images\VIP.jpeg" />
     <Content Include="Paginas\Login.html" />
-    <Content Include="Paginas\Menu.html" />
+    <Content Include="Paginas\MenuEmpleado.html" />
     <Content Include="Paginas\Cliente.html" />
+    <Content Include="Paginas\MenuCliente.html" />
+    <Content Include="Paginas\MenuIndex.html" />
     <Content Include="Paginas\Scripts\CitaTaller.js" />
     <Content Include="Paginas\Scripts\Garantia.js" />
+    <Content Include="Paginas\Scripts\Login.js" />
     <Content Include="Paginas\Scripts\ServicioTaller.js" />
     <Content Include="Paginas\Scripts\TipoCliente.js" />
     <Content Include="Paginas\Scripts\TipoGarantia.js" />

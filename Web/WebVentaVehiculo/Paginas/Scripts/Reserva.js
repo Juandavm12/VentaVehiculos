@@ -1,5 +1,9 @@
 ﻿jQuery(function () {
 
+
+    //Registrar los botones para responder al evento click
+    $("#dvMenu").load("../Paginas/MenuCliente.html")
+
     LlenarComboxServicios("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
     LlenarComboxServicios("https://localhost:44337/api/Empleados/EmpleadoCombo", "#cboEmpleado");
     LlenarComboxServicios("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
