@@ -1,5 +1,6 @@
-﻿jQuery(function () {
-
+﻿
+jQuery(function () {
+    $("#dvMenu").load("../Paginas/MenuSupervisor.html");
     LlenarComboxServiciosAuth("https://localhost:44337/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
     LlenarComboxServiciosAuth("https://localhost:44337/api/EstadoVehiculos/EstadoVehiculoCombo", "#cboEstadoVehiculo");
     LlenarTablaVehiculo();

@@ -1,8 +1,4 @@
-﻿jQuery(function () {
-    //Registrar los botones para responder al evento click
-    $("#dvMenu").load("../Paginas/MenuEmpleado.html")
-});
-
+﻿
 function LimpiarFormularios(frmid) {
     try {
         const form = document.getElementById(frmid);
