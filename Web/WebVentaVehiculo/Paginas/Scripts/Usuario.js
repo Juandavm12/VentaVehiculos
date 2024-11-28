@@ -1,4 +1,5 @@
 ﻿jQuery(function () {
+
     $("#dvMenu").load("../Paginas/MenuGerente.html");
     LlenarComboxServiciosAuth("https://localhost:44337/api/Perfiles/PerfilCombo", "#cboPerfil");
     LlenarTablaUsuario();
