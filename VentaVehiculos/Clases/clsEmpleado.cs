@@ -96,7 +96,6 @@ namespace VentaVehiculos.Clases
         public IQueryable LlenarTablaEmpleado()
         {
             return from E in dbVentaVehiculos.Set<Empleado>()
-                   //join U in dbVentaVehiculos.Set<Usuario>() on E.Id equals U.IdEmpleado 
                    orderby E.Nombre, E.Cargo
                    select new
                    {
@@ -131,6 +130,19 @@ namespace VentaVehiculos.Clases
                        Empleado = E.Nombre + " " + E.Apellido,
                        Cargo = E.Cargo,
                        Id = E.Id
+                   };
+        }
+
+        public IQueryable EmpleadoxUsuario(string Usuario)
+        {
+            return from E in dbVentaVehiculos.Set<Empleado>()
+                   join U in dbVentaVehiculos.Set<Usuario>() on E.Id equals U.IdEmpleado
+                   where U.NombreUsuario == Usuario
+                   select new
+                   {
+                       IdEmpleado = E.Id,
+                       Empleado = E.Nombre + " " + E.Apellido,
+                       Cargo = E.Cargo            
                    };
         }
     }

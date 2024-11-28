@@ -10,11 +10,11 @@ async function Ingresar() {
     let URL = "https://localhost:44337/api/Login/Ingresar";
     const login = new Login($("#txtUsuario").val(), $("#txtClave").val());
     const Respuesta = await ExecuteCommandServiceRpta("POST", URL, login);
-    $("#dvMensaje").removeClass("alert alert-success");
-    $("#dvMensaje").addClass("alert alert-danger");
     if (Respuesta == undefined) {
         document.cookie = "token=0;path=/";
         //Hubo un error al procesar el comando
+        $("#dvMensaje").removeClass("alert alert-success");
+        $("#dvMensaje").addClass("alert alert-danger");
         $("#dvMensaje").html("El usuario no esta registrado u olvido la clave");
     }
     else {
@@ -28,13 +28,11 @@ async function Ingresar() {
             d.setTime(d.getTime() + (extdays * 24 * 60 * 60 * 1000));
             let expires = ";expires=" + d.toUTCString();
             document.cookie = "token=" + Respuesta[0].Token + expires + ";path=/";
-            //let token = getCookie("token");
             $("#dvMensaje").removeClass("alert alert-danger");
             $("#dvMensaje").addClass("alert alert-success");
             $("#dvMensaje").html(Respuesta[0].Autenticado);
             document.cookie = "Perfil=" + Respuesta[0].Perfil;
             document.cookie = "Usuario=" + Respuesta[0].Usuario;
-            //alert(Respuesta[0].Perfil);
             window.location.href = Respuesta[0].PaginaInicio;
         }
         else {

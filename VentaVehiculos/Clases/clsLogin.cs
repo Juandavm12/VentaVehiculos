@@ -51,6 +51,7 @@ namespace VentaVehiculos.Clases
                        where U.NombreUsuario == login.Usuario && U.Clave == login.Clave
                        select new LoginRespuesta
                        {
+                           Usuario = U.NombreUsuario,
                            Perfil = P.Nombre,
                            Token = token,
                            Autenticado = true,

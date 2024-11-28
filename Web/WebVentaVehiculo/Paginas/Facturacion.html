@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Factura de compra</title>
+    <title>Factura de Venta</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -26,7 +26,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-dark" id="idTitulo">FACTURA DE COMPRA</h3>
+                            <h3 class="card-dark" id="idTitulo">FACTURA DE VENTA</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col-md-1">
                                         <div class="form-group">
-                                            <img id="btnBuscar" src="../Imagenes/Buscar.jpg" onclick="Consultar()" />
+                                            <img src="Images/buscar (1).png" onclick="EmpleadoxUsuario()" style="width: 35px; height: 35px; cursor: pointer; margin-left: 5px;" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -73,19 +73,19 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="cboTipoProducto">Tipo Producto</label>
+                                            <label for="cboTipoVehiculo">Tipo Vehiculo</label>
                                             <!-- Se levanta el evento onchange cuando se elige un tipo de producto -->
-                                            <select id="cboTipoProducto" class="form-control select2" style="width: 100%;" onchange="LlenarProductos(0)">
-                                                <option selected="selected" value="0">Seleccione un tipo de producto</option>
+                                            <select id="cboTipoVehiculo" class="form-control select2" style="width: 100%;" onchange="LlenarProductos(0)">
+                                                <option selected="selected" value="0">Seleccione un tipo de vehiculo</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="cboProducto">Producto</label>
+                                            <label for="cboVehiculo">Vehiculo</label>
                                             <!--En el combo producto se levanta el evento on change, para que calcule el valor unitario del producto seleccinado-->
-                                            <select id="cboProducto" class="form-control select2" style="width: 100%;" onchange="PresentarValorUnitario()">
-                                                <option selected="selected" value="0">Seleccione el producto</option>
+                                            <select id="cboVehiculo" class="form-control select2" style="width: 100%;" onchange="PresentarValorUnitario()">
+                                                <option selected="selected" value="0">Seleccione el Vehiculo</option>
                                             </select>
                                         </div>
                                     </div>
@@ -150,13 +150,14 @@
     </section>
     <script src="../Scripts/jquery.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
+
     <!--Tables-->
     <script src="../Scripts/jquery.dataTables.min.js"></script>
     <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
+
     <!--Archivos comunes-->
     <script src="Scripts/Menu.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
-    <script src="Scripts/Comunes/Comunes.js"></script>
     <script src="Scripts/Facturacion.js"></script>
 </body>
 </html>
