@@ -83,7 +83,7 @@ namespace VentaVehiculos.Controllers
         public IQueryable EmpleadoxUsuario(string Usuario)
         {
             clsEmpleado empleado = new clsEmpleado();
-            return empleado.EmpleadoxCargo(Usuario);
+            return empleado.EmpleadoxUsuario(Usuario);
         }
     }
 }

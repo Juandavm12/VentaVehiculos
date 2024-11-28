@@ -3,16 +3,16 @@
     $("#txtNumeroFactura").val(0);
     $("#txtFechaCompra").val(FechaHoy());
     ConsultarDatosUsuario();
-    ListarTipoProductos();
+    TipoVehiculoCombo();
     //LlenarTabla();
 });
 async function TipoVehiculoCombo() {
-    await LlenarComboxServiciosAuth("http://localhost:44330/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoProducto");
-    ListarProductos($("#cboTipoVehiculo").val())
+    await LlenarComboxServiciosAuth("http://localhost:44330/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
+    VehiculoxTipo($("#cboTipoVehiculo").val())
 }
-async function ListarProductos(TipoProducto) {
-    let idTipoProducto = TipoProducto == 0 ? $("#cboTipoProducto").val() : TipoProducto;
-    await LlenarComboXServiciosAuth("http://localhost:54671/api/Productos/ListarProductosXTipo?TipoProducto=" + idTipoProducto, "#cboProducto");
+async function VehiculoxTipo(TipoProducto) {
+    let CodTipoProducto = TipoProducto == 0 ? $("#cboTipoProducto").val() : TipoProducto;
+    await LlenarComboVehiculoFacturaAuth("https://localhost:44337/api/Vehiculos/VehiculoxTipo?TipoProducto=" + CodTipoProducto, "#cboMarcaVehiculo", "#cboPlacaVehiculo");
     CalcularSubtotal();
 }
 function CalcularSubtotal() {
@@ -30,12 +30,26 @@ function CalcularSubtotal() {
 }
 async function ConsultarDatosUsuario() {
     let Usuario = getCookie("Usuario");
-    const DatosEmpleado = await ConsultarServicioAuth("http://localhost:54671/api/Empleados/ConsultarXUsuario?Usuario=" + Usuario);
-    $("#txtidEmpleado").val(DatosEmpleado[0].idEmpleado);
-    $("#idTitulo").html("FACTURA DE COMPRA - EMPLEADO: " + DatosEmpleado[0].Empleado + " - CARGO: " + DatosEmpleado[0].Cargo + " - USUARIO: " + Usuario);
+    const DatosEmpleado = await SearchServiceAuth("https://localhost:44337/api/Empleados/EmpleadoxUsuario?Usuario=" + Usuario);
+    $("#txtIdEmpleado").val(DatosEmpleado[0].IdEmpleado);
+    $("#IdTitulo").html("FACTURA DE COMPRA - EMPLEADO: " + DatosEmpleado[0].Empleado + " - CARGO: " + DatosEmpleado[0].Cargo + " - USUARIO: " + Usuario);
 }
-async function Consultar() {
+
+async function ClientexTipo() {
     let Documento = $("#txtDocumento").val();
-    const Cliente = await ConsultarServicioAuth("http://localhost:54671/api/Clientes/ConsultarXDocumento?Documento=" + Documento);
-    $("#txtNombreCliente").val(Cliente.Nombre + " " + Cliente.PrimerApellido + " " + Cliente.SegundoApellido);
+    URL = "https://localhost:44337/api/Clientes/ClientexTipo?Documento=" + Documento;
+
+    const cliente = await SearchServiceAuth(URL);
+
+    if (cliente != null && cliente.length > 0) {
+        $("#txtNombreCliente").val(cliente[0].Cliente);
+        $("#txtDescuento").val(cliente[0].Descuento);
+        $("#txtIdCliente").val(cliente[0].Id);
+        $("#dvMensaje").html("");
+    }
+    else {
+        $("#txtNombre").val("");
+        $("#txtCargo").val("");
+        $("#dvMensaje").html("No se encontro el Cliente, por favor valide la informacion");
+    }
 }

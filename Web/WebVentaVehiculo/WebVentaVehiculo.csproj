@@ -181,6 +181,7 @@
     <Content Include="Paginas\MenuGerente.html" />
     <Content Include="Paginas\MenuIndex.html" />
     <Content Include="Paginas\Scripts\CitaTaller.js" />
+    <Content Include="Paginas\Scripts\Comunes\Utiles.js" />
     <Content Include="Paginas\Scripts\Facturacion.js" />
     <Content Include="Paginas\Scripts\Garantia.js" />
     <Content Include="Paginas\Scripts\Login.js" />

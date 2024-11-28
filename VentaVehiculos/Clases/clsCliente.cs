@@ -125,5 +125,18 @@ namespace VentaVehiculos.Clases
                     Nombre = t.Nombre + " " + t.Apellido
                 });
         }
+
+        public IQueryable ClientexTipo(string Documento)
+        {
+            return from C in dbVentaVehiculos.Set<Cliente>()
+                   join TC in dbVentaVehiculos.Set<TipoCliente>() on C.IdTipoCliente equals TC.Id
+                   where C.Documento == Documento
+                   select new
+                   {
+                       Id = C.Id,
+                       Cliente = C.Nombre + " " + C.Apellido,
+                       Descuento = TC.Descuento
+                   };
+        }
     }
 }
