@@ -168,6 +168,7 @@
     <Content Include="Paginas\Images\Designer-Photoroom.png" />
     <Content Include="Paginas\Images\editar-informacion.png" />
     <Content Include="Paginas\Images\encender.png" />
+    <Content Include="Paginas\Images\encendido-apagado.png" />
     <Content Include="Paginas\Images\Estandar.jpeg" />
     <Content Include="Paginas\Images\LOGO.png" />
     <Content Include="Paginas\Images\Moto1.jpg" />

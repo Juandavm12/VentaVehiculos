@@ -8,15 +8,17 @@ async function LlenarTablaUsuario() {
     LlenarTablaxServicios("https://localhost:44337/api/Usuarios/LlenarTablaUsuario", "#tblUsuarios");
 }
 
-async function ActivarUsuario(idUsuarioPerfil, Activo) {
-    if (window.confirm("Confirma si quiere activar este usuario")) {
+async function ActivarUsuario(idUsuarioPerfil, Activo, Usuario) {
+    let Mensaje = Activo ? "Esta seguro de activar el usuario: " + Usuario + "?" : "Esta seguro de desactivar el usuario: " + Usuario + "?";
+
+    if (window.confirm(Mensaje)) {
         let URL = "https://localhost:44337/api/Usuarios/ActivarUsuario?idUsuarioPerfil=" + idUsuarioPerfil + "&Activo=" + Activo;
         await ExecuteCommandService("PUT", URL, null);
         LlenarTablaUsuario();
     }
     else {
-        alert("Cancelo la activacion del usuario");
-    } 
+        alert("Ha cancelado el proceso");
+    }
 }
 
 function LimpiarUsuario() {
@@ -48,7 +50,7 @@ async function Execute(Method, Function) {
     let idUsuarioPerfil = Method == "PUT" ? $("#txtIdUsuarioPerfil").val() : 0;
     const usuario = new Usuario(idUsuario, $("#txtIdEmpleado").val(), $("#txtUsuario").val(), Clave);
     let URL = "https://localhost:44337/api/Usuarios/" + Function + "?Perfil=" + idPerfil + "&idUsuarioPerfil=" + idUsuarioPerfil;
-    await  ExecuteCommandService(Method, URL, usuario);
+    await ExecuteCommandService(Method, URL, usuario);
     LlenarTablaUsuario();
 }
 

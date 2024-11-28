@@ -102,7 +102,8 @@ namespace VentaVehiculos.Clases
                        "'" + E.Documento + "', '" + E.Nombre + " " + E.Apellido + "', '" + E.Cargo + "', '" + E.Id + "'," +
                        "'" + U.NombreUsuario + "', '" + P.Id + "', '" + UP.Id + "')" +
                        "\" style=\"width: 35px; height: 35px; cursor: pointer; margin-left: 5px;\" />" +
-                       "<img src =\"Images/encender.png\" onclick=\"ActivarUsuario('" + UP.Id + "', true)" +
+                       "&nbsp;&nbsp;&nbsp;&nbsp<img src =\"Images/encendido-apagado.png\" onclick=\"ActivarUsuario('" + UP.Id + "'," +
+                       "" + (UP.Activo ? "false" : "true") + ", '" + U.NombreUsuario + "')" +
                        "\" style=\"width: 35px; height: 35px; cursor: pointer; margin-left: 5px;\" />",
                        Documento = E.Documento,
                        Empleado = E.Nombre + " " + E.Apellido,
