@@ -7,27 +7,27 @@
     //LlenarTabla();
 });
 async function TipoVehiculoCombo() {
-    await LlenarComboxServiciosAuth("http://localhost:44330/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
+    await LlenarComboxServiciosAuth("http://localhost:44337/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
     VehiculoxTipo($("#cboTipoVehiculo").val())
 }
-async function VehiculoxTipo(TipoProducto) {
-    let CodTipoProducto = TipoProducto == 0 ? $("#cboTipoProducto").val() : TipoProducto;
-    await LlenarComboVehiculoFacturaAuth("https://localhost:44337/api/Vehiculos/VehiculoxTipo?TipoProducto=" + CodTipoProducto, "#cboMarcaVehiculo", "#cboPlacaVehiculo");
-    CalcularSubtotal();
+async function VehiculoxTipo(TipoVehiculo) {
+    let CodTipoVehiculo = TipoVehiculo == 0 ? $("#cboTipoVehiculo").val() : CodTipoVehiculo;
+    await LlenarComboVehiculoFacturaAuth("https://localhost:44337/api/Vehiculos/VehiculoxTipo?TipoProducto=" + CodTipoVehiculo, "#cboMarcaVehiculo", "cboPlacaVehiculo");
+    /*CalcularSubtotal();*/
 }
-function CalcularSubtotal() {
-    let DatosCombo = $("#cboProducto").val();
-    $("#txtCodigoProducto").val(DatosCombo.split('|')[0]);
-    let ValorUnitario = DatosCombo.split('|')[1];
-    $("#txtValorUnitario").val(ValorUnitario);
-    $("#txtValorUnitarioTexto").val(FormatoMiles(ValorUnitario));
-    let Cantidad = $("#txtCantidad").val();
-    if (Cantidad <= 0) {
-        $("#txtCantidad").val(1);
-        Cantidad = 1;
-    }
-    $("#txtSubtotal").val(FormatoMiles(Cantidad * ValorUnitario));
-}
+//function CalcularSubtotal() {
+//    let DatosCombo = $("#cboProducto").val();
+//    $("#txtCodigoProducto").val(DatosCombo.split('|')[0]);
+//    let ValorUnitario = DatosCombo.split('|')[1];
+//    $("#txtValorUnitario").val(ValorUnitario);
+//    $("#txtValorUnitarioTexto").val(FormatoMiles(ValorUnitario));
+//    let Cantidad = $("#txtCantidad").val();
+//    if (Cantidad <= 0) {
+//        $("#txtCantidad").val(1);
+//        Cantidad = 1;
+//    }
+//    $("#txtSubtotal").val(FormatoMiles(Cantidad * ValorUnitario));
+//}
 async function ConsultarDatosUsuario() {
     let Usuario = getCookie("Usuario");
     const DatosEmpleado = await SearchServiceAuth("https://localhost:44337/api/Empleados/EmpleadoxUsuario?Usuario=" + Usuario);
