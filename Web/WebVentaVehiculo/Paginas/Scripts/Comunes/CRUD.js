@@ -1,4 +1,8 @@
-﻿
+﻿jQuery(function () {
+
+    $("#dvMenu").load("../Paginas/Menu.html")
+});
+
 function LimpiarFormularios(frmid) {
     try {
         const form = document.getElementById(frmid);

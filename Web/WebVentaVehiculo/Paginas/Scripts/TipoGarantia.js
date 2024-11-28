@@ -1,7 +1,5 @@
 jQuery(function () {
 
-    //Registrar los botones para responder al evento click
-    $("#dvMenu").load("../Paginas/MenuCliente.html")
     //Al iniciar la pagina se llena el combo
     LlenarTablaTG();
 
