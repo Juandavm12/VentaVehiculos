@@ -125,5 +125,19 @@ namespace VentaVehiculos.Clases
                     Nombre = t.Placa
                 });
         }
+
+        public IQueryable VehiculoxTipo(int TipoVehiculo)
+        {
+            return from V in dbVentaVehiculos.Set<Vehiculo>()
+                   join TV in dbVentaVehiculos.Set<TipoVehiculo>() on V.CodTipoVehiculo equals TV.Codigo
+                   where TV.Codigo == TipoVehiculo
+                   orderby TV.Tipo, V.Marca
+                   select new //Finalmente, se presentan los campos que se van a mostrar
+                   {
+                       Id = V.Id + "|" + V.Precio,
+                       Marca = V.Marca,
+                       Placa = V.Placa
+                   };
+        }
     }
 }
