@@ -1,7 +1,7 @@
 jQuery(function () {
-    LlenarComboxServicios("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
-    LlenarComboxServicios("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
-    LlenarComboxServicios("https://localhost:44337/api/TipoServicios/TipoServicioCombo", "#cboTipoServicio");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/TipoServicios/TipoServicioCombo", "#cboTipoServicio");
     LlenarTablaCita();
 });
 function LimpiarCita() {
@@ -9,14 +9,14 @@ function LimpiarCita() {
 }
 
 function LlenarTablaCita() {
-    LlenarTablaxServicios("https://localhost:44337/api/Citas/LlenarTablaCita", "#tblCita");
+    LlenarTablaxServiciosAuth("https://localhost:44337/api/Citas/LlenarTablaCita", "#tblCita");
 }
 
 async function Execute(Method, Function) {
     const cita = new Cita($("#txtCodigo").val(), $("#cboCliente").val(), $("#cboVehiculo").val(), $("#cboTipoServicio").val(),
         $("#txtFechaHora").val());
     let URL = "https://localhost:44337/api/Citas/" + Function;
-    await ExecuteCommandService(Method, URL, cita);
+    await ExecuteCommandServiceAuth(Method, URL, cita);
     LlenarTablaCita();
 }
 
@@ -36,7 +36,7 @@ async function BuscarCita() {
     URL = "https://localhost:44337/api/Citas/CitaxCodigo?Codigo=" + Codigo;
 
     //invoco el servicio generico 
-    const Cita = await SearchService(URL);
+    const Cita = await SearchServiceAuth(URL);
 
     if (Cita != null) {
 

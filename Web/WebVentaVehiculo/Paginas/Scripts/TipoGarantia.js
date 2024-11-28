@@ -12,13 +12,13 @@ function LimpiarTG() {
 }
 
 //function LlenarTablaTG() {
-//    LlenarTablaxServicios(/*"link"*/, "#tblTG");
+//    LlenarTablaxServiciosAuth(/*"link"*/, "#tblTG");
 //}
 
 async function Execute(Method, Function) {
     const tg = new TG($("#txtCodigo").val(), $("#txtNombre").val(), $("#txtDescripcion").val());
     let URL = "link" + Function;
-    await ExecuteCommandService(Method, URL, tg);
+    await ExecuteCommandServiceAuth(Method, URL, tg);
     LlenarTablaTG();
 }
 
@@ -27,7 +27,7 @@ async function BuscarTG() {
     URL = "link" + Codigo;
 
     //invoco el servicio generico 
-    const TG = await SearchService(URL);
+    const TG = await SearchServiceAuth(URL);
 
     if (TG != null) {
 

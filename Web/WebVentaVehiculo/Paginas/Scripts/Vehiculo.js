@@ -1,7 +1,7 @@
 ﻿jQuery(function () {
 
-    LlenarComboxServicios("https://localhost:44337/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
-    LlenarComboxServicios("https://localhost:44337/api/EstadoVehiculos/EstadoVehiculoCombo", "#cboEstadoVehiculo");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/EstadoVehiculos/EstadoVehiculoCombo", "#cboEstadoVehiculo");
     LlenarTablaVehiculo();
 });
 
@@ -11,7 +11,7 @@ function LimpiarVehiculo() {
 
 function LlenarTablaVehiculo() {
 
-    LlenarTablaxServicios("https://localhost:44337/api/Vehiculos/LlenarTablaVehiculo", "#tblVehiculo");
+    LlenarTablaxServiciosAuth("https://localhost:44337/api/Vehiculos/LlenarTablaVehiculo", "#tblVehiculo");
 }
 
 class Vehiculo {
@@ -33,7 +33,7 @@ async function Execute(Method, Function) {
     const vehiculo = new Vehiculo($("#txtPlaca").val(), $("#txtMarca").val(), $("#txtModelo").val(),
         $("#txtPrecio").val(), $("#txtKilometraje").val(), $("#cboEstadoVehiculo").val(), $("#cboTipoVehiculo").val());
     let URL = "https://localhost:44337/api/Vehiculos/" + Function;
-    await ExecuteCommandService(Method, URL, vehiculo);
+    await ExecuteCommandServiceAuth(Method, URL, vehiculo);
     LlenarTablaVehiculo();
 }
 
@@ -42,7 +42,7 @@ async function BuscarVehiculo() {
     URL = "https://localhost:44337/api/Vehiculos/BuscarxPlaca?Placa=" + Placa;
 
     //invoco el servicio generico 
-    const Vehiculo = await SearchService(URL);
+    const Vehiculo = await SearchServiceAuth(URL);
 
     if (Vehiculo != null) {
 

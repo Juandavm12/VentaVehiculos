@@ -9,13 +9,13 @@ function LimpiarTV() {
 }
 
 function LlenarTablaTV() {
-    /*LlenarTablaxServicios("link", "#tblTV");*/
+    /*LlenarTablaxServiciosAuth("link", "#tblTV");*/
 }
 
 async function Execute(Method, Function) {
     const tv = new TV($("#txtCodigo").val(), $("#txtTipo").val());
     let URL = "/*link*/" + Function;
-    await ExecuteCommandService(Method, URL, tv);
+    await ExecuteCommandServiceAuth(Method, URL, tv);
     LlenarTablaTV();
 }
 
@@ -32,7 +32,7 @@ async function BuscarTV() {
     URL = "link" + Codigo;
 
     //invoco el servicio generico 
-    const TV = await SearchService(URL);
+    const TV = await SearchServiceAuth(URL);
 
     if (TV != null) {
 

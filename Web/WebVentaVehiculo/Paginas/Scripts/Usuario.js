@@ -1,11 +1,11 @@
 ﻿jQuery(function () {
 
-    LlenarComboxServicios("https://localhost:44337/api/Perfiles/PerfilCombo", "#cboPerfil");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/Perfiles/PerfilCombo", "#cboPerfil");
     LlenarTablaUsuario();
 });
 
 async function LlenarTablaUsuario() {
-    LlenarTablaxServicios("https://localhost:44337/api/Usuarios/LlenarTablaUsuario", "#tblUsuarios");
+    LlenarTablaxServiciosAuth("https://localhost:44337/api/Usuarios/LlenarTablaUsuario", "#tblUsuarios");
 }
 
 async function ActivarUsuario(idUsuarioPerfil, Activo, Usuario) {
@@ -13,7 +13,7 @@ async function ActivarUsuario(idUsuarioPerfil, Activo, Usuario) {
 
     if (window.confirm(Mensaje)) {
         let URL = "https://localhost:44337/api/Usuarios/ActivarUsuario?idUsuarioPerfil=" + idUsuarioPerfil + "&Activo=" + Activo;
-        await ExecuteCommandService("PUT", URL, null);
+        await ExecuteCommandServiceAuth("PUT", URL, null);
         LlenarTablaUsuario();
     }
     else {
@@ -50,7 +50,7 @@ async function Execute(Method, Function) {
     let idUsuarioPerfil = Method == "PUT" ? $("#txtIdUsuarioPerfil").val() : 0;
     const usuario = new Usuario(idUsuario, $("#txtIdEmpleado").val(), $("#txtUsuario").val(), Clave);
     let URL = "https://localhost:44337/api/Usuarios/" + Function + "?Perfil=" + idPerfil + "&idUsuarioPerfil=" + idUsuarioPerfil;
-    await ExecuteCommandService(Method, URL, usuario);
+    await ExecuteCommandServiceAuth(Method, URL, usuario);
     LlenarTablaUsuario();
 }
 
@@ -58,7 +58,7 @@ async function EmpleadoxCargo() {
     let Documento = $("#txtDocumento").val();
     URL = "https://localhost:44337/api/Empleados/EmpleadoxCargo?Documento=" + Documento;
 
-    const empleado = await SearchService(URL);
+    const empleado = await SearchServiceAuth(URL);
 
     if (empleado != null && empleado.length > 0) {
         $("#txtNombre").val(empleado[0].Empleado);

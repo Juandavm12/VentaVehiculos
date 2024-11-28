@@ -7,13 +7,13 @@ function LimpiarTC() {
 }
 
 function LlenarTablaTC() {
-    /*LlenarTablaxServicios("link", "#tblTC");*/
+    /*LlenarTablaxServiciosAuth("link", "#tblTC");*/
 }
 
 async function Execute(Method, Function) {
     const tc = new TC($("#txtMembresia").val(), $("#txtDescuento").val());
     let URL = /*"link"*/ + Function;
-    await ExecuteCommandService(Method, URL, tc);
+    await ExecuteCommandServiceAuth(Method, URL, tc);
     LlenarTablaTC();
 }
 
@@ -30,7 +30,7 @@ async function BuscarTC() {
     URL = "link" + Membresia;
 
     //invoco el servicio generico 
-    const TC = await SearchService(URL);
+    const TC = await SearchServiceAuth(URL);
 
     if (TC != null) {
 

@@ -4,9 +4,9 @@
     //Registrar los botones para responder al evento click
     $("#dvMenu").load("../Paginas/MenuCliente.html")
 
-    LlenarComboxServicios("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
-    LlenarComboxServicios("https://localhost:44337/api/Empleados/EmpleadoCombo", "#cboEmpleado");
-    LlenarComboxServicios("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/Empleados/EmpleadoCombo", "#cboEmpleado");
+    LlenarComboxServiciosAuth("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
     LlenarTablaReserva();
 
 });
@@ -15,7 +15,7 @@ function LimpiarReserva() {
 }
 
 function LlenarTablaReserva() {
-    LlenarTablaxServicios("https://localhost:44337/api/Reservas/LlenarTablaReserva", "#tblReserva");
+    LlenarTablaxServiciosAuth("https://localhost:44337/api/Reservas/LlenarTablaReserva", "#tblReserva");
 }
 
 class Reserva {
@@ -33,7 +33,7 @@ async function Execute(Method, Function) {
     const reserva = new Reserva($("#txtCodigo").val(), $("#cboCliente").val(), $("#cboEmpleado").val(),
         $("#cboVehiculo").val(), $("#txtFecha").val(), $("#txtFechaVen").val());
     let URL = "https://localhost:44337/api/Reservas/" + Function;
-    await ExecuteCommandService(Method, URL, reserva);
+    await ExecuteCommandServiceAuth(Method, URL, reserva);
     LlenarTablaReserva();
 }
 
@@ -42,7 +42,7 @@ async function BuscarReserva() {
     URL = "https://localhost:44337/api/Reservas/ReservaxCodigo?Codigo=" + Codigo;
 
     //invoco el servicio generico 
-    const Reserva = await SearchService(URL);
+    const Reserva = await SearchServiceAuth(URL);
 
     if (Reserva != null) {
 
