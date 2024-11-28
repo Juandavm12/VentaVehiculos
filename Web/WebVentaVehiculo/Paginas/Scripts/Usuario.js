@@ -1,5 +1,8 @@
 ﻿jQuery(function () {
-    $("#dvMenu").load("../Paginas/MenuGerente.html");
+    $("#dvMenu").load("../Paginas/MenuGerente.html")
+});
+
+jQuery(function () {
     LlenarComboxServiciosAuth("https://localhost:44337/api/Perfiles/PerfilCombo", "#cboPerfil");
     LlenarTablaUsuario();
 });
