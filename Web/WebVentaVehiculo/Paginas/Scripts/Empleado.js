@@ -2,10 +2,12 @@
 jQuery(function () {
 
     //Registrar los botones para responder al evento click
-    $("#dvMenu").load("../Paginas/MenuEmpleado.html")
+    $("#dvMenu").load("../Paginas/MenuGerente.html");
+
+});
+jQuery(function () {
 
     LlenarTablaEmpleado();
-
 });
 
 function LimpiarEmpleado() {
