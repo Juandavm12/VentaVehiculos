@@ -178,7 +178,7 @@
     <Content Include="Paginas\Login.html" />
     <Content Include="Paginas\MenuEmpleado.html" />
     <Content Include="Paginas\Cliente.html" />
-    <Content Include="Paginas\MenuCliente.html" />
+    <Content Include="Paginas\MenuGerente.html" />
     <Content Include="Paginas\MenuIndex.html" />
     <Content Include="Paginas\Scripts\CitaTaller.js" />
     <Content Include="Paginas\Scripts\Facturacion.js" />
