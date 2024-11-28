@@ -72,10 +72,10 @@ namespace VentaVehiculos.Controllers
 
         [HttpGet]
         [Route("VehiculoxTipo")]
-        public IQueryable VehiculoxTipo(int TipoProducto)
+        public IQueryable VehiculoxTipo(int TipoVehiculo)
         {
             clsVehiculo vehiculo = new clsVehiculo();
-            return vehiculo.VehiculoxTipo(TipoProducto);
+            return vehiculo.VehiculoxTipo(TipoVehiculo);
         }
     }
 }

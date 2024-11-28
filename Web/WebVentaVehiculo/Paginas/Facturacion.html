@@ -56,7 +56,7 @@
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="txtDocumento" placeholder="Documento del Cliente">
                                                         <div class="input-group-append">
-                                                            <img src="Images/buscar (1).png" onclick="EmpleadoxUsuario()" style="width: 35px; height: 35px; cursor: pointer; margin-left: 5px;" />
+                                                            <img src="Images/buscar (1).png" onclick="ClientexTipo()" style="width: 35px; height: 35px; cursor: pointer; margin-left: 5px;" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,9 +87,9 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="cboVehiculo">Vehiculo</label>
+                                                    <label for="cboMarcaVehiculo">Vehiculo</label>
                                                     <!--En el combo producto se levanta el evento on change, para que calcule el valor unitario del producto seleccinado-->
-                                                    <select id="cboVehiculo" class="form-control select2" style="width: 100%;" onchange="PresentarValorUnitario()">
+                                                    <select id="cboMarcaVehiculo" class="form-control select2" style="width: 100%;" onchange="PresentarValorUnitario()">
                                                         <option selected="selected" value="0">Seleccione el Vehiculo</option>
                                                     </select>
                                                 </div>
@@ -130,12 +130,12 @@
                                                 <div class="form-group">
                                                     <label for="txtTotalCompra">Total compra</label>
                                                     <input type="text" class="form-control" id="txtTotalCompra" placeholder="Total" disabled>
-                                                    <input type="text" class="form-control" id="txtIdEmpleado" placeholder="" hidden>
+                                                    <input type="text" class="form-control" id="txtIdEmpleado" placeholder="IdEmpleado" hidden>
                                                 </div>
                                             </div>
                                         </div>
-                                        </div>
                                     </div>
+                                </div>
                                 <div class="card card-danger">
                                     <div class="card-header" style="background-color: #d3d3d3; color: #1a1a1a;">
                                         <h3 class="card-title">PROCESO</h3>
@@ -145,11 +145,15 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <button type="button" id="btnAgregar" class="btn-block btn-lg" style="border: 2px solid #0096C7; color: #0096C7; background-color: transparent;"
-                                                            onclick="GrabarProducto()"> GRABAR PRODUCTO</button>
+                                                            onclick="GrabarProducto()">
+                                                        GRABAR PRODUCTO
+                                                    </button>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <button type="button" id="btnGrabarFactura" class="btn-block btn-lg" style="border: 2px solid #ffc107; color: #ffc107; background-color: transparent;"
-                                                            onclick="GrabarFactura()"> GRABAR FACTURA</button>
+                                                            onclick="GrabarFactura()">
+                                                        GRABAR FACTURA
+                                                    </button>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <button type="button" id="btnLimpiar" class="btn-block btn-lg" style="border: 2px solid #a964d2; color: #a964d2; background-color: transparent; "
@@ -198,6 +202,7 @@
     <!--Archivos Comunes-->
     <script src="Scripts/Index.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
+    <script src="Scripts/Comunes/Utiles.js"></script>
     <script src="Scripts/Facturacion.js"></script>
 </body>
 </html>
