@@ -11,6 +11,7 @@ namespace VentaVehiculos.Controllers
 {
     [EnableCors(origins: "https://localhost:44330", headers: "*", methods: "*")]
     [RoutePrefix("api/TipoVehiculos")]
+    [Authorize]
     public class TipoVehiculosController : ApiController
     {
         [HttpGet]

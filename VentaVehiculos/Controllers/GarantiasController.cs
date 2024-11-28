@@ -12,6 +12,7 @@ namespace VentaVehiculos.Controllers
 {
     [EnableCors(origins: "https://localhost:44330", headers: "*", methods: "*")]
     [RoutePrefix("api/Garantias")]
+    [Authorize]
     public class GarantiasController : ApiController
     {
         [HttpPost]

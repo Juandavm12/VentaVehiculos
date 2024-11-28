@@ -10,7 +10,7 @@ namespace VentaVehiculos.Clases
 {
     public class clsEmpleado 
     {
-        //Atributo DbVentaVehiculos
+        //Atributo VentaVehiculos
         VentaVehiculosEntities dbVentaVehiculos = new VentaVehiculosEntities();
 
         //Objeto de la tabla usuario
