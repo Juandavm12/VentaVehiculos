@@ -176,10 +176,11 @@
     <Content Include="Paginas\Images\Premium.jpeg" />
     <Content Include="Paginas\Images\VIP.jpeg" />
     <Content Include="Paginas\Login.html" />
-    <Content Include="Paginas\MenuEmpleado.html" />
+    <Content Include="Paginas\MenuVendedor.html" />
     <Content Include="Paginas\Cliente.html" />
     <Content Include="Paginas\MenuGerente.html" />
     <Content Include="Paginas\MenuIndex.html" />
+    <Content Include="Paginas\MenuSupervisor.html" />
     <Content Include="Paginas\Scripts\CitaTaller.js" />
     <Content Include="Paginas\Scripts\Comunes\Utiles.js" />
     <Content Include="Paginas\Scripts\Facturacion.js" />
