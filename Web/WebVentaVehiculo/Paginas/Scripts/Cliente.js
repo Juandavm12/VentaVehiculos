@@ -1,7 +1,7 @@
 ﻿jQuery(function () {
 
     //Al iniciar la pagina se llena el combo de TipoCliente
-    LlenarComboxServiciosAuth("https://localhost:44337/api/TipoClientes/TipoClienteCombo", "#cboTipoCliente");
+    LlenarComboxServicios("https://localhost:44337/api/TipoClientes/TipoClienteCombo", "#cboTipoCliente");
     LlenarTablaCliente();
 
 });
@@ -11,14 +11,14 @@ function LimpiarCliente() {
 }
 
 function LlenarTablaCliente() {
-    LlenarTablaxServiciosAuth("https://localhost:44337/api/Clientes/LlenarTablaCliente", "#tblCliente");
+    LlenarTablaxServicios("https://localhost:44337/api/Clientes/LlenarTablaCliente", "#tblCliente");
 }
 
 async function Execute(Method, Function) {
     const cliente = new Cliente($("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtDireccion").val(),
         $("#txtCorreo").val(), $("#txtTelefono").val(), $("#txtFechaNacimiento").val(), $("#cboTipoCliente").val());
     let URL = "https://localhost:44337/api/Clientes/" + Function; 
-    await ExecuteCommandServiceAuth(Method, URL, cliente);
+    await ExecuteCommandService(Method, URL, cliente);
     LlenarTablaCliente();
 }
 
@@ -27,7 +27,7 @@ async function BuscarCliente() {
     URL = "https://localhost:44337/api/Clientes/BuscarxDocumento?Documento=" + Documento;
 
     //invoco el servicio generico 
-    const Cliente = await SearchServiceAuth(URL);
+    const Cliente = await SearchService(URL);
 
     if (Cliente != null) { 
 

@@ -12,7 +12,6 @@ namespace VentaVehiculos.Controllers
 {
     [EnableCors(origins: "https://localhost:44330", headers: "*", methods: "*")]
     [RoutePrefix("api/Login")]
-    [AllowAnonymous]
     public class LoginController : ApiController
     {
         [HttpPost]

@@ -2,21 +2,26 @@
     $("#txtTotalCompra").val(0);
     $("#txtNumeroFactura").val(0);
     $("#txtFechaCompra").val(FechaHoy());
-    ConsultarDatosUsuario();
+    LlenarTablaFactura();
+    LlenarComboxServicios("https://localhost:44337/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
     TipoVehiculoCombo();
-    //LlenarTabla();
 });
+
+function LlenarTablaFactura() {
+    LlenarTablaxServicios("https://localhost:44337/api/Facturas/LlenarTablaFactura", "#tblFacturacion");
+}
+
 async function TipoVehiculoCombo() {
-    await LlenarComboxServiciosAuth("http://localhost:44337/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
+    await LlenarComboxServicios("http://localhost:44337/api/TipoVehiculos/TipoVehiculoCombo", "#cboTipoVehiculo");
     VehiculoxTipo($("#cboTipoVehiculo").val())
+
 }
 async function VehiculoxTipo(TipoVehiculo) {
     let CodTipoVehiculo = TipoVehiculo == 0 ? $("#cboTipoVehiculo").val() : CodTipoVehiculo;
-    await LlenarComboVehiculoFacturaAuth("https://localhost:44337/api/Vehiculos/VehiculoxTipo?TipoProducto=" + CodTipoVehiculo, "#cboMarcaVehiculo", "cboPlacaVehiculo");
-    /*CalcularSubtotal();*/
+    await LlenarComboxServicios("https://localhost:44337/api/Vehiculos/VehiculoxTipo?TipoVehiculo=" + CodTipoVehiculo, "#cboPlacaVehiculo");
 }
 //function CalcularSubtotal() {
-//    let DatosCombo = $("#cboProducto").val();
+//    let DatosCombo = $("#cboPlacaVehiculo").val();
 //    $("#txtCodigoProducto").val(DatosCombo.split('|')[0]);
 //    let ValorUnitario = DatosCombo.split('|')[1];
 //    $("#txtValorUnitario").val(ValorUnitario);
@@ -30,7 +35,7 @@ async function VehiculoxTipo(TipoVehiculo) {
 //}
 async function ConsultarDatosUsuario() {
     let Usuario = getCookie("Usuario");
-    const DatosEmpleado = await SearchServiceAuth("https://localhost:44337/api/Empleados/EmpleadoxUsuario?Usuario=" + Usuario);
+    const DatosEmpleado = await SearchService("https://localhost:44337/api/Empleados/EmpleadoxUsuario?Usuario=" + Usuario);
     $("#txtIdEmpleado").val(DatosEmpleado[0].IdEmpleado);
     $("#IdTitulo").html("FACTURA DE COMPRA - EMPLEADO: " + DatosEmpleado[0].Empleado + " - CARGO: " + DatosEmpleado[0].Cargo + " - USUARIO: " + Usuario);
 }
@@ -39,7 +44,7 @@ async function ClientexTipo() {
     let Documento = $("#txtDocumento").val();
     URL = "https://localhost:44337/api/Clientes/ClientexTipo?Documento=" + Documento;
 
-    const cliente = await SearchServiceAuth(URL);
+    const cliente = await SearchService(URL);
 
     if (cliente != null && cliente.length > 0) {
         $("#txtNombreCliente").val(cliente[0].Cliente);

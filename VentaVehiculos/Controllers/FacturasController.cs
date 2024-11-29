@@ -21,5 +21,13 @@ namespace VentaVehiculos.Controllers
             clsFactura _factura = new clsFactura();
             return _factura.DescuentoTipoCliente(id);
         }
+
+        [HttpGet]
+        [Route("LlenarTablaFactura")]
+        public IQueryable LlenarTablaFactura()
+        {
+            clsFactura factura = new clsFactura();
+            return factura.LlenarTablaFactura();
+        }
     }
 }

@@ -131,12 +131,11 @@ namespace VentaVehiculos.Clases
             return from V in dbVentaVehiculos.Set<Vehiculo>()
                    join TV in dbVentaVehiculos.Set<TipoVehiculo>() on V.CodTipoVehiculo equals TV.Codigo
                    where TV.Codigo == TipoVehiculo
-                   orderby TV.Tipo, V.Marca
+                   orderby TV.Tipo, V.Placa
                    select new //Finalmente, se presentan los campos que se van a mostrar
                    {
-                       Id = V.Id + "|" + V.Precio,
-                       Marca = V.Marca,
-                       Placa = V.Placa
+                       Codigo = V.Id + "|" + V.Precio,
+                       Nombre = V.Placa
                    };
         }
     }

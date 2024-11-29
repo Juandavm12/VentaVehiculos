@@ -174,32 +174,6 @@ async function LlenarComboxServiciosAuth(URLServicio, ComboLlenar) {
     }
 }
 
-async function LlenarComboVehiculoFacturaAuth(URLServicio, ComboLlenar) {
-    try {
-        Token = getCookie("token");
-        const Respuesta = await fetch(URLServicio,
-            {
-                method: "GET",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": 'Bearer ' + Token
-                }
-            });
-        const Rpta = await Respuesta.json();
-        //Se debe limpiar el combo
-        $(ComboLlenar).empty();
-        //Se recorre en un ciclo para llenar el select con la información
-        for (i = 0; i < Rpta.length; i++) {
-            $(ComboLlenar).append('<option value=' + Rpta[i].Id + '>' + Rpta[i].Marca + '>' + Rpta[i].Placa + '</option>');
-        }
-    }
-    catch (error) {
-        //Se presenta la respuesta en el div mensaje
-        $("#dvMensaje").html(error);
-    }
-}
-
 async function LlenarTablaxServicios(URLServicio, TablaLlenar) {
     try {
         const Respuesta = await fetch(URLServicio,

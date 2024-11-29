@@ -1,8 +1,8 @@
 jQuery(function () {
-    LlenarComboxServiciosAuth("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
-    LlenarComboxServiciosAuth("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
-    LlenarComboxServiciosAuth("https://localhost:44337/api/EstadoServicios/EstadoServicioCombo", "#cboEstadoServicio");
-    LlenarComboxServiciosAuth("https://localhost:44337/api/TipoServicios/TipoServicioCombo", "#cboTipoServicio");
+    LlenarComboxServicios("https://localhost:44337/api/Clientes/ClienteCombo", "#cboCliente");
+    LlenarComboxServicios("https://localhost:44337/api/Vehiculos/VehiculoCombo", "#cboVehiculo");
+    LlenarComboxServicios("https://localhost:44337/api/EstadoServicios/EstadoServicioCombo", "#cboEstadoServicio");
+    LlenarComboxServicios("https://localhost:44337/api/TipoServicios/TipoServicioCombo", "#cboTipoServicio");
     LlenarTablaServicio();
 });
 
@@ -11,7 +11,7 @@ function LimpiarServicio() {
 }
 
 function LlenarTablaServicio() {
-    LlenarTablaxServiciosAuth("https://localhost:44337/api/Servicios/LlenarTablaServicio", "#tblServicio");
+    LlenarTablaxServicios("https://localhost:44337/api/Servicios/LlenarTablaServicio", "#tblServicio");
 }
 
 async function Execute(Method, Function) {
@@ -19,7 +19,7 @@ async function Execute(Method, Function) {
         $("#cboEstadoServicio").val(), $("#cboTipoServicio").val(),
         $("#txtFecha").val(), $("#txtComentarios").val());
     let URL = "https://localhost:44337/api/Servicios/" + Function;
-    await ExecuteCommandServiceAuth(Method, URL, servicio);
+    await ExecuteCommandService(Method, URL, servicio);
     LlenarTablaServicio();
 }
 
@@ -29,7 +29,7 @@ async function BuscarServicio() {
     URL = "https://localhost:44337/api/Servicios/BuscarServicioxId?Id=" + Id;
 
     //invoco el servicio generico 
-    const Servicio = await SearchServiceAuth(URL);
+    const Servicio = await SearchService(URL);
 
     if (Servicio != null) {
 

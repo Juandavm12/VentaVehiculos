@@ -76,33 +76,23 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="cboTipoVehiculo">Tipo Vehiculo</label>
-                                                    <!-- Se levanta el evento onchange cuando se elige un tipo de producto -->
-                                                    <select id="cboTipoVehiculo" class="form-control select2" style="width: 100%;" onchange="LlenarProductos(0)">
-                                                        <option selected="selected" value="0">Seleccione un tipo de vehiculo</option>
+                                                    <label for="cboTipoVehiculo"> Tipo Vehiculo</label>
+                                                    <select id="cboTipoVehiculo" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="cboMarcaVehiculo">Vehiculo</label>
-                                                    <!--En el combo producto se levanta el evento on change, para que calcule el valor unitario del producto seleccinado-->
-                                                    <select id="cboMarcaVehiculo" class="form-control select2" style="width: 100%;" onchange="PresentarValorUnitario()">
-                                                        <option selected="selected" value="0">Seleccione el Vehiculo</option>
+                                                    <label for="cboPlacaVehiculo"> Placa Vehiculo</label>
+                                                    <select id="cboPlacaVehiculo" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="cboPlacaVehiculo">Placa Vehiculo</label>
-                                                    <select id="cboPlacaVehiculo" class="form-control select2" style="width: 100%;" onchange="PresentarValorUnitario()">
-                                                        <option selected="selected" value="0">Seleccione la placa</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <!--Cuando cambia la cantidad se recalcula el valor unitario-->
                                                     <label for="txtCantidad">Cantidad</label>
@@ -169,13 +159,16 @@
                                             <table id="tblFacturacion" class="table table-bordered table-striped" style="width:100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Eliminar</th>
-                                                        <th>Codigo Tipo Producto</th>
-                                                        <th>Tipo producto</th>
-                                                        <th>Codigo producto</th>
-                                                        <th>Producto</th>
+                                                        <th>Numero</th>
+                                                        <th>Cliente</th>
+                                                        <th>PlacaVehiculo</th>
+                                                        <th>MarcaVehiculo</th>
+                                                        <th>Vendedor</th>
                                                         <th>Cantidad</th>
                                                         <th>Valor Unitario</th>
+                                                        <th>Subtotal</th>
+                                                        <th>Descuento</th>
+                                                        <th>Total</th>
                                                     </tr>
                                                 </thead>
                                             </table>

@@ -1,7 +1,7 @@
 jQuery(function () {
 
     //Al iniciar la pagina se llena el combo de TipoGarantia
-    LlenarComboxServiciosAuth("https://localhost:44337/api/TipoGarantias/TipoGarantiaCombo", "#cboTipoGarantia");
+    LlenarComboxServicios("https://localhost:44337/api/TipoGarantias/TipoGarantiaCombo", "#cboTipoGarantia");
     LlenarTablaGarantia();
 
 });
@@ -11,14 +11,14 @@ function LimpiarGarantia() {
 }
 
 function LlenarTablaGarantia() {
-    LlenarTablaxServiciosAuth("https://localhost:44337/api/Garantias/LlenarTablaGarantia", "#tblGarantia");
+    LlenarTablaxServicios("https://localhost:44337/api/Garantias/LlenarTablaGarantia", "#tblGarantia");
 }
 
 async function Execute(Method, Function) {
     const garantia = new Garantia($("#txtCodigo").val(), $("#txtNumFactura").val(), $("#txtFechaInicio").val(), $("#txtFechaFinal").val(),
         $("#cboTipoGarantia").val());
     let URL = "https://localhost:44337/api/Garantias/" + Function;
-    await ExecuteCommandServiceAuth(Method, URL, garantia);
+    await ExecuteCommandService(Method, URL, garantia);
     LlenarTablaGarantia();
 }
 
@@ -27,7 +27,7 @@ async function BuscarGarantia() {
     URL = "https://localhost:44337/api/Garantias/BuscarxCodigo?Codigo=" + Codigo;
 
     //invoco el servicio generico 
-    const Garantia = await SearchServiceAuth(URL);
+    const Garantia = await SearchService(URL);
 
     if (Garantia != null) {
 

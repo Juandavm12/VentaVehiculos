@@ -9,7 +9,7 @@ function LimpiarEmpleado() {
 }
 
 function LlenarTablaEmpleado() {
-    LlenarTablaxServiciosAuth("https://localhost:44337/api/Empleados/LlenarTablaEmpleado", "#tblEmpleado");
+    LlenarTablaxServicios("https://localhost:44337/api/Empleados/LlenarTablaEmpleado", "#tblEmpleado");
 }
 
 class Empleado {
@@ -30,7 +30,7 @@ async function Execute(Method, Function) {
     const empleado = new Empleado($("#txtDocumento").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtDireccion").val(),
         $("#txtCorreo").val(), $("#txtTelefono").val(), $("#txtFechaNacimiento").val(), $("#txtCargo").val());
     let URL = "https://localhost:44337/api/Empleados/" + Function;
-    await ExecuteCommandServiceAuth(Method, URL, empleado);
+    await ExecuteCommandService(Method, URL, empleado);
     LlenarTablaEmpleado();
 }
 
@@ -39,7 +39,7 @@ async function BuscarEmpleado() {
     URL = "https://localhost:44337/api/Empleados/EmpleadoxDocumento?Documento=" + Documento;
 
     //invoco el servicio generico 
-    const Empleado = await SearchServiceAuth(URL);
+    const Empleado = await SearchService(URL);
 
     if (Empleado != null) {
 
